@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title updated to OceanSustain to match your theme -->
-    <title>Our Courses - OceanSustain</title>
+    <!-- Title updated to MetOcean to match your theme -->
+    <title>Our Courses - MetOcean</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -54,35 +55,34 @@
 
                 <h3 style="color: var(--deep-blue); margin: 3rem 0 1rem; font-size: 1.8rem;">On-Demand Video Courses</h3>
                 <div class="cards-grid">
-                    <!-- Updated Card to point to the new watch-course.html page -->
-                    <div class="card" onclick="window.location.href='watch-course.html'">
+                    <!-- UPDATED: This now calls showVideoModal with the YouTube ID -->
+                    <div class="card">
                         <div class="card-image"><i class="fas fa-play-circle"></i></div>
                         <div class="card-content">
                             <h3 class="card-title">Marine Impact Assessment Fundamentals</h3>
                             <p class="card-text">Master the essentials of conducting thorough environmental impact assessments for ocean projects.</p>
                             <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 30 minutes</span><br>
-                            <!-- This now links to the new page -->
-                            <a href="watch-course.html" class="card-button" style="margin-top: 1rem;">Watch Now</a>
+                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('fH8-0-f1dY4')">Watch Now</a>
                         </div>
                     </div>
-                    <!-- Updated Card to point to the new watch-course.html page -->
-                    <div class="card" onclick="window.location.href='watch-course.html'">
+                    <!-- UPDATED: This now calls showVideoModal with the YouTube ID -->
+                    <div class="card">
                         <div class="card-image"><i class="fas fa-play-circle"></i></div>
                         <div class="card-content">
                             <h3 class="card-title">Blue Carbon Accounting</h3>
                             <p class="card-text">Explore the science and policy of blue carbon and learn to account for coastal ecosystem services.</p>
                             <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 3 hours 15 minutes</span><br>
-                            <a href="watch-course.html" class="card-button" style="margin-top: 1rem;">Watch Now</a>
+                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('u3T-TfJ_1Lg')">Watch Now</a>
                         </div>
                     </div>
-                    <!-- Updated Card to point to the new watch-course.html page -->
-                    <div class="card" onclick="window.location.href='watch-course.html'">
+                    <!-- UPDATED: This now calls showVideoModal with the YouTube ID -->
+                    <div class="card">
                         <div class="card-image"><i class="fas fa-play-circle"></i></div>
                         <div class="card-content">
                             <h3 class="card-title">Intro to Sustainable Aquaculture</h3>
                             <p class="card-text">Practical methods for measuring and reducing the environmental footprint of aquaculture operations.</p>
                             <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 45 minutes</span><br>
-                            <a href="watch-course.html" class="card-button" style="margin-top: 1rem;">Watch Now</a>
+                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('Qvu90MHgE50')">Watch Now</a>
                         </div>
                     </div>
                 </div>

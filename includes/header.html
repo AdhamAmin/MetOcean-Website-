@@ -34,3 +34,17 @@
     </div>
 </header>
 
+<script>
+    function performSearch() {
+        const query = document.getElementById('searchInput').value;
+        if (query.trim() !== '') {
+            // Redirect to search results page with query parameter
+            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+    }
+
+    function showSignUp() {
+        // Logic to display sign-up modal or redirect to sign-up page
+        alert('Redirecting to Sign Up page...');
+        window.location.href = 'signup.html'; // Example redirection
+    }

@@ -28,7 +28,7 @@ header {
     background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-teal) 100%);
     color: var(--light-text);
     padding: 1rem 0;
-    position: sticky;
+    position: sticky; /* This makes the header "scroll down" with the page */
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -101,9 +101,9 @@ header {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 1.5rem; /* Reduced gap for more items */
-    justify-content: center;
     animation: slideInRight 1s ease-out;
+    align-items: center; 
+    width: 100%; /* Make the UL span the full width */
 }
 
 nav a {
@@ -117,6 +117,7 @@ nav a {
     transition: all 0.3s;
     font-weight: 500;
     border-bottom: 3px solid transparent; /* Placeholder for active state */
+    margin-right: 1.5rem; /* Add margin back */
 }
 
 nav a:hover {
@@ -132,40 +133,53 @@ nav a.active {
     transform: translateY(0);
 }
 
-/* NEW: Style for the "Get Started" button in the nav */
+/* Style for the "Get Started" button in the nav */
 .get-started-item {
-    margin-left: 1rem; /* Adds space between it and other tabs */
+    margin-left: auto; /* This is the magic. Pushes it to the right. */
 }
 
 nav a.get-started-btn {
-    background: var(--accent-sand);
-    color: var(--deep-blue) !important; /* Override text color */
+    /* "Frame" style */
+    background: transparent;
+    border: 2px solid var(--accent-sand);
+    color: var(--accent-sand) !important; /* Override text color */
     font-weight: bold;
     border-radius: 20px;
-    padding: 0.5rem 1.25rem;
+    /* Adjust padding to account for border */
+    padding: calc(0.5rem - 2px) calc(1.25rem - 2px); 
     border-bottom: 3px solid transparent; /* Hide active-style border */
     transition: all 0.3s ease;
+    margin-right: 0; /* No margin on the last item */
 }
 
 nav a.get-started-btn:hover {
-    background: var(--light-text);
+    /* Fill on hover */
+    background: var(--accent-sand);
+    border-color: var(--accent-sand);
+    color: var(--deep-blue) !important;
     transform: translateY(-2px) scale(1.05);
     border-bottom-color: transparent; /* Keep border hidden on hover */
 }
 
-/* NEW: Style for the "Logout" button that replaces "Get Started" */
+/* Style for the "Logout" button that replaces "Get Started" */
 nav a.logout-btn {
-    background: #dc3545;
-    color: white !important;
+    /* "Frame" style */
+    background: transparent;
+    border: 2px solid #dc3545;
+    color: #dc3545 !important;
     font-weight: bold;
     border-radius: 20px;
-    padding: 0.5rem 1.25rem;
+    padding: calc(0.5rem - 2px) calc(1.25rem - 2px);
     border-bottom: 3px solid transparent;
     transition: all 0.3s ease;
+    margin-right: 0; /* No margin on the last item */
 }
 
 nav a.logout-btn:hover {
-    background: #c82333;
+    /* Fill on hover */
+    background: #dc3545;
+    border-color: #dc3545;
+    color: white !important;
     transform: translateY(-2px) scale(1.05);
     border-bottom-color: transparent;
 }
@@ -187,19 +201,17 @@ nav a.logout-btn:hover {
 /* SVG Wave */
 .hero-wave {
     position: absolute;
-    bottom: -1px;
+    bottom: -1px; /* Adjusted for perfect fit */
     left: 0;
     width: 100%;
-    line-height: 0;
-    overflow: hidden;
+    color: var(--light-gray);
 }
 
+/* CORRECTED: New Hero Wave Shape */
 .hero-wave svg {
     width: calc(100% + 1.3px);
-    height: 70px;
-    display: block;
+    height: 70px; /* You can adjust the height */
 }
-
 .hero-wave .shape-fill {
     fill: var(--light-gray);
 }
@@ -289,8 +301,8 @@ nav a.logout-btn:hover {
     transition: all 0.3s ease-out;
     cursor: pointer;
     animation: fadeInUp 0.5s both;
-    display: flex; /* NEW: Make card a flex container */
-    flex-direction: column; /* NEW: Stack children vertically */
+    display: flex; /* Make card a flex container */
+    flex-direction: column; /* Stack children vertically */
 }
 
 /* Staggered card animations */
@@ -324,25 +336,26 @@ nav a.logout-btn:hover {
 
 .card-content {
     padding: 1.5rem;
-    display: flex; /* NEW: Make content area a flex container */
-    flex-direction: column; /* NEW: Stack children vertically */
-    flex-grow: 1; /* NEW: Make content area fill remaining space */
+    display: flex; /* Make content area a flex container */
+    flex-direction: column; /* Stack children vertically */
+    flex-grow: 1; /* Make content area fill remaining space */
 }
 
 .card-title {
     font-size: 1.5rem;
     color: var(--deep-blue);
     margin-bottom: 0.5rem;
-    min-height: 3.2em; /* NEW: Reserve space for ~2 lines of text */
+    min-height: 3.2em; /* Reserve space for ~2 lines of text */
 }
 
 .card-text {
     color: var(--dark-gray);
     margin-bottom: 1rem;
     line-height: 1.7;
-    flex-grow: 1; /* NEW: Make text area grow, pushing button to bottom */
+    flex-grow: 1; /* Make text area grow, pushing button to bottom */
 }
 
+/* REVERTED: Card Button style */
 .card-button {
     display: inline-block;
     background: var(--primary-teal);
@@ -352,11 +365,26 @@ nav a.logout-btn:hover {
     text-decoration: none;
     transition: all 0.3s;
     font-weight: 500;
-    /* Reverted from 90% width */
+    width: auto; /* Reverted from 100% */
 }
 
 .card-button:hover {
     background: var(--deep-blue);
+}
+
+/* Home Page Specifics */
+.mission-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.mission-content { animation: slideInLeft 1s; }
+.mission-image { animation: slideInRight 1s; }
+.mission-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* Stats Section */
@@ -447,23 +475,19 @@ footer {
     position: relative;
 }
 
-/* Footer Wave Shape */
+/* CORRECTED: Footer Wave Shape */
 .footer-wave {
     position: absolute;
-    top: -1px;
+    top: -1px; /* Sits on top of the footer */
     left: 0;
     width: 100%;
-    line-height: 0;
-    overflow: hidden;
-    transform: rotate(180deg);
+    color: var(--light-gray);
+    transform: rotate(180deg); /* Flips the wave to curve down */
 }
-
 .footer-wave svg {
     width: calc(100% + 1.3px);
-    height: 70px;
-    display: block;
+    height: 70px; /* Should match hero wave height */
 }
-
 .footer-wave .shape-fill {
     fill: var(--light-gray);
 }
@@ -489,27 +513,19 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-.social-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    justify-content: flex-start;
-}
-
 .social-links a {
     color: white;
     text-decoration: none;
+    margin-right: 1.25rem;
     font-size: 1.5rem;
     transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
+    display: inline-block;  /* <-- FIX 1: Override 'display: block' */
+    padding: 0;             /* <-- FIX 2: Reset padding */
 }
-
 .social-links a:hover {
     color: var(--accent-sand);
     transform: scale(1.1);
+    padding-left: 0;        /* <-- FIX 3: Override hover padding */
 }
 
 .footer-section ul {
@@ -522,12 +538,11 @@ footer {
     display: block;
     padding: 0.4rem 0;
     transition: all 0.3s;
-    margin: 0.2rem 0;
 }
 
 .footer-section a:hover {
     color: var(--secondary-teal);
-    transform: translateX(0.5rem);
+    padding-left: 0.5rem;
 }
 
 .newsletter-form {
@@ -574,7 +589,6 @@ footer {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: var(--primary-teal);
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -641,9 +655,9 @@ footer {
     color: var(--deep-blue);
     transform: rotate(90deg);
 }
-
 .form-group {
     margin-bottom: 1.5rem;
+    position: relative; /* For password icon positioning */
 }
 
 .form-group label {
@@ -672,12 +686,6 @@ footer {
     border-color: var(--primary-teal);
     box-shadow: 0 0 8px rgba(0, 171, 132, 0.2);
 }
-
-/* Make form-group relative for password icon */
-.form-group {
-    position: relative;
-}
-
 .submit-button {
     background: var(--primary-teal);
     color: white;
@@ -989,11 +997,26 @@ footer {
     nav ul {
         flex-wrap: wrap;
         gap: 0.5rem;
-        justify-content: space-around;
+        justify-content: center; /* REVERTED: Changed back to center */
     }
     nav a {
         padding: 0.5rem 0.75rem;
+        margin-right: 0; /* REVERTED: Removed margin */
     }
+
+    /* Keep Get Started button on its own line on mobile if needed */
+    .get-started-item {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    nav a.get-started-btn, nav a.logout-btn {
+        display: inline-block; /* Allow it to center */
+        width: auto;
+    }
+
 
     .hero h1 { font-size: 2.5rem; }
     .hero p { font-size: 1.15rem; }
@@ -1010,22 +1033,25 @@ footer {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    .footer-section {
-        margin-bottom: 2rem;
-    }
     .footer-section ul {
         padding: 0;
-        margin: 0 auto;
-        max-width: 300px;
     }
+    /* Keep footer links stacking by using default .footer-section a rules above.
+       Add mobile-friendly social links layout here. */
     .social-links {
+        display: flex;
         justify-content: center;
-        margin: 1.5rem 0;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
     }
-    .newsletter-form {
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
+    .social-links a {
+        display: inline-flex;
+        padding: 0.25rem;
+        margin: 0;
+    }
+    .social-links a:hover {
+        transform: scale(1.1);
     }
 }
 
@@ -1040,4 +1066,230 @@ footer {
     }
 }
 
-/* Removed fullscreen login styles for small screens */
+/* --- NEW STYLES FOR WATCH-COURSE.HTML --- */
+
+.watch-video-wrapper {
+    width: 100%;
+    background-color: #000; /* Black background for the video player */
+}
+
+/* Override .video-container for this specific page */
+.watch-video-wrapper .video-container {
+    max-width: 1300px; /* Match site width */
+    margin: 0 auto;
+    padding-bottom: 50%; /* Adjust aspect ratio if needed */
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.watch-title-section {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.watch-main-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* 2-column layout for larger screens */
+@media (min-width: 1024px) {
+    .watch-main-grid {
+        grid-template-columns: 2fr 1fr; /* 2/3 for content, 1/3 for sidebar */
+    }
+}
+
+.watch-module {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    margin-bottom: 2rem;
+}
+
+.watch-module-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--deep-blue);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-teal);
+}
+
+/* Key Takeaways List */
+.watch-takeaways-list {
+    list-style: none;
+    padding-left: 0; /* Remove default padding */
+}
+
+.watch-takeaways-list > * + * {
+    margin-top: 0.75rem; /* Add spacing between list items */
+}
+
+.watch-takeaway-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.watch-takeaway-item:hover {
+    background: rgba(0, 171, 132, 0.1);
+}
+
+.takeaway-time {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--primary-teal);
+    font-weight: 600;
+}
+
+.takeaway-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-text);
+}
+
+/* Speakers List */
+.watch-speakers-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.watch-speaker-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 10px;
+}
+
+.speaker-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-teal);
+}
+
+.speaker-name {
+    font-weight: 700;
+    color: var(--deep-blue);
+    font-size: 1.1rem;
+}
+
+.speaker-role {
+    font-size: 0.9rem;
+    color: var(--primary-teal);
+    font-weight: 500;
+}
+
+/* Sidebar Actions */
+.watch-action-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 120px; /* (Header height + some padding) */
+}
+
+.watch-action-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.action-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.action-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.action-icon-wrapper i {
+    font-size: 1.5rem;
+    color: var(--primary-teal);
+    transition: all 0.3s;
+}
+
+.action-button:hover .action-icon-wrapper {
+    background: var(--primary-teal);
+}
+
+.action-button:hover i {
+    color: white;
+}
+
+.action-button:hover span {
+    color: var(--primary-teal);
+}
+
+/* --- NEW STYLES FOR VIDEO RATING --- */
+.video-rating-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.video-rating-btn {
+    background: var(--light-gray);
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+    transition: all 0.3s;
+}
+
+.video-rating-btn:hover {
+    background: #e0e0e0;
+}
+
+.video-rating-btn i {
+    font-size: 1rem;
+}
+
+/* Styles for active (filled) button */
+.video-rating-btn.active {
+    background: var(--primary-teal);
+    color: white;
+    border-color: var(--primary-teal);
+}
+
+.video-rating-btn.active i {
+    color: white;
+}
+
+/* --- END OF NEW STYLES FOR WATCH-COURSE.HTML --- */

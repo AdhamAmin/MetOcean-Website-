@@ -52,8 +52,8 @@ async function loadHTML(url, elementId) {
  */
 async function loadHeaderAndFooter() {
     await Promise.all([
-        loadHTML('header.html', 'header-placeholder'),
-        loadHTML('footer.html', 'footer-placeholder')
+        loadHTML('includes/header.html', 'header-placeholder'),
+        loadHTML('includes/footer.html', 'footer-placeholder')
     ]);
     
     // After HTML is loaded, initialize the rest of the app logic
@@ -223,8 +223,71 @@ function initializeAppLogic() {
         if (modal && iframe) {
             iframe.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
             modal.classList.add('active');
+            
+            // UPDATED: Reset like/dislike buttons
+            const ratingButtons = modal.querySelectorAll('.video-rating-btn');
+            ratingButtons.forEach(btn => {
+                btn.classList.remove('active');
+                const icon = btn.querySelector('i');
+                if (btn.classList.contains('like')) {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far', 'fa-thumbs-up');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far', 'fa-thumbs-down');
+                }
+            });
+
         } else {
             console.error('Video modal or iframe not found.');
+        }
+    }
+
+    // NEW: Function to handle like/dislike
+    window.handleVideoRating = function(button, rating) {
+        const likeBtn = document.querySelector('.video-rating-btn.like');
+        const dislikeBtn = document.querySelector('.video-rating-btn.dislike');
+        const likeIcon = likeBtn.querySelector('i');
+        const dislikeIcon = dislikeBtn.querySelector('i');
+
+        if (rating === 'like') {
+            // If already liked, un-like it
+            if (likeBtn.classList.contains('active')) {
+                likeBtn.classList.remove('active');
+                likeIcon.classList.remove('fas');
+                likeIcon.classList.add('far');
+            } else {
+                // Like it
+                likeBtn.classList.add('active');
+                likeIcon.classList.add('fas');
+                likeIcon.classList.remove('far');
+                
+                // Un-dislike if disliked
+                if (dislikeBtn.classList.contains('active')) {
+                    dislikeBtn.classList.remove('active');
+                    dislikeIcon.classList.remove('fas');
+                    dislikeIcon.classList.add('far');
+                }
+            }
+        } else if (rating === 'dislike') {
+            // If already disliked, un-dislike it
+            if (dislikeBtn.classList.contains('active')) {
+                dislikeBtn.classList.remove('active');
+                dislikeIcon.classList.remove('fas');
+                dislikeIcon.classList.add('far');
+            } else {
+                // Dislike it
+                dislikeBtn.classList.add('active');
+                dislikeIcon.classList.add('fas');
+                dislikeIcon.classList.remove('far');
+
+                // Un-like if liked
+                if (likeBtn.classList.contains('active')) {
+                    likeBtn.classList.remove('active');
+                    likeIcon.classList.remove('fas');
+                    likeIcon.classList.add('far');
+                }
+            }
         }
     }
 
