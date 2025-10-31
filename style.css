@@ -4,6 +4,135 @@
     box-sizing: border-box;
 }
 
+:root {
+    --deep-blue: #004a99;
+    --primary-teal: #00ab84;
+    --secondary-teal: #00c298;
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+    --accent-sand: #f8c146;
+    --dark-text: #212529;
+    --light-text: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text);
+    line-height: 1.6;
+    background: var(--light-gray);
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+/* Header & Navigation */
+header {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-teal) 100%);
+    color: var(--light-text);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: slideInLeft 1s ease-out;
+}
+
+.logo i {
+    color: var(--accent-sand);
+    transform: rotate(-15deg);
+}
+
+.search-container {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 2rem;
+    animation: fadeIn 1s 0.2s both;
+}
+
+.search-box {
+    display: flex;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    outline: none;
+    color: var(--dark-text);
+}
+
+.search-box button {
+    background: var(--primary-teal);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s;
+}
+
+.search-box button:hover {
+    background: var(--secondary-teal);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; /* Reduced gap for more items */
+    justify-content: center;
+    animation: slideInRight 1s ease-out;
+}
+
+nav a {
+    color: var(--light-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-weight: 500;
+    border-bottom: 3px solid transparent; /* Placeholder for active state */
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+    border-bottom-color: rgba(248, 193, 70, 0.5); /* Light hover underline */
+}
+
+/* Active nav link style */
+nav a.active {
+    color: var(--accent-sand);
+    border-bottom: 3px solid var(--accent-sand);
+    transform: translateY(0);
+}
+
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, rgba(0, 74, 153, 0.9), rgba(0, 171, 132, 0.9)),
@@ -20,19 +149,22 @@
 /* SVG Wave */
 .hero-wave {
     position: absolute;
-    bottom: -1px; /* Adjusted for perfect fit */
+    bottom: -1px;
     left: 0;
     width: 100%;
     color: var(--light-gray);
+    line-height: 0; /* Prevent gaps */
 }
 
-/* CORRECTED: New Hero Wave Shape */
+/* Hero Wave Shape */
 .hero-wave svg {
     width: calc(100% + 1.3px);
-    height: 70px; /* You can adjust the height */
+    height: 70px;
+    display: block; /* Prevent gap */
 }
 .hero-wave .shape-fill {
     fill: var(--light-gray);
+    opacity: 1;
 }
 
 
@@ -285,21 +417,24 @@ footer {
     position: relative;
 }
 
-/* CORRECTED: Footer Wave Shape */
+/* Footer Wave Shape */
 .footer-wave {
     position: absolute;
-    top: -1px; /* Sits on top of the footer */
+    top: -1px;
     left: 0;
     width: 100%;
     color: var(--light-gray);
-    transform: rotate(180deg); /* Flips the wave to curve down */
+    transform: rotate(180deg);
+    line-height: 0; /* Prevent gaps */
 }
 .footer-wave svg {
     width: calc(100% + 1.3px);
-    height: 70px; /* Should match hero wave height */
+    height: 70px;
+    display: block; /* Prevent gap */
 }
 .footer-wave .shape-fill {
     fill: var(--light-gray);
+    opacity: 1;
 }
 
 
@@ -323,19 +458,26 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+.social-links {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
 .social-links a {
     color: white;
     text-decoration: none;
-    margin-right: 1.25rem;
     font-size: 1.5rem;
     transition: all 0.3s;
-    display: inline-block;  /* <-- FIX 1: Override 'display: block' */
-    padding: 0;             /* <-- FIX 2: Reset padding */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
 }
+
 .social-links a:hover {
     color: var(--accent-sand);
     transform: scale(1.1);
-    padding-left: 0;        /* <-- FIX 3: Override hover padding */
 }
 
 .footer-section ul {
@@ -669,7 +811,7 @@ footer {
 }
 
 .social-button:hover {
-    background: var(--light-gray);
+  background: var(--light-gray);
     border-color: var(--primary-teal);
 }
 
@@ -799,20 +941,17 @@ footer {
     .footer-section ul {
         padding: 0;
     }
-    .footer-section a {
-        /* On mobile, we WANT the links to stack, so we let the default .footer-section a rule apply */
-    }
-    /* BUT we must still fix the social links */
-    .social-links a {
-        display: inline-block; /* Ensure social links are still inline */
-        padding: 0;
-    }
-    .social-links a:hover {
-        padding-left: 0;
-    }
-
     .social-links {
-        margin-bottom: 1.5rem;
+        justify-content: center;
+        margin: 1.5rem 0;
+    }
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+    .newsletter-form {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -824,5 +963,4 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-
 
