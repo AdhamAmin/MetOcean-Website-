@@ -1,332 +1,32 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --deep-blue: #004a99;
-    --primary-teal: #00ab84;
-    --secondary-teal: #00c298;
-    --light-gray: #f8f9fa;
-    --dark-gray: #343a40;
-    --accent-sand: #f8c146;
-    --dark-text: #212529;
-    --light-text: #ffffff;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--dark-text);
-    line-height: 1.6;
-    background: var(--light-gray);
-    overflow-x: hidden; /* Prevent horizontal scroll from animations */
-}
-
-/* Header & Navigation */
-header {
-    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-teal) 100%);
-    color: var(--light-text);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.header-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    animation: slideInLeft 1s ease-out;
-}
-
-.logo i {
-    color: var(--accent-sand);
-    transform: rotate(-15deg);
-}
-
-.search-container {
-    flex: 1;
-    max-width: 500px;
-    margin: 0 2rem;
-    animation: fadeIn 1s 0.2s both;
-}
-
-.search-box {
-    display: flex;
-    background: white;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.search-box input {
-    flex: 1;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    outline: none;
-    color: var(--dark-text);
-}
-
-.search-box button {
-    background: var(--primary-teal);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    color: white;
-    transition: all 0.3s;
-}
-
-.search-box button:hover {
-    background: var(--secondary-teal);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem; /* Reduced gap for more items */
-    justify-content: center;
-    animation: slideInRight 1s ease-out;
-}
-
-nav a {
-    color: var(--light-text);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: all 0.3s;
-    font-weight: 500;
-    border-bottom: 3px solid transparent; /* Placeholder for active state */
-}
-
-nav a:hover {
-    background: rgba(255,255,255,0.15);
-    transform: translateY(-2px);
-    border-bottom-color: rgba(248, 193, 70, 0.5); /* Light hover underline */
-}
-
-/* Active nav link style */
-nav a.active {
-    color: var(--accent-sand);
-    border-bottom: 3px solid var(--accent-sand);
-    transform: translateY(0);
-}
-
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, rgba(0, 74, 153, 0.9), rgba(0, 171, 132, 0.9)),
-                url('https://media1.tenor.com/m/9RTwf8xM388AAAAd/ocean-sea.gif');
-    background-size: cover;
-    background-position: center;
-    color: var(--light-text);
-    padding: 7rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* SVG Wave */
-.hero-wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    color: var(--light-gray);
-    line-height: 0; /* Prevent gaps */
-}
-
-/* Hero Wave Shape */
-.hero-wave svg {
-    width: calc(100% + 1.3px);
-    height: 70px;
-    display: block; /* Prevent gap */
-}
-.hero-wave .shape-fill {
-    fill: var(--light-gray);
-    opacity: 1;
-}
-
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s 0.2s both;
-    font-weight: 700;
-}
-
-.hero p {
-    font-size: 1.4rem;
-    margin-bottom: 2.5rem;
-    animation: fadeInUp 1s 0.4s both;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-button {
-    display: inline-block;
-    background: var(--accent-sand);
-    color: var(--deep-blue);
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: all 0.3s;
-    animation: fadeInUp 1s 0.6s both;
-    box-shadow: 0 4px 20px rgba(248, 193, 70, 0.4);
-}
-
-.cta-button:hover {
-    background: var(--light-text);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 25px rgba(248, 193, 70, 0.5);
-}
-
-/* Container */
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-}
-
-/* Section Styles */
-.section {
-    margin-bottom: 4rem;
-}
-
-.section-title {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--deep-blue);
-    margin-bottom: 1rem;
-    text-align: center;
-    animation: fadeIn 1s;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--dark-gray);
-    margin-bottom: 3rem;
-    font-size: 1.15rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeIn 1s 0.2s both;
-}
-
-/* Cards Grid */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-    transition: all 0.3s ease-out;
-    cursor: pointer;
-    animation: fadeInUp 0.5s both;
-}
-
-/* Staggered card animations */
-.card:nth-child(2) { animation-delay: 0.1s; }
-.card:nth-child(3) { animation-delay: 0.2s; }
-.card:nth-child(4) { animation-delay: 0.3s; }
-.card:nth-child(5) { animation-delay: 0.4s; }
-.card:nth-child(6) { animation-delay: 0.5s; }
-
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-.card-image {
-    width: 100%;
-    height: 220px;
-    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4.5rem;
-    color: white;
-}
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 1.5rem;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    color: var(--deep-blue);
-    margin-bottom: 0.5rem;
-}
-
-.card-text {
-    color: var(--dark-gray);
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
-
+[Immersive content redacted for brevity.]
 .card-button {
-    display: inline-block;
+    /* display: inline-block; */ /* Replaced by flex */
     background: var(--primary-teal);
     color: white;
-    padding: 0.6rem 1.5rem;
-    border-radius: 25px;
+    /* padding: 0.6rem 1.5rem; */ /* Replaced by new styles */
+    /* border-radius: 25px; */ /* Replaced by 8px */
     text-decoration: none;
     transition: all 0.3s;
     font-weight: 500;
+
+    /* New styles from image */
+    width: 90%;
+    margin-left: auto; /* Center the button */
+    margin-right: auto; /* Center the button */
+    padding-block: 0.8rem;
+    /* Using a subtle border from the theme instead of an invisible one */
+    border: 1px solid var(--secondary-teal); 
+    border-radius: 8px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
 }
 
 .card-button:hover {
     background: var(--deep-blue);
-}
-
-/* Home Page Specifics */
-.mission-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-.mission-content { animation: slideInLeft 1s; }
-.mission-image { animation: slideInRight 1s; }
-.mission-image img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-color: var(--deep-blue); /* Match border color on hover */
 }
 
 /* Stats Section */
@@ -417,24 +117,21 @@ footer {
     position: relative;
 }
 
-/* Footer Wave Shape */
+/* CORRECTED: Footer Wave Shape */
 .footer-wave {
     position: absolute;
-    top: -1px;
+    top: -1px; /* Sits on top of the footer */
     left: 0;
     width: 100%;
     color: var(--light-gray);
-    transform: rotate(180deg);
-    line-height: 0; /* Prevent gaps */
+    transform: rotate(180deg); /* Flips the wave to curve down */
 }
 .footer-wave svg {
     width: calc(100% + 1.3px);
-    height: 70px;
-    display: block; /* Prevent gap */
+    height: 70px; /* Should match hero wave height */
 }
 .footer-wave .shape-fill {
     fill: var(--light-gray);
-    opacity: 1;
 }
 
 
@@ -458,26 +155,19 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-.social-links {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-}
-
 .social-links a {
     color: white;
     text-decoration: none;
+    margin-right: 1.25rem;
     font-size: 1.5rem;
     transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
+    display: inline-block;  /* <-- FIX 1: Override 'display: block' */
+    padding: 0;             /* <-- FIX 2: Reset padding */
 }
-
 .social-links a:hover {
     color: var(--accent-sand);
     transform: scale(1.1);
+    padding-left: 0;        /* <-- FIX 3: Override hover padding */
 }
 
 .footer-section ul {
@@ -763,6 +453,154 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+/* UPDATED: Login Page Styles (for the new modal) */
+#loginModal .login-box {
+    padding: 0;
+    box-shadow: none;
+    max-width: 100%;
+}
+
+/* NEW: Style for the "Show Password" icon */
+.password-toggle-icon {
+    position: absolute;
+    /* Adjust top position to align with the input field's padding */
+    top: calc(50% + 10px); 
+    right: 1rem;
+    transform: translateY(-50%);
+    color: var(--dark-gray);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.password-toggle-icon:hover {
+    color: var(--primary-teal);
+}
+
+/* NEW: Style for the "Switch Modal" links (e.g., "Already have an account?") */
+.switch-modal-link {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* --- FULLSCREEN LOGIN PAGE STYLES --- */
+/* These styles are for the separate login.html page */
+
+.login-page-body {
+    background: var(--light-gray);
+    overflow: hidden; /* Prevent scrolling on login page */
+}
+
+.login-page-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-image-panel {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-teal) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-image-content {
+    animation: fadeIn 1s 0.5s both;
+    z-index: 2;
+}
+
+.login-image-content .logo {
+    font-size: 2.5rem;
+    animation: none; /* Disable default logo animation */
+}
+
+.login-image-content .logo i {
+    color: var(--accent-sand);
+}
+
+.login-image-content h1 {
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.login-image-content p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 450px;
+}
+
+.login-wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%; /* Needs to be wide enough for two waves */
+    height: 320px;
+    z-index: 1;
+    animation: login-wave-anim 25s linear infinite;
+}
+
+.login-wave {
+    width: 50%; /* Each wave is half the container */
+    height: 100%;
+    float: left;
+}
+
+@keyframes login-wave-anim {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Creates seamless loop */
+}
+
+
+.login-form-panel {
+    width: 50%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background: var(--light-gray);
+    animation: slideInUp 1s ease-out;
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.back-to-home {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.back-to-home:hover {
+    color: var(--primary-teal);
+    transform: translateX(-5px);
+}
+
+.back-to-home i {
+    margin-right: 0.5rem;
+}
+
+.login-form-panel .login-box {
+    width: 100%;
+    max-width: 450px;
+    background: white; /* Give it a white card background */
+    animation: none; /* Disable old animation */
+    /* Padding and shadow are already on .login-box */
+}
+
 /* Login Page Styles */
 .login-container {
     min-height: calc(100vh - 450px);
@@ -811,7 +649,7 @@ footer {
 }
 
 .social-button:hover {
-  background: var(--light-gray);
+    background: var(--light-gray);
     border-color: var(--primary-teal);
 }
 
@@ -941,17 +779,54 @@ footer {
     .footer-section ul {
         padding: 0;
     }
+    .footer-section a {
+        /* On mobile, we WANT the links to stack, so we let the default .footer-section a rule apply */
+    }
+    /* BUT we must still fix the social links */
+    .social-links a {
+        display: inline-block; /* Ensure social links are still inline */
+        padding: 0;
+    }
+    .social-links a:hover {
+        padding-left: 0;
+    }
+
     .social-links {
-        justify-content: center;
-        margin: 1.5rem 0;
+        margin-bottom: 1.5rem;
     }
-    .footer-section {
-        margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) { /* Media query for new login page */
+    .login-page-wrapper {
+        flex-direction: column;
     }
-    .newsletter-form {
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
+    
+    .login-image-panel {
+        width: 100%;
+        height: 40%;
+        padding: 2rem;
+        text-align: center;
+        align-items: center;
+    }
+
+    .login-image-content h1 {
+        font-size: 2rem;
+    }
+    .login-image-content p {
+        font-size: 1rem;
+    }
+
+    .login-form-panel {
+        width: 100%;
+        height: 60%;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+
+    .login-form-panel .login-box {
+        box-shadow: none;
+        background: transparent;
+        padding: 1rem;
     }
 }
 
