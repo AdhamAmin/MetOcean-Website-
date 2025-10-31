@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - OceanSustain</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <!-- ... (Copy & Paste Full Header from index.html) ... -->
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
+                    <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a></li>
+                    <li><a href="videos.html"><i class="fas fa-video"></i> Videos</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="impact.html"><i class="fas fa-chart-line"></i> Impact</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Page Content -->
+    <div id="contact" class="page-content">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Get in touch to start your marine sustainability journey</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 2rem;">
+                    
+                    <!-- Contact Form (sends to Firestore) -->
+                    <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.07);">
+                        <h3 style="color: var(--deep-blue); margin-bottom: 1.5rem;">Send Us a Message</h3>
+                        <form onsubmit="handleContactForm(event)">
+                            <div class="form-group">
+                                <label for="inquiryType">Inquiry Type</label>
+                                <select id="inquiryType" name="inquiryType">
+                                    <option>Course Registration</option>
+                                    <option>Consultation Request</option>
+                                    <option>Data & Research</option>
+                                    <option>Partnership Opportunity</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input id="name" name="name" type="text" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" placeholder="your.email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone (Optional)</label>
+                                <input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <div style="background: var(--deep-blue); color: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.07);">
+                            <h3 style="margin-bottom: 1.5rem; color: var(--primary-teal);">Contact Information</h3>
+                            <p style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 1.1rem;">
+                                <i class="fas fa-phone"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </p>
+                            <p style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 1.1rem;">
+                                <i class="fas fa-envelope"></i>
+                                <!-- This is the mailto link you requested -->
+                                <a href="mailto:adham2211976@gmail.com" style="color: white; text-decoration: none;">adham2211976@gmail.com</a>
+                            </p>
+                            <p style="display: flex; align-items: flex-start; gap: 1rem; font-size: 1.1rem; line-height: 1.7;">
+                                <i class="fas fa-map-marker-alt" style="margin-top: 5px;"></i>
+                                <span>123 Ocean Drive, Suite 456<br>Marine Science City, MSC 12345</span>
+                            </p>
+                        </div>
+
+                        <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.07);">
+                            <h3 style="color: var(--deep-blue); margin-bottom: 1rem;">Office Hours</h3>
+                            <p style="margin-bottom: 0.5rem;"><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>Saturday:</strong> 10:00 AM - 4:00 PM</p>
+                            <p><strong>Sunday:</strong> Closed</p>
+                            <p style="margin-top: 1rem; color: var(--dark-gray); font-size: 0.9rem;">Form submissions are monitored 24/7 for urgent requests.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <!-- ... (Copy & Paste Full Footer from index.html) ... -->
+    </footer>
+
+    <!-- Modals -->
+    <!-- ... (Copy & Paste ALL Modals from index.html) ... -->
+    
+    <!-- Firebase Config & Scripts -->
+    <script>
+        // PASTE YOUR FIREBASE CONFIG HERE
+        const __firebase_config = `{
+            "apiKey": "YOUR_API_KEY",
+            "authDomain": "YOUR_AUTH_DOMAIN",
+            "projectId": "YOUR_PROJECT_ID",
+            "storageBucket": "YOUR_STORAGE_BUCKET",
+            "messagingSenderId": "YOUR_MESSAGING_SENDER_ID",
+            "appId": "YOUR_APP_ID"
+        }`;
+        const __app_id = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    </script>
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>

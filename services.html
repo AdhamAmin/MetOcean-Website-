@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - OceanSustain</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-water"></i>
+                    <span>OceanSustain</span>
+                </div>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search research, services, data...">
+                        <button onclick="performSearch()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
+                    <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a></li>
+                    <li><a href="videos.html"><i class="fas fa-video"></i> Videos</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="impact.html"><i class="fas fa-chart-line"></i> Impact</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Services Page Content -->
+    <div id="services" class="page-content">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive solutions for marine sustainability and ocean industries</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-image"><i class="fas fa-drafting-compass"></i></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Marine Impact Assessment</h3>
+                            <p class="card-text">Detailed analysis of your project's environmental footprint with actionable recommendations for compliance with international standards.</p>
+                            <a href="contact.html" class="card-button">Inquire Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"><i class="fas fa-wind"></i></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Offshore Renewable Energy</h3>
+                            <p class="card-text">Expert guidance on offshore wind, wave, and tidal energy projects, from site selection to operational monitoring.</p>
+                            <a href="contact.html" class="card-button">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"><i class="fas fa-recycle"></i></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Sustainable Aquaculture</h3>
+                            <p class="card-text">Comprehensive strategies, site analysis, and circular economy implementation for sustainable seafood production.</p>
+                            <a href="contact.html" class="card-button">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"><i class="fas fa-water"></i></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Coastal Zone Management</h3>
+                            <p class="card-text">Sustainable strategies for coastal erosion, flood risk, and habitat restoration to build resilient coastlines.</p>
+                            <a href="contact.html" class="card-button">Inquire Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"><i class="fas fa-anchor"></i></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Sustainable Ports & Shipping</h3>
+                            <p class="card-text">Consulting on green port initiatives, emissions reduction, ballast water management, and biofouling solutions.</p>
+                            <a href="contact.html" class="card-button">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"><i class="fas fa-seedling"></i></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Blue Carbon & Restoration</h3>
+                            <p class="card-text">Habitat restoration projects (mangroves, seagrass), biodiversity assessments, and blue carbon credit verification.</p>
+                            <a href="contact.html" class="card-button">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <!-- ... (Copy & Paste Full Footer from index.html) ... -->
+    </footer>
+
+    <!-- Modals -->
+    <!-- ... (Copy & Paste ALL Modals from index.html) ... -->
+
+    <!-- Firebase Config & Scripts -->
+    <script>
+        // PASTE YOUR FIREBASE CONFIG HERE
+        const __firebase_config = `{
+            "apiKey": "YOUR_API_KEY",
+            "authDomain": "YOUR_AUTH_DOMAIN",
+            "projectId": "YOUR_PROJECT_ID",
+            "storageBucket": "YOUR_STORAGE_BUCKET",
+            "messagingSenderId": "YOUR_MESSAGING_SENDER_ID",
+            "appId": "YOUR_APP_ID"
+        }`;
+        const __app_id = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    </script>
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
