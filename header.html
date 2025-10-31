@@ -1,0 +1,50 @@
+<!-- This is the content for header.html -->
+<header>
+    <div class="header-container">
+        <div class="header-top">
+            <div class="logo">
+                <i class="fas fa-water"></i>
+                <span>OceanSustain</span>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search research, services, data...">
+                    <button onclick="performSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
+                <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="impact.html"><i class="fas fa-chart-line"></i> Impact</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <!-- UPDATED: Replaced login tab with Get Started button -->
+                <li class="get-started-item">
+                    <a href="#" id="get-started-link" class="get-started-btn" onclick="event.preventDefault(); showSignUp();">
+                        Get Started
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<script>
+    function performSearch() {
+        const query = document.getElementById('searchInput').value;
+        if (query.trim() !== '') {
+            // Redirect to search results page with query parameter
+            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+    }
+
+    function showSignUp() {
+        // Logic to display sign-up modal or redirect to sign-up page
+        alert('Redirecting to Sign Up page...');
+        window.location.href = 'signup.html'; // Example redirection
+    }
