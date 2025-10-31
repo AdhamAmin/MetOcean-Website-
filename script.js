@@ -156,6 +156,42 @@ function initializeAppLogic() {
         if (modal) modal.classList.add('active');
     }
 
+    // NEW: Function to show the login modal
+    window.showLogin = function() {
+        const modal = document.getElementById('loginModal');
+        if (modal) modal.classList.add('active');
+    }
+
+    // NEW: Function to switch between modals
+    window.switchModals = function(fromModalId, toModalId) {
+        closeModal(fromModalId);
+        
+        // Use a slight delay to make the switch feel smoother
+        setTimeout(() => {
+            if (toModalId === 'loginModal') {
+                showLogin();
+            } else if (toModalId === 'signupModal') {
+                showSignUp();
+            }
+        }, 300); // 300ms matches the animation speed
+    }
+
+    // NEW: Function to toggle password visibility
+    window.togglePasswordVisibility = function(inputId) {
+        const input = document.getElementById(inputId);
+        const icon = input.nextElementSibling; // Get the icon
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        } else {
+            input.type = "password";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        }
+    }
+
+
     window.showForgotPassword = function() {
         const modal = document.getElementById('forgotPasswordModal');
         if (modal) modal.classList.add('active');
@@ -218,8 +254,9 @@ function initializeAppLogic() {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             console.log("User logged in:", userCredential.user);
+            closeModal('loginModal');
             showInfoModal("Success", `Welcome back, ${email}!`);
-            window.location.href = 'index.html';
+            // No redirect needed, state will update
         } catch (error) {
             console.error("Login failed:", error);
             showInfoModal("Login Failed", error.message);
@@ -252,9 +289,8 @@ function initializeAppLogic() {
             });
 
             console.log("User document created in Firestore");
-            showInfoModal("Account Created!", "Welcome to OceanSustain! Your account has been created successfully.");
             closeModal('signupModal');
-            window.location.href = 'index.html';
+            showInfoModal("Account Created!", "Welcome to OceanSustain! Your account has been created successfully.");
 
         } catch (error) {
             console.error("Sign-up failed:", error);
@@ -368,23 +404,32 @@ function initializeAppLogic() {
 }
 
 /**
- * Updates the "Login" link to "Logout" if the user is signed in.
+ * Updates the "Get Started" button to "Logout" if the user is signed in.
  */
 function updateLoginState(user) {
-    const loginLink = document.getElementById('login-link');
-    if (!loginLink) return; // Happens if footer hasn't loaded yet
+    const getStartedLink = document.getElementById('get-started-link');
+    if (!getStartedLink) return; // Happens if header hasn't loaded yet
 
     if (user && !user.isAnonymous) {
-        loginLink.innerHTML = `<i class="fas fa-sign-out-alt"></i> Logout`;
-        loginLink.href = "#"; // Prevent navigation
-        loginLink.onclick = (e) => {
+        // User is logged in
+        getStartedLink.innerHTML = `<i class="fas fa-sign-out-alt"></i> Logout`;
+        getStartedLink.href = "#";
+        getStartedLink.classList.remove('get-started-btn');
+        getStartedLink.classList.add('logout-btn');
+        getStartedLink.onclick = (e) => {
             e.preventDefault();
             signOut(auth).catch(err => console.error("Logout error:", err));
         };
     } else {
-        loginLink.innerHTML = `<i class="fas fa-user"></i> Login`;
-        loginLink.href = "login.html";
-        loginLink.onclick = null; // Clear any previous onclick
+        // User is logged out
+        getStartedLink.innerHTML = `Get Started`;
+        getStartedLink.href = "#"; // It's a modal trigger, not a page link
+        getStartedLink.classList.remove('logout-btn');
+        getStartedLink.classList.add('get-started-btn');
+        getStartedLink.onclick = (e) => {
+            e.preventDefault();
+            showSignUp();
+        };
     }
 }
 
