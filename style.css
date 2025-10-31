@@ -116,12 +116,22 @@ nav a {
     border-radius: 5px;
     transition: all 0.3s;
     font-weight: 500;
+    border-bottom: 3px solid transparent; /* Placeholder for active state */
 }
 
 nav a:hover {
     background: rgba(255,255,255,0.15);
     transform: translateY(-2px);
+    border-bottom-color: rgba(248, 193, 70, 0.5); /* Light hover underline */
 }
+
+/* Active nav link style */
+nav a.active {
+    color: var(--accent-sand);
+    border-bottom: 3px solid var(--accent-sand);
+    transform: translateY(0);
+}
+
 
 /* Hero Section */
 .hero {
@@ -139,11 +149,21 @@ nav a:hover {
 /* SVG Wave */
 .hero-wave {
     position: absolute;
-    bottom: -5px;
+    bottom: -1px; /* Adjusted for perfect fit */
     left: 0;
     width: 100%;
     color: var(--light-gray);
 }
+
+/* CORRECTED: New Hero Wave Shape */
+.hero-wave svg {
+    width: calc(100% + 1.3px);
+    height: 70px; /* You can adjust the height */
+}
+.hero-wave .shape-fill {
+    fill: var(--light-gray);
+}
+
 
 .hero h1 {
     font-size: 3.5rem;
@@ -354,7 +374,8 @@ nav a:hover {
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
-.video-container iframe {
+.video-container iframe,
+.video-container video {
     position: absolute;
     top: 0;
     left: 0;
@@ -368,6 +389,22 @@ nav a:hover {
     gap: 2rem;
 }
 
+/* Video Modal */
+.video-modal-content {
+    padding: 1rem;
+    background: #000;
+    max-width: 900px;
+    width: 90%;
+    /* Remove max-height and overflow-y */
+}
+.video-modal-content .modal-close {
+    color: white;
+    top: -2.5rem; /* Position outside the black box */
+    right: 0;
+    font-size: 2.5rem;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
 /* Footer */
 footer {
     background: var(--deep-blue);
@@ -377,14 +414,23 @@ footer {
     position: relative;
 }
 
+/* CORRECTED: Footer Wave Shape */
 .footer-wave {
     position: absolute;
-    top: -1px;
+    top: -1px; /* Sits on top of the footer */
     left: 0;
     width: 100%;
     color: var(--light-gray);
-    transform: rotate(180deg);
+    transform: rotate(180deg); /* Flips the wave to curve down */
 }
+.footer-wave svg {
+    width: calc(100% + 1.3px);
+    height: 70px; /* Should match hero wave height */
+}
+.footer-wave .shape-fill {
+    fill: var(--light-gray);
+}
+
 
 .footer-content {
     max-width: 1300px;
@@ -895,3 +941,4 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+

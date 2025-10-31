@@ -9,37 +9,8 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="header-top">
-                <div class="logo">
-                    <i class="fas fa-water"></i>
-                    <span>OceanSustain</span>
-                </div>
-                <div class="search-container">
-                    <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Search research, services, data...">
-                        <button onclick="performSearch()">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
-                    <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a></li>
-                    <li><a href="videos.html"><i class="fas fa-video"></i> Videos</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="impact.html"><i class="fas fa-chart-line"></i> Impact</a></li>
-                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                    <li><a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Header is injected here -->
+    <div id="header-placeholder"></div>
 
     <!-- Home Page Content -->
     <div id="home" class="page-content">
@@ -49,8 +20,9 @@
             <p>Pioneering marine research, sustainable consulting, and ocean education for a thriving future.</p>
             <a href="services.html" class="cta-button">Explore Our Services</a>
             <div class="hero-wave">
+                <!-- New Wave SVG -->
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-17,175.59-33.58,280.5-39.28,97.38-5.36,194.4-0.34,293.4,12.29,123.7,15.38,251.3,32.89,379.7,51.78V120H0V56.44Z" class="shape-fill" fill="currentColor"></path>
+                    <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z" class="shape-fill"></path>
                 </svg>
             </div>
         </section>
@@ -130,17 +102,16 @@
 
             <!-- Video Spotlight -->
             <section class="section">
-                <h2 class="section-title">Video Spotlight: The Blue Economy</h2>
-                <p class="section-subtitle">Discover the future of sustainable ocean industries. For more, visit our <a href="videos.html" class="link">Videos page</a>.</p>
+                <h2 class="section-title">Video Spotlight: Our Mission</h2>
+                <p class="section-subtitle">Discover the future of sustainable ocean industries. For more, visit our <a href="courses.html" class="link">Courses page</a>.</p>
                 <div class="video-spotlight">
                     <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/5Gq-L1soS7s" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+                        <!-- Updated to use the HTML5 video tag with your GitHub file -->
+                        <!-- A poster image is added to show while the video loads -->
+                        <video controls style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #000;" poster="https://placehold.co/1920x1080/004a99/ffffff?text=Loading+Video...">
+                            <source src="https://raw.githubusercontent.com/AdhamAmin/MetOcean-Website-/main/be8857b3-ff84-4e65-ae58-53785fcabd31.mp4" type="video/mp4">
+                            Your browser does not support the video tag. Please try a different browser.
+                        </video>
                     </div>
                 </div>
             </section>
@@ -148,139 +119,13 @@
         </div> <!-- End .container -->
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-wave">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-17,175.59-33.58,280.5-39.28,97.38-5.36,194.4-0.34,293.4,12.29,123.7,15.38,251.3,32.89,379.7,51.78V120H0V56.44Z" class="shape-fill" fill="currentColor"></path>
-            </svg>
-        </div>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3><i class="fas fa-water"></i> OceanSustain</h3>
-                <p>Pioneering marine research and sustainable consulting for a thriving blue planet.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="impact.html">Impact</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="services.html">Marine Consulting</a></li>
-                    <li><a href="courses.html">Ocean Education</a></li>
-                    <li><a href="impact.html">Research & Data</a></li>
-                    <li><a href="videos.html">Video Library</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Newsletter</h3>
-                <p>Subscribe for updates on marine news, research, and new courses.</p>
-                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-                    <input name="email" type="email" placeholder="Your email address" required>
-                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 OceanSustain. All rights reserved. | <a href="#" class="link">Terms of Service</a></p>
-        </div>
-    </footer>
-
-    <!-- Modals (Shared across all pages) -->
+    <!-- Footer and Modals are injected here -->
+    <div id="footer-placeholder"></div>
     
-    <!-- Floating Chat Icon -->
-    <div class="chat-icon" onclick="toggleChat()">
-        <i class="fas fa-comments"></i>
-    </div>
-
-    <!-- Sign Up Modal -->
-    <div id="signupModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('signupModal')">&times;</button>
-            <h2 style="color: var(--deep-blue); margin-bottom: 2rem; text-align: center;">Create Your Account</h2>
-            <form onsubmit="handleSignUp(event)">
-                <div class="form-group">
-                    <label>First Name</label>
-                    <input name="firstName" type="text" placeholder="Enter your first name" required>
-                </div>
-                <div class="form-group">
-                    <label>Last Name</label>
-                    <input name="lastName" type="text" placeholder="Enter your last name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input name="email" type="email" placeholder="your.email@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input name="password" type="password" placeholder="Create a strong password (min. 6 chars)" required>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="termsAgree" required>
-                    <label for="termsAgree">I agree to the <a href="#" class="link">Terms of Service</a></label>
-                </div>
-                <button type="submit" class="submit-button">Create Account</button>
-            </form>
-            <div class="text-center" style="margin-top: 1rem;">
-                <span>Already have an account? </span>
-                <a href="login.html" class="link">Log In</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Forgot Password Modal -->
-    <div id="forgotPasswordModal" class="modal">
-        <!-- ... (content from original, just for showForgotPassword()) ... -->
-    </div>
-
-    <!-- Chat Modal -->
-    <div id="chatModal" class="modal">
-        <div class="modal-content" style="max-width: 400px;">
-            <button class="modal-close" onclick="closeModal('chatModal')">&times;</button>
-            <h2 style="color: var(--deep-blue); margin-bottom: 1rem;">Chat with Us</h2>
-            <div class="chat-message-box">
-                <div class="chat-message">
-                    <strong>OceanSustain Support</strong>
-                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Hello! How can we help you today?</p>
-                </div>
-            </div>
-            <form class="chat-form" onsubmit="handleChatMessage(event)">
-                <input type="text" placeholder="Type your message..." required>
-                <button type="submit"><i class="fas fa-paper-plane"></i></button>
-            </form>
-            <button class="help-button" onclick="handleHelpRequest()">
-                <i class="fas fa-life-ring"></i> I need help!
-            </button>
-        </div>
-    </div>
-    
-    <!-- Info Modal (for alerts) -->
-    <!-- This gets created by script.js, but you could pre-add it -->
-
-    <!-- Firebase SDKs -->
     <!--
         ************************************************************
         * IMPORTANT! YOU MUST PASTE YOUR FIREBASE CONFIG HERE     *
         ************************************************************
-        
-        1. Go to your Firebase Project Settings.
-        2. Find your "Web App" configuration.
-        3. Copy the 'firebaseConfig' object and paste it below.
     -->
     <script>
         // PASTE YOUR FIREBASE CONFIG HERE
@@ -297,8 +142,9 @@
         const __app_id = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
     </script>
     
-    <!-- Load Firebase and our script -->
+    <!-- Load Firebase and our main script -->
     <script type="module" src="script.js"></script>
 
 </body>
 </html>
+

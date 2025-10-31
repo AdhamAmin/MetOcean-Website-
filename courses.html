@@ -9,24 +9,8 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <!-- ... (Copy & Paste Full Header from index.html) ... -->
-            <nav>
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
-                    <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a></li>
-                    <li><a href="videos.html"><i class="fas fa-video"></i> Videos</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="impact.html"><i class="fas fa-chart-line"></i> Impact</a></li>
-                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                    <li><a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Header is injected here -->
+    <div id="header-placeholder"></div>
 
     <!-- Courses Page Content -->
     <div id="courses" class="page-content">
@@ -43,7 +27,8 @@
                             <span style="color: var(--primary-teal); font-weight: bold;">Nov 15, 2025</span>
                             <h3 class="card-title">Sustainable Marine Business</h3>
                             <p class="card-text">Learn to integrate sustainability into core marine operations and achieve green certification.</p>
-                            <a href="#" class="card-button" onclick="showSignUp()">Enroll Now</a>
+                            <!-- Use onclick to trigger signup modal -->
+                            <a href="#" class="card-button" onclick="event.preventDefault(); showSignUp()">Enroll Now</a>
                         </div>
                     </div>
                     <div class="card">
@@ -52,7 +37,7 @@
                             <span style="color: var(--primary-teal); font-weight: bold;">Nov 22, 2025</span>
                             <h3 class="card-title">Offshore Renewable Systems</h3>
                             <p class="card-text">Comprehensive training on solar, wind, and alternative energy technologies for marine applications.</p>
-                            <a href="#" class="card-button" onclick="showSignUp()">Enroll Now</a>
+                            <a href="#" class="card-button" onclick="event.preventDefault(); showSignUp()">Enroll Now</a>
                         </div>
                     </div>
                     <div class="card">
@@ -61,38 +46,42 @@
                             <span style="color: var(--primary-teal); font-weight: bold;">Dec 5, 2025</span>
                             <h3 class="card-title">Climate Change Adaptation</h3>
                             <p class="card-text">Strategies for coastal organizations to adapt to changing ocean conditions and build resilience.</p>
-                            <a href="#" class="card-button" onclick="showSignUp()">Enroll Now</a>
+                            <a href="#" class="card-button" onclick="event.preventDefault(); showSignUp()">Enroll Now</a>
                         </div>
                     </div>
                 </div>
 
-                <h3 style="color: var(--deep-blue); margin: 3rem 0 1rem; font-size: 1.8rem;">On-Demand Courses</h3>
+                <h3 style="color: var(--deep-blue); margin: 3rem 0 1rem; font-size: 1.8rem;">On-Demand Video Courses</h3>
                 <div class="cards-grid">
+                    <!-- Updated Card with Video Modal -->
                     <div class="card">
                         <div class="card-image"><i class="fas fa-play-circle"></i></div>
                         <div class="card-content">
                             <h3 class="card-title">Marine Impact Assessment Fundamentals</h3>
                             <p class="card-text">Master the essentials of conducting thorough environmental impact assessments for ocean projects.</p>
                             <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 30 minutes</span><br>
-                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="showSignUp()">Watch Now</a>
+                            <!-- This now calls the showVideoModal function -->
+                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('fH8-0-f1dY4')">Watch Now</a>
                         </div>
                     </div>
+                    <!-- Updated Card with Video Modal -->
                     <div class="card">
                         <div class="card-image"><i class="fas fa-play-circle"></i></div>
                         <div class="card-content">
                             <h3 class="card-title">Blue Carbon Accounting</h3>
                             <p class="card-text">Explore the science and policy of blue carbon and learn to account for coastal ecosystem services.</p>
                             <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 3 hours 15 minutes</span><br>
-                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="showSignUp()">Watch Now</a>
+                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('u3T-TfJ_1Lg')">Watch Now</a>
                         </div>
                     </div>
+                    <!-- Updated Card with Video Modal -->
                     <div class="card">
                         <div class="card-image"><i class="fas fa-play-circle"></i></div>
                         <div class="card-content">
                             <h3 class="card-title">Intro to Sustainable Aquaculture</h3>
                             <p class="card-text">Practical methods for measuring and reducing the environmental footprint of aquaculture operations.</p>
                             <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 45 minutes</span><br>
-                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="showSignUp()">Watch Now</a>
+                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('Qvu90MHgE50')">Watch Now</a>
                         </div>
                     </div>
                 </div>
@@ -100,13 +89,8 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <!-- ... (Copy & Paste Full Footer from index.html) ... -->
-    </footer>
-
-    <!-- Modals -->
-    <!-- ... (Copy & Paste ALL Modals from index.html) ... -->
+    <!-- Footer and Modals are injected here -->
+    <div id="footer-placeholder"></div>
     
     <!-- Firebase Config & Scripts -->
     <script>
@@ -125,3 +109,4 @@
 
 </body>
 </html>
+

@@ -9,24 +9,8 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <!-- ... (Copy & Paste Full Header from index.html) ... -->
-            <nav>
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
-                    <li><a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a></li>
-                    <li><a href="videos.html"><i class="fas fa-video"></i> Videos</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="impact.html"><i class="fas fa-chart-line"></i> Impact</a></li>
-                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                    <li><a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Header is injected here -->
+    <div id="header-placeholder"></div>
 
     <!-- Login Page Content -->
     <div id="login" class="page-content">
@@ -62,23 +46,18 @@
                 </form>
                 
                 <div class="text-center">
-                    <a href="#" class="link" onclick="showForgotPassword()">Forgot Password?</a>
+                    <a href="#" class="link" onclick="event.preventDefault(); showForgotPassword()">Forgot Password?</a>
                 </div>
                 <div class="text-center">
                     <span>Don't have an account? </span>
-                    <a href="#" class="link" onclick="showSignUp()">Sign Up</a>
+                    <a href="#" class="link" onclick="event.preventDefault(); showSignUp()">Sign Up</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <!-- ... (Copy & Paste Full Footer from index.html) ... -->
-    </footer>
-
-    <!-- Modals -->
-    <!-- ... (Copy & Paste ALL Modals from index.html) ... -->
+    <!-- Footer and Modals are injected here -->
+    <div id="footer-placeholder"></div>
     
     <!-- Firebase Config & Scripts -->
     <script>
@@ -97,3 +76,4 @@
 
 </body>
 </html>
+
