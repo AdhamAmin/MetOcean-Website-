@@ -14,7 +14,12 @@
 
     <!-- Home Page Content -->
     <div id="home" class="page-content">
-        <!-- Hero Section -->
+        
+        <!-- 
+          CORRECTED STRUCTURE:
+          The <section class="hero"> is OUTSIDE of the <div class="container">.
+          This makes it stretch to the full width of the screen.
+        -->
         <section class="hero">
             <h1>Protecting Our Blue Planet Together</h1>
             <p>Pioneering marine research, sustainable consulting, and ocean education for a thriving future.</p>
@@ -27,6 +32,10 @@
             </div>
         </section>
 
+        <!-- 
+          The <div class="container"> starts AFTER the hero.
+          This keeps the rest of your content neatly centered.
+        -->
         <div class="container">
             <!-- Services Overview -->
             <section class="section">
@@ -106,9 +115,16 @@
                 <p class="section-subtitle">Discover the future of sustainable ocean industries. For more, visit our <a href="courses.html" class="link">Courses page</a>.</p>
                 <div class="video-spotlight">
                     <div class="video-container">
-                        <!-- Updated to use the HTML5 video tag with your GitHub file -->
-                        <!-- A poster image is added to show while the video loads -->
-                        <video controls style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #000;" poster="https://placehold.co/1920x1080/004a99/ffffff?text=Loading+Video...">
+                        <!-- 
+                          Updated Video Tag:
+                          - autoplay: Starts the video automatically
+                          - muted: Required by browsers for autoplay to work
+                          - loop: Makes the video loop
+                          - playsinline: Helps it play correctly on mobile
+                          - preload="metadata": Loads the first frame of the video
+                          - poster attribute has been removed
+                        -->
+                        <video controls autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #000;">
                             <source src="https://raw.githubusercontent.com/AdhamAmin/MetOcean-Website-/main/be8857b3-ff84-4e65-ae58-53785fcabd31.mp4" type="video/mp4">
                             Your browser does not support the video tag. Please try a different browser.
                         </video>
@@ -147,4 +163,5 @@
 
 </body>
 </html>
+
 
