@@ -90,6 +90,13 @@ header {
     align-items: center;
     gap: 0.75rem;
     animation: slideInLeft 1s ease-out;
+    text-decoration: none;
+    color: var(--light-text);
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.9;
 }
 
 .logo i {
@@ -345,8 +352,13 @@ nav a.logout-btn:hover {
 /* Section Styles */
 .section {
     margin-bottom: 0;
-    padding-top: 4rem;
+    padding-top: 6rem; /* Increased top padding */
     padding-bottom: 4rem;
+}
+
+/* Add extra spacing after hero section */
+.hero + .section {
+    margin-top: 2rem;
 }
 
 .section-title {
@@ -616,13 +628,21 @@ footer {
     font-size: 1.3rem;
 }
 
+/* Footer logo link styling */
+.footer-section .logo {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    color: var(--light-text);
+}
+
 .footer-section p {
     color: rgba(255,255,255,0.8);
     margin-bottom: 1.5rem;
 }
 
 .footer-section .follow-us {
-    color: var(--accent-sand);
+    color: var(--primary-teal);
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 1rem;
