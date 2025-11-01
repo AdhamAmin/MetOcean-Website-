@@ -208,14 +208,16 @@ nav a.get-started-btn {
     /* "Frame" style */
     background: transparent;
     border: 2px solid var(--accent-sand);
-    color: var(--accent-sand) !important; /* Override text color */
+    color: var(--accent-sand) !important;
     font-weight: bold;
     border-radius: 20px;
-    /* Adjust padding to account for border */
-    padding: calc(0.5rem - 2px) calc(1.25rem - 2px); 
-    border-bottom: 3px solid transparent; /* Hide active-style border */
+    padding: calc(0.5rem - 2px) calc(1.5rem - 2px);
+    border-bottom: 2px solid var(--accent-sand);
     transition: all 0.3s ease;
-    margin-right: 0; /* No margin on the last item */
+    margin-right: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
 nav a.get-started-btn:hover {
@@ -223,8 +225,8 @@ nav a.get-started-btn:hover {
     background: var(--accent-sand);
     border-color: var(--accent-sand);
     color: var(--deep-blue) !important;
-    transform: translateY(-2px) scale(1.05);
-    border-bottom-color: transparent; /* Keep border hidden on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(248, 193, 70, 0.4);
 }
 
 /* Style for the "Logout" button that replaces "Get Started" */
@@ -253,10 +255,11 @@ nav a.logout-btn:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(0, 74, 153, 0.9), rgba(0, 171, 132, 0.9)),
+    background: linear-gradient(135deg, rgba(0, 74, 153, 0.95), rgba(0, 171, 132, 0.95)),
                 url('https://media1.tenor.com/m/9RTwf8xM388AAAAd/ocean-sea.gif');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     color: var(--light-text);
     padding: 7rem 2rem;
     text-align: center;
@@ -553,7 +556,7 @@ nav a.logout-btn:hover {
 
 /* Footer */
 footer {
-    background: var(--deep-blue);
+    background: linear-gradient(135deg, var(--deep-blue), var(--primary-teal));
     color: var(--light-text);
     padding: 4rem 2rem 1.5rem;
     margin-top: 3rem;
@@ -563,6 +566,7 @@ footer {
     right: 0;
     margin-left: 0;
     margin-right: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* CORRECTED: Footer Wave Shape */
@@ -603,20 +607,36 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+.footer-section .follow-us {
+    color: var(--accent-sand);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: block;
+}
+
 /* UPDATED: Increased specificity */
 .footer-section .social-links a {
     color: white;
     text-decoration: none;
     margin-right: 1.25rem;
     font-size: 1.5rem;
-    transition: all 0.3s;
-    display: inline-block;  /* <-- FIX 1: Override 'display: block' */
-    padding: 0;             /* <-- FIX 2: Reset padding */
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    line-height: 1.5rem;
 }
+
 .footer-section .social-links a:hover {
     color: var(--accent-sand);
-    transform: scale(1.1);
-    padding-left: 0;        /* <-- FIX 3: Override hover padding */
+    transform: translateY(-3px) rotate(8deg);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .footer-section ul {
