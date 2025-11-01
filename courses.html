@@ -52,37 +52,78 @@
                 </div>
 
                 <h3 style="color: var(--deep-blue); margin: 3rem 0 1rem; font-size: 1.8rem;">On-Demand Video Courses</h3>
-                <div class="cards-grid">
-                    <!-- UPDATED: This now calls showVideoModal with the YouTube ID -->
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Marine Impact Assessment Fundamentals</h3>
-                            <p class="card-text">Master the essentials of conducting thorough environmental impact assessments for ocean projects.</p>
-                            <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 30 minutes</span><br>
-                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('fH8-0-f1dY4')">Watch Now</a>
+                
+                <!-- Page 1 Content -->
+                <div class="course-page" data-page="1">
+                    <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
+                            <div class="card-content">
+                                <h3 class="card-title">Ocean Documentary: A Journey Beneath</h3>
+                                <p class="card-text">Explore the fascinating world beneath the waves in this comprehensive documentary about marine life and ocean conservation.</p>
+                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 1 hour 28 minutes</span><br>
+                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('2439gS07kXM')">Watch Now</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
+                            <div class="card-content">
+                                <h3 class="card-title">Marine Impact Assessment Fundamentals</h3>
+                                <p class="card-text">Master the essentials of conducting thorough environmental impact assessments for ocean projects.</p>
+                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 30 minutes</span><br>
+                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('fH8-0-f1dY4')">Watch Now</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
+                            <div class="card-content">
+                                <h3 class="card-title">Blue Carbon Accounting</h3>
+                                <p class="card-text">Explore the science and policy of blue carbon and learn to account for coastal ecosystem services.</p>
+                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 3 hours 15 minutes</span><br>
+                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('u3T-TfJ_1Lg')">Watch Now</a>
+                            </div>
                         </div>
                     </div>
-                    <!-- UPDATED: This now calls showVideoModal with the YouTube ID -->
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Blue Carbon Accounting</h3>
-                            <p class="card-text">Explore the science and policy of blue carbon and learn to account for coastal ecosystem services.</p>
-                            <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 3 hours 15 minutes</span><br>
-                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('u3T-TfJ_1Lg')">Watch Now</a>
+                </div>
+
+                <!-- Page 2 Content -->
+                <div class="course-page" data-page="2" style="display: none;">
+                    <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
+                            <div class="card-content">
+                                <h3 class="card-title">Intro to Sustainable Aquaculture</h3>
+                                <p class="card-text">Practical methods for measuring and reducing the environmental footprint of aquaculture operations.</p>
+                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 45 minutes</span><br>
+                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('Qvu90MHgE50')">Watch Now</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
+                            <div class="card-content">
+                                <h3 class="card-title">Ocean Data Analytics</h3>
+                                <p class="card-text">Learn to analyze and interpret marine data using modern tools and techniques for informed decision-making.</p>
+                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 3 hours</span><br>
+                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('dQw4w9WgXcQ')">Watch Now</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
+                            <div class="card-content">
+                                <h3 class="card-title">Marine Conservation Technologies</h3>
+                                <p class="card-text">Discover cutting-edge technologies being used to protect and preserve marine ecosystems.</p>
+                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 15 minutes</span><br>
+                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('jNQXAC9IVRw')">Watch Now</a>
+                            </div>
                         </div>
                     </div>
-                    <!-- UPDATED: This now calls showVideoModal with the YouTube ID -->
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Intro to Sustainable Aquaculture</h3>
-                            <p class="card-text">Practical methods for measuring and reducing the environmental footprint of aquaculture operations.</p>
-                            <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 45 minutes</span><br>
-                            <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('Qvu90MHgE50')">Watch Now</a>
-                        </div>
-                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="page-link active" data-page="1">1</a>
+                    <a href="#" class="page-link" data-page="2">2</a>
+                    <a href="#" class="next" onclick="nextPage()">Next <i class="fas fa-chevron-right"></i></a>
                 </div>
             </section>
         </div>

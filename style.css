@@ -563,6 +563,59 @@ nav a.logout-btn:hover {
     gap: 2rem;
 }
 
+/* Pagination Styles */
+.course-page {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.course-page.fade-out {
+    opacity: 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+}
+
+.pagination a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    color: var(--dark-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pagination a.active {
+    background: var(--primary-teal);
+    color: white;
+    border-color: var(--primary-teal);
+}
+
+.pagination a:hover:not(.active) {
+    background: var(--light-gray);
+    border-color: var(--primary-teal);
+    color: var(--primary-teal);
+}
+
+.pagination .next {
+    padding: 0.5rem 1.25rem;
+}
+
+.pagination .next i {
+    margin-left: 0.5rem;
+}
+
 /* Video Modal */
 .video-modal-content {
     padding: 1rem;

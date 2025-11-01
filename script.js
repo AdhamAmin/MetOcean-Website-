@@ -460,7 +460,70 @@ function showInfoModal(title, message) {
     infoModal.classList.add('active');
 }
 
-// --- App Entry Point ---
-// Start loading header/footer as soon as the DOM is ready.
-document.addEventListener('DOMContentLoaded', loadHeaderAndFooter);
+// Course Pagination Logic
+let currentPage = 1;
+const totalPages = 2;
+
+window.changePage = function(pageNum) {
+    if (pageNum < 1 || pageNum > totalPages) return;
+
+    // Get all course pages and pagination links
+    const pages = document.querySelectorAll('.course-page');
+    const pageLinks = document.querySelectorAll('.page-link');
+    
+    // Add fade-out class to current page
+    pages.forEach(page => {
+        if (page.style.display !== 'none') {
+            page.classList.add('fade-out');
+        }
+    });
+
+    // After fade out animation, switch pages
+    setTimeout(() => {
+        pages.forEach(page => {
+            const pageNumber = parseInt(page.dataset.page);
+            page.style.display = pageNumber === pageNum ? 'block' : 'none';
+            page.classList.remove('fade-out');
+        });
+
+        // Update pagination active states
+        pageLinks.forEach(link => {
+            const linkPage = parseInt(link.dataset.page);
+            if (linkPage === pageNum) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
+        currentPage = pageNum;
+    }, 300); // Match this with the CSS transition time
+}
+
+window.nextPage = function() {
+    if (currentPage < totalPages) {
+        changePage(currentPage + 1);
+    }
+}
+
+window.prevPage = function() {
+    if (currentPage > 1) {
+        changePage(currentPage - 1);
+    }
+}
+
+// Initialize pagination when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    loadHeaderAndFooter();
+
+    // Set up pagination click handlers
+    const pageLinks = document.querySelectorAll('.page-link');
+    pageLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageNum = parseInt(link.dataset.page);
+            changePage(pageNum);
+        });
+    });
+});
 
