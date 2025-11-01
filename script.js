@@ -290,7 +290,7 @@ function initializeAppLogic() {
 
             console.log("User document created in Firestore");
             closeModal('signupModal');
-            showInfoModal("Account Created!", "Welcome to OceanSustain! Your account has been created successfully.");
+            showInfoModal("Account Created!", "Welcome to MetOcean! Your account has been created successfully.");
 
         } catch (error) {
             console.error("Sign-up failed:", error);
@@ -395,7 +395,7 @@ function initializeAppLogic() {
             setTimeout(() => {
                 const replyMessage = document.createElement('div');
                 replyMessage.className = 'chat-message';
-                replyMessage.innerHTML = `<strong>OceanSustain Support</strong><p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Thanks for your message! This is a demo chat. For help, click the 'I need help!' button.</p>`;
+                replyMessage.innerHTML = `<strong>MetOcean Support</strong><p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Thanks for your message! This is a demo chat. For help, click the 'I need help!' button.</p>`;
                 messageBox.appendChild(replyMessage);
                 messageBox.scrollTop = messageBox.scrollHeight;
             }, 1000);
