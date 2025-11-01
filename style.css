@@ -261,7 +261,7 @@ nav a.logout-btn:hover {
     background-position: center;
     background-attachment: fixed;
     color: var(--light-text);
-    padding: 7rem 2rem;
+    padding: 7rem 2rem 9rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -271,26 +271,31 @@ nav a.logout-btn:hover {
     margin: 0;
     left: 0;
     right: 0;
+    border: none;
 }
 
 /* SVG Wave */
 .hero-wave {
     position: absolute;
-    bottom: -1px; /* Adjusted for perfect fit */
+    bottom: -1px; /* Ensure no gap between wave and next section */
     left: 0;
     width: 100%;
     color: var(--light-gray);
+    display: block;
+    line-height: 0;
+    overflow: hidden; /* Hide any potential overflow */
 }
 
 /* CORRECTED: New Hero Wave Shape */
 .hero-wave svg {
     width: calc(100% + 1.3px);
-    height: 70px; /* You can adjust the height */
+    height: 70px;
+    display: block;
+    margin-bottom: -1px; /* Remove any potential gap */
 }
 .hero-wave .shape-fill {
     fill: var(--light-gray);
 }
-
 
 .hero h1 {
     font-size: 3.5rem;
@@ -312,19 +317,21 @@ nav a.logout-btn:hover {
     display: inline-block;
     background: var(--accent-sand);
     color: var(--deep-blue);
-    padding: 0.75rem 2rem; /* Reduced padding */
-    border-radius: 30px; /* Smaller radius */
+    padding: 0.85rem 2.5rem; /* Increased padding for better proportions */
+    border-radius: 25px; /* More balanced radius */
     text-decoration: none;
-    font-size: 1rem; /* Smaller font */
+    font-size: 1.1rem; /* Slightly larger font */
     font-weight: bold;
     transition: all 0.3s;
     animation: fadeInUp 1s 0.6s both;
-    box-shadow: 0 4px 15px rgba(248, 193, 70, 0.3); /* Softer shadow */
+    box-shadow: 0 4px 15px rgba(248, 193, 70, 0.3);
+    min-width: 180px; /* Ensure minimum width for consistency */
+    text-align: center; /* Center text in button */
 }
 
 .cta-button:hover {
     background: var(--light-text);
-    transform: translateY(-3px) scale(1.05);
+    transform: translateY(-3px) scale(1.02); /* Reduced scale for subtler hover */
     box-shadow: 0 6px 25px rgba(248, 193, 70, 0.5);
 }
 
@@ -332,12 +339,14 @@ nav a.logout-btn:hover {
 .container {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 0 2rem;
 }
 
 /* Section Styles */
 .section {
-    margin-bottom: 4rem;
+    margin-bottom: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .section-title {
@@ -440,22 +449,26 @@ nav a.logout-btn:hover {
     flex-grow: 1; /* Make text area grow, pushing button to bottom */
 }
 
-/* REVERTED: Card Button style */
+/* Updated Card Button style for consistency */
 .card-button {
     display: inline-block;
     background: var(--primary-teal);
     color: white;
-    padding: 0.4rem 1rem; /* Reduced padding */
-    border-radius: 20px; /* Slightly smaller radius */
+    padding: 0.75rem 1.75rem; /* Increased padding */
+    border-radius: 25px; /* Matching other buttons */
     text-decoration: none;
     transition: all 0.3s;
-    font-weight: 500;
+    font-weight: 600;
     width: auto;
-    font-size: 0.9rem; /* Smaller font */
+    font-size: 1rem;
+    min-width: 140px; /* Ensure minimum width */
+    text-align: center;
 }
 
 .card-button:hover {
     background: var(--deep-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 171, 132, 0.2);
 }
 
 /* Home Page Specifics */
@@ -559,33 +572,34 @@ footer {
     background: linear-gradient(135deg, var(--deep-blue), var(--primary-teal));
     color: var(--light-text);
     padding: 4rem 2rem 1.5rem;
-    margin-top: 3rem;
+    margin-top: 0;
     position: relative;
     width: 100%;
     left: 0;
     right: 0;
     margin-left: 0;
     margin-right: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* CORRECTED: Footer Wave Shape */
 .footer-wave {
     position: absolute;
-    top: -1px; /* Sits on top of the footer */
+    top: 0;
     left: 0;
     width: 100%;
     color: var(--light-gray);
-    transform: rotate(180deg); /* Flips the wave to curve down */
+    transform: rotate(180deg);
+    display: block;
+    line-height: 0;
 }
 .footer-wave svg {
     width: calc(100% + 1.3px);
-    height: 70px; /* Should match hero wave height */
+    height: 70px;
+    display: block;
 }
 .footer-wave .shape-fill {
     fill: var(--light-gray);
 }
-
 
 .footer-content {
     max-width: 1300px;
