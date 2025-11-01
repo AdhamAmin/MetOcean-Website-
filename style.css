@@ -226,6 +226,13 @@ nav a.logout-btn:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
+
+    /* UPDATED: Full-bleed layout fix */
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 /* SVG Wave */
@@ -503,6 +510,13 @@ footer {
     padding: 4rem 2rem 1.5rem;
     margin-top: 3rem;
     position: relative;
+
+    /* UPDATED: Full-bleed layout fix */
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 /* CORRECTED: Footer Wave Shape */
@@ -543,7 +557,8 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-.social-links a {
+/* UPDATED: Increased specificity */
+.footer-section .social-links a {
     color: white;
     text-decoration: none;
     margin-right: 1.25rem;
@@ -552,7 +567,7 @@ footer {
     display: inline-block;  /* <-- FIX 1: Override 'display: block' */
     padding: 0;             /* <-- FIX 2: Reset padding */
 }
-.social-links a:hover {
+.footer-section .social-links a:hover {
     color: var(--accent-sand);
     transform: scale(1.1);
     padding-left: 0;        /* <-- FIX 3: Override hover padding */
@@ -1109,11 +1124,11 @@ footer {
         /* On mobile, we WANT the links to stack, so we let the default .footer-section a rule apply */
     }
     /* BUT we must still fix the social links */
-    .social-links a {
+    .footer-section .social-links a {
         display: inline-block; /* Ensure social links are still inline */
         padding: 0;
     }
-    .social-links a:hover {
+    .footer-section .social-links a:hover {
         padding-left: 0;
     }
 
