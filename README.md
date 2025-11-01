@@ -4,26 +4,6 @@
 
 **Metocean** is a comprehensive professional website for a company offering environmental consulting services and sustainability courses. The website features both public-facing user interfaces and is designed with provisions for a secure administrative portal.
 
-## Recent Modifications (applied)
-
-The following updates were implemented on November 1, 2025 as part of a styling, accessibility, and branding cleanup. These changes are now live in the repository and reflected across the site files.
-
-- Renamed company branding across site files from "OceanSustain" to "MetOcean" (headings, titles, footer, and header). Files updated: `index.html`, `about.html`, `contact.html`, `courses.html`, `services.html`, `impact.html`, `header.html`, `footer.html`.
-- Added a site favicon: `favicon.svg` and linked it in all main HTML pages so the logo appears in browser tabs.
-- CSS corrections and cleanups in `style.css`:
-  - Consolidated duplicate `.form-group` rules into one clear definition (labels, inputs, focus, positioning).
-  - Removed invalid nested CSS accidentally placed inside `.chat-icon` and moved mobile social-link styles into the media query.
-  - Removed an empty mobile `.footer-section a` ruleset and added proper `.social-links` mobile styles (flex layout, spacing).
-  - Replaced non-standard `space-y` usage with standard CSS spacing for `.watch-takeaways-list` (added `.watch-takeaways-list > * + * { margin-top: 0.75rem; }`).
-  - Fixed hero/footer wave SVG sizing rules and ensured consistent fill color usage.
-  - Minor responsive and accessibility improvements (focus states and hover adjustments).
-
-- Footer and modal improvements:
-  - Footer wave SVG (visual fix) was added to `footer.html` and color/positioning adjusted in `style.css`.
-  - Social links and newsletter section layout enhanced for mobile.
-
-If you want a full file-by-file list of commits (or a single repo-wide replace for other remaining references), I can generate that next.
-
 ---
 
 ## Table of Contents

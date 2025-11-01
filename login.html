@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - OceanSustain</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="login-page-body"> <!-- Added new class to body -->
+
+    <!-- New Fullscreen Login Structure -->
+    <div class="login-page-wrapper">
+        
+        <!-- Left Image/Branding Panel -->
+        <div class="login-image-panel">
+            <div class="login-image-content">
+                <div class="logo">
+                    <i class="fas fa-water"></i>
+                    <span>OceanSustain</span>
+                </div>
+                <h1>Protecting Our Blue Planet Together</h1>
+                <p>Login to access your courses and research materials.</p>
+            </div>
+            <!-- Animated Wave -->
+            <div class="login-wave-container">
+                <svg class="login-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="var(--deep-blue)" fill-opacity="0.3" d="M0,160L48,181.3C96,203,192,245,288,261.3C384,277,480,267,576,234.7C672,203,768,149,864,138.7C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                    <path fill="var(--light-gray)" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,176C672,171,768,181,864,197.3C960,213,1056,235,1152,218.7C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Right Form Panel -->
+        <div class="login-form-panel">
+            <a href="index.html" class="back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            
+            <div class="login-box">
+                <h2 class="login-title">Welcome Back</h2>
+                
+                <div class="social-login">
+                    <button class="social-button">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="social-button">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </button>
+                </div>
+                
+                <div class="divider">OR</div>
+                
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <button type="submit" class="submit-button">Log In</button>
+                </form>
+                
+                <div class="text-center">
+                    <a href="#" class="link" onclick="event.preventDefault(); showForgotPassword()">Forgot Password?</a>
+                </div>
+                <div class="text-center">
+                    <span>Don't have an account? </span>
+                    <a href="#" class="link" onclick="event.preventDefault(); showSignUp()">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+      We still need to load footer.html because it contains
+      all the shared modal popups (Sign Up, Forgot Password, etc.)
+      that this page uses.
+    -->
+    <div id="footer-placeholder" style="display: none;"></div>
+    
+    <!-- Firebase Config & Scripts -->
+    <script>
+        // PASTE YOUR FIREBASE CONFIG HERE
+        const __firebase_config = `{
+            "apiKey": "YOUR_API_KEY",
+            "authDomain": "YOUR_AUTH_DOMAIN",
+            "projectId": "YOUR_PROJECT_ID",
+            "storageBucket": "YOUR_STORAGE_BUCKET",
+            "messagingSenderId": "YOUR_MESSAGING_SENDER_ID",
+            "appId": "YOUR_APP_ID"
+        }`;
+        const __app_id = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    </script>
+    <!-- 
+      script.js is still required here because it contains
+      all the logic for handleLogin, showSignUp, and showForgotPassword.
+    -->
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
+

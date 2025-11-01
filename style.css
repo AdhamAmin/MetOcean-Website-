@@ -98,12 +98,43 @@ header {
     background: var(--secondary-teal);
 }
 
+/* UPDATED: Nav layout fixed */
+nav {
+    display: grid;
+    /* Creates 3 columns:
+       1. Empty space
+       2. Centered links
+       3. Right-aligned button
+    */
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+}
+
 nav ul {
     display: flex;
     list-style: none;
-    animation: slideInRight 1s ease-out;
     align-items: center; 
-    width: 100%; /* Make the UL span the full width */
+    margin: 0;
+    padding: 0;
+}
+
+/* This is the <ul> for the main centered links */
+nav ul.nav-links-main {
+    grid-column: 2 / 3; /* Go in the center column */
+    justify-content: center;
+    animation: fadeIn 1s ease-out;
+}
+
+/* This is the <ul> for the "Get Started" button */
+nav ul.nav-links-cta {
+    grid-column: 3 / 4; /* Go in the right column */
+    justify-content: flex-end;
+    animation: slideInRight 1s ease-out;
+}
+
+nav li {
+    margin: 0 0.75rem; /* Use even margin for spacing */
 }
 
 nav a {
@@ -117,7 +148,6 @@ nav a {
     transition: all 0.3s;
     font-weight: 500;
     border-bottom: 3px solid transparent; /* Placeholder for active state */
-    margin-right: 1.5rem; /* Add margin back */
 }
 
 nav a:hover {
@@ -135,7 +165,7 @@ nav a.active {
 
 /* Style for the "Get Started" button in the nav */
 .get-started-item {
-    margin-left: auto; /* This is the magic. Pushes it to the right. */
+    margin: 0; /* Remove all margins */
 }
 
 nav a.get-started-btn {
@@ -988,6 +1018,17 @@ footer {
     .footer-content {
         grid-template-columns: 1fr 1fr;
     }
+
+    /* FIX for Header centering on tablet */
+    nav {
+        grid-template-columns: 1fr auto 1fr;
+    }
+    nav ul.nav-links-main {
+        /* No change needed, center slot is fine */
+    }
+    nav ul.nav-links-cta {
+        /* No change needed, right slot is fine */
+    }
 }
 
 @media (max-width: 768px) {
@@ -1001,22 +1042,43 @@ footer {
         width: 100%;
     }
 
+    /* FIX for Header on mobile */
+    nav {
+        display: block; /* Stack main links and button */
+    }
+
     nav ul {
         flex-wrap: wrap;
         gap: 0.5rem;
-        justify-content: center; /* REVERTED: Changed back to center */
+        justify-content: center; /* Center the main links */
+        width: 100%;
     }
     nav a {
         padding: 0.5rem 0.75rem;
-        margin-right: 0; /* REVERTED: Removed margin */
+        margin-right: 0; 
+    }
+    
+    nav li {
+        margin-right: 0;
     }
 
-    /* Keep Get Started button on its own line on mobile if needed */
+    /* This will be the main links */
+    nav ul.nav-links-main {
+        position: static; /* Override desktop styles */
+        transform: none;
+        animation: none;
+    }
+
+    /* This will be the button */
+    nav ul.nav-links-cta {
+        justify-content: center;
+        margin-top: 1rem; /* Add space above the button */
+        animation: none;
+    }
+
     .get-started-item {
         margin-left: 0;
-        width: 100%;
         text-align: center;
-        margin-top: 0.5rem;
     }
 
     nav a.get-started-btn, nav a.logout-btn {
