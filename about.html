@@ -1,83 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - MetOcean</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/components.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- Header is injected here -->
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
-    <!-- About Page Content -->
-    <div id="about" class="page-content">
-        <div class="container">
-            <section class="section">
-                <h2 class="section-title">About MetOcean</h2>
-                <p class="section-subtitle">Leading the way in marine sustainability and ocean education</p>
-                
-                <div style="background: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.07);">
-                    <h3 style="color: var(--deep-blue); margin-bottom: 1rem;">Our Mission</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">To empower individuals and organizations with the knowledge, tools, and strategies needed to create a sustainable future for our oceans. We believe that through data-driven science, expert guidance, and accessible education, we can collectively reduce our environmental impact and preserve our blue planet for future generations.</p>
-                </div>
+    <main>
+        <!-- Page Header -->
+        <section class="section section--dark" style="padding-top: 8rem; padding-bottom: 4rem;">
+            <div class="container" style="text-align: center;">
+                <h1 class="reveal-on-scroll text-reveal">About MetOcean</h1>
+                <p class="reveal-on-scroll delay-100"
+                    style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9);">
+                    Pioneering marine science for a sustainable future.
+                </p>
+            </div>
+        </section>
 
-                <div style="background: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.07);">
-                    <h3 style="color: var(--deep-blue); margin-bottom: 1rem;">Our Vision</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">A world where every marine industry operates sustainably, every coastal community is resilient, and our ocean ecosystems thrive. We envision a future where innovation and conservation go hand-in-hand, creating a robust and equitable 'Blue Economy'.</p>
-                </div>
-
-                <h3 style="color: var(--deep-blue); text-align: center; margin: 3rem 0 2rem; font-size: 1.8rem;">Meet Our Team</h3>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-avatar"><i class="fas fa-user"></i></div>
-                        <h4 class="team-name">Dr. Mohamed Farouk</h4>
-                        <p class="team-role">Founder & CEO</p>
-                        <p>Marine scientist with 20+ years in sustainability consulting and ocean policy.</p>
+        <!-- Our Story -->
+        <section class="section">
+            <div class="container">
+                <div class="row" style="align-items: center; gap: 3rem; display: flex; flex-wrap: wrap;">
+                    <div class="col reveal-on-scroll" style="flex: 1; min-width: 300px;">
+                        <h2 class="section__title">Our Expertise</h2>
+                        <p>MetOcean is a leading marine consulting firm specializing in meteorology and oceanography. We
+                            provide high-quality environmental data, advanced numerical modelling, and expert
+                            interpretation to support safe and efficient marine operations.</p>
+                        <p>Our team comprises PhD-level scientists, experienced mariners, and technical experts
+                            dedicated to solving complex oceanographic challenges. From offshore energy to coastal
+                            defense, we deliver the insights needed to navigate the world's most dynamic environments.
+                        </p>
                     </div>
-                    <div class="team-member">
-                        <div class="team-avatar"><i class="fas fa-user"></i></div>
-                        <h4 class="team-name">Dr. Hussein Elnagar</h4>
-                        <p class="team-role">Chief Science Officer</p>
-                        <p>Renewable energy specialist focused on offshore systems and marine tech.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-avatar"><i class="fas fa-user"></i></div>
-                        <h4 class="team-name">Adham Amin</h4>
-                        <p class="team-role">Education Director</p>
-                        <p>Curriculum developer passionate about making marine science accessible to all.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-avatar"><i class="fas fa-user"></i></div>
-                        <h4 class="team-name">Dr. David</h4>
-                        <p class="team-role">Impact Assessment Lead</p>
-                        <p>Expert in biodiversity conservation and ecosystem restoration projects worldwide.</p>
+                    <div class="col reveal-on-scroll delay-200" style="flex: 1; min-width: 300px;">
+                        <img src="https://placehold.co/600x400/004a99/ffffff?text=Oceanographic+Analysis"
+                            alt="Oceanographic Analysis"
+                            style="width: 100%; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
+            </div>
+        </section>
 
-    <!-- Footer and Modals are injected here -->
+        <!-- Leadership / Team -->
+        <section class="section section--light">
+            <div class="container">
+                <div class="section__header reveal-on-scroll">
+                    <span class="section__subtitle">Our Team</span>
+                    <h2 class="section__title">Led by Science</h2>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Using service-card style for team members for consistency -->
+                    <div class="service-card reveal-on-scroll delay-100"
+                        style="text-align: center; align-items: center;">
+                        <div class="service-card__icon" style="border-radius: 50%; overflow: hidden; padding: 0;">
+                            <img src="https://placehold.co/100x100/004a99/ffffff?text=CEO" alt="CEO"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="service-card__title" style="margin-bottom: 0.5rem;">Dr. Sarah Chen</h3>
+                        <p style="color: var(--secondary-teal); font-weight: 600; margin-bottom: 1rem;">Chief
+                            Oceanographer</p>
+                        <p>Expert in physical oceanography with 15+ years of experience in deep-sea monitoring.</p>
+                    </div>
+
+                    <div class="service-card reveal-on-scroll delay-200"
+                        style="text-align: center; align-items: center;">
+                        <div class="service-card__icon" style="border-radius: 50%; overflow: hidden; padding: 0;">
+                            <img src="https://placehold.co/100x100/004a99/ffffff?text=CTO" alt="CTO"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="service-card__title" style="margin-bottom: 0.5rem;">James Miller</h3>
+                        <p style="color: var(--secondary-teal); font-weight: 600; margin-bottom: 1rem;">Head of Data
+                            Science</p>
+                        <p>Specializes in AI-driven wave forecasting and numerical modelling systems.</p>
+                    </div>
+
+                    <div class="service-card reveal-on-scroll delay-300"
+                        style="text-align: center; align-items: center;">
+                        <div class="service-card__icon" style="border-radius: 50%; overflow: hidden; padding: 0;">
+                            <img src="https://placehold.co/100x100/004a99/ffffff?text=Ops" alt="Ops"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="service-card__title" style="margin-bottom: 0.5rem;">Elena Rodriguez</h3>
+                        <p style="color: var(--secondary-teal); font-weight: 600; margin-bottom: 1rem;">Operations
+                            Director</p>
+                        <p>Ensures seamless execution of offshore surveys and deployment missions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    
-    <!-- Firebase Config & Scripts -->
-    <script>
-        // PASTE YOUR FIREBASE CONFIG HERE
-        const __firebase_config = `{
-            "apiKey": "YOUR_API_KEY",
-            "authDomain": "YOUR_AUTH_DOMAIN",
-            "projectId": "YOUR_PROJECT_ID",
-            "storageBucket": "YOUR_STORAGE_BUCKET",
-            "messagingSenderId": "YOUR_MESSAGING_SENDER_ID",
-            "appId": "YOUR_APP_ID"
-        }`;
-        const __app_id = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    </script>
-    <script type="module" src="script.js"></script>
 
+    <!-- Scripts -->
+    <script src="js/loader.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
 </body>
-</html>
 
+</html>

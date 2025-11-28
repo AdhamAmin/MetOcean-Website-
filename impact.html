@@ -1,110 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Impact - MetOcean</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/components.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- Header is injected here -->
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
-    <!-- Impact Page Content -->
-    <div id="impact" class="page-content">
-        <div class="container">
-            <section class="section">
-                <h2 class="section-title">Our Ocean Impact</h2>
-                <p class="section-subtitle">Measuring success through tangible marine outcomes</p>
-                
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">2.1M</span>
-                        <span class="stat-label">Tons CO₂ Sequestered</span>
+    <main>
+        <!-- Page Header -->
+        <section class="section section--dark" style="padding-top: 8rem; padding-bottom: 4rem;">
+            <div class="container" style="text-align: center;">
+                <h1 class="reveal-on-scroll text-reveal">Global Impact</h1>
+                <p class="reveal-on-scroll delay-100"
+                    style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9);">
+                    Measuring our contribution to a sustainable blue economy.
+                </p>
+            </div>
+        </section>
+
+        <!-- Impact Stats -->
+        <section class="section">
+            <div class="container">
+                <div class="impact-grid">
+                    <div class="impact-card reveal-on-scroll delay-100" style="background: var(--primary-blue);">
+                        <span class="impact-card__number">12,000+</span>
+                        <span class="impact-card__label">Professionals Trained</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">150+</span>
-                        <span class="stat-label">Habitats Restored</span>
+                    <div class="impact-card reveal-on-scroll delay-200" style="background: var(--primary-blue);">
+                        <span class="impact-card__number">350+</span>
+                        <span class="impact-card__label">Projects Completed</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">12,450</span>
-                        <span class="stat-label">Professionals Trained</span>
+                    <div class="impact-card reveal-on-scroll delay-300" style="background: var(--primary-blue);">
+                        <span class="impact-card__number">220+</span>
+                        <span class="impact-card__label">Species Monitored</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">530</span>
-                        <span class="stat-label">Companies Transformed</span>
+                    <div class="impact-card reveal-on-scroll delay-400" style="background: var(--primary-blue);">
+                        <span class="impact-card__number">15</span>
+                        <span class="impact-card__label">Countries Served</span>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <h3 style="color: var(--deep-blue); margin: 3rem 0 1rem; font-size: 1.8rem;">Success Stories</h3>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-industry"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Shipping Giant Goes Green</h3>
-                            <p class="card-text">"Working with MetOcean transformed our fleet. We reduced emissions by 40% in 24 months and are on track for net-zero by 2040." - Global Cargo Ltd.</p>
-                            <!-- Reverted Button -->
-                            <a href="#" class="card-button">Learn More</a>
-                        </div>
+        <!-- Case Study -->
+        <section class="section section--light">
+            <div class="container">
+                <div class="section__header reveal-on-scroll">
+                    <span class="section__subtitle">Case Study</span>
+                    <h2 class="section__title">North Sea Wind Farm</h2>
+                </div>
+                <div class="row" style="align-items: center; gap: 3rem; display: flex; flex-wrap: wrap;">
+                    <div class="col reveal-on-scroll" style="flex: 1; min-width: 300px;">
+                        <img src="https://placehold.co/600x400/004a99/ffffff?text=Offshore+Wind"
+                            alt="Offshore Wind Farm"
+                            style="width: 100%; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-city"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Coastal City Resilience</h3>
-                            <p class="card-text">"MetOcean's consulting helped our city implement a hybrid 'green & gray' infrastructure plan, protecting us from storm surge." - Port City Council</p>
-                            <!-- Reverted Button -->
-                            <a href="#" class="card-button">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-tree"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Mangrove Restoration Project</h3>
-                            <p class="card-text">"Thanks to MetOcean's data, we successfully restored 5,000 acres of degraded mangrove forest, bringing back key nursery habitats." - Coastal Conservation Alliance</p>
-                            <!-- Reverted Button -->
-                            <a href="#" class="card-button">Learn More</a>
-                        </div>
+                    <div class="col reveal-on-scroll delay-200" style="flex: 1; min-width: 300px;">
+                        <h3>The Challenge</h3>
+                        <p>A major energy developer needed accurate 50-year return period wave data to design turbine
+                            foundations for a new wind farm in the North Sea.</p>
+                        <h3>Our Solution</h3>
+                        <p>MetOcean deployed two waverider buoys for real-time validation and ran a high-resolution
+                            30-year hindcast model. We provided a comprehensive design criteria report compliant with
+                            IEC 61400-3.</p>
+                        <h3>The Result</h3>
+                        <p>The project was approved with optimized foundation designs, saving the client $2.5M in
+                            material costs while ensuring safety standards were met.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <h3 style="color: var(--deep-blue); margin: 3rem 0 1rem; font-size: 1.8rem;">Case Studies</h3>
-                <div style="background: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.07);">
-                    <h4 style="color: var(--primary-teal); margin-bottom: 1rem; font-size: 1.4rem;">Offshore Wind Farm: Site & Impact</h4>
-                    <p><strong>Challenge:</strong> A renewable energy firm needed to site a 500MW offshore wind farm while minimizing impact on marine mammals and fisheries.</p>
-                    <p><strong>Solution:</strong> Our team provided end-to-end consulting, from high-resolution geophysical surveys and habitat mapping to advanced acoustic monitoring and stakeholder engagement.</p>
-                    <p><strong>Results:</strong> A-level site certification achieved with a 90% reduction in predicted marine mammal interactions, gaining full regulatory approval 6 months ahead of schedule.</p>
-                </div>
+    </main>
 
-                <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.07);">
-                    <h4 style="color: var(--primary-teal); margin-bottom: 1rem; font-size: 1.4rem;">Aquaculture Circular Economy</h4>
-                    <p><strong>Challenge:</strong> A large salmon aquaculture company sought to eliminate waste and achieve a 'circular' model.</p>
-                    <p><strong>Solution:</strong> MetOcean designed and implemented an integrated multi-trophic aquaculture (IMTA) system, using seaweed and shellfish to capture and repurpose waste streams.</p>
-                    <p><strong>Results:</strong> 95% waste nutrient recapture, $1.2M in new revenue from secondary crops (seaweed), and a 3rd-party 'Sustainable' certification achieved.</p>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- Footer and Modals are injected here -->
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    
-    <!-- Firebase Config & Scripts -->
-    <script>
-        // PASTE YOUR FIREBASE CONFIG HERE
-        const __firebase_config = `{
-            "apiKey": "YOUR_API_KEY",
-            "authDomain": "YOUR_AUTH_DOMAIN",
-            "projectId": "YOUR_PROJECT_ID",
-            "storageBucket": "YOUR_STORAGE_BUCKET",
-            "messagingSenderId": "YOUR_MESSAGING_SENDER_ID",
-            "appId": "YOUR_APP_ID"
-        }`;
-        const __app_id = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    </script>
-    <script type="module" src="script.js"></script>
 
+    <!-- Scripts -->
+    <script src="js/loader.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
 </body>
-</html>
 
+</html>

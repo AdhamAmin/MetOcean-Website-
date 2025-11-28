@@ -1,96 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - MetOcean</title>
+    <title>Services - MetOcean</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/components.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- Header is injected here -->
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
-    <!-- Services Page Content -->
-    <div id="services" class="page-content">
-        <div class="container">
-            <section class="section">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive solutions for marine sustainability and ocean industries</p>
-                
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-drafting-compass"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Marine Impact Assessment</h3>
-                            <p class="card-text">Detailed analysis of your project's environmental footprint with actionable recommendations for compliance with international standards.</p>
-                            <a href="contact.html" class="card-button">Inquire Now</a>
-                        </div>
+    <main>
+        <!-- Page Header -->
+        <section class="section section--dark" style="padding-top: 8rem; padding-bottom: 4rem;">
+            <div class="container" style="text-align: center;">
+                <h1 class="reveal-on-scroll text-reveal">Our Services</h1>
+                <p class="reveal-on-scroll delay-100"
+                    style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9);">
+                    Comprehensive meteorological and oceanographic solutions for global industries.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services List -->
+        <section class="section">
+            <div class="container">
+
+                <!-- Service 1 -->
+                <div class="row reveal-on-scroll"
+                    style="align-items: center; gap: 3rem; margin-bottom: 5rem; display: flex; flex-wrap: wrap;">
+                    <div class="col" style="flex: 1; min-width: 300px;">
+                        <div class="service-card__icon"><i class="fas fa-wind"></i></div>
+                        <h2 class="section__title">Weather Forecasting & Hindcasting</h2>
+                        <p>We provide reliable, site-specific marine weather forecasts and historical data analysis
+                            (hindcasting). Our high-resolution models help you assess engineering design thresholds and
+                            minimize operational downtime.</p>
+                        <ul style="list-style: none; margin-top: 1rem;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> Global to
+                                hyper-local scale modelling</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> Extreme value
+                                analysis for design criteria</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> Real-time
+                                operational support</li>
+                        </ul>
                     </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-wind"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Offshore Renewable Energy</h3>
-                            <p class="card-text">Expert guidance on offshore wind, wave, and tidal energy projects, from site selection to operational monitoring.</p>
-                            <a href="contact.html" class="card-button">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-recycle"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Sustainable Aquaculture</h3>
-                            <p class="card-text">Comprehensive strategies, site analysis, and circular economy implementation for sustainable seafood production.</p>
-                            <a href="contact.html" class="card-button">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-water"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Coastal Zone Management</h3>
-                            <p class="card-text">Sustainable strategies for coastal erosion, flood risk, and habitat restoration to build resilient coastlines.</p>
-                            <a href="contact.html" class="card-button">Inquire Now</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-anchor"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Sustainable Ports & Shipping</h3>
-                            <p class="card-text">Consulting on green port initiatives, emissions reduction, ballast water management, and biofouling solutions.</p>
-                            <a href="contact.html" class="card-button">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-seedling"></i></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Blue Carbon & Restoration</h3>
-                            <p class="card-text">Habitat restoration projects (mangroves, seagrass), biodiversity assessments, and blue carbon credit verification.</p>
-                            <a href="contact.html" class="card-button">Get Started</a>
-                        </div>
+                    <div class="col" style="flex: 1; min-width: 300px;">
+                        <img src="https://placehold.co/600x400/004a99/ffffff?text=Weather+Modelling"
+                            alt="Weather Modelling"
+                            style="width: 100%; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
 
-    <!-- Footer and Modals are injected here -->
+                <!-- Service 2 -->
+                <div class="row reveal-on-scroll"
+                    style="align-items: center; gap: 3rem; margin-bottom: 5rem; display: flex; flex-wrap: wrap; flex-direction: row-reverse;">
+                    <div class="col" style="flex: 1; min-width: 300px;">
+                        <div class="service-card__icon"><i class="fas fa-water"></i></div>
+                        <h2 class="section__title">Oceanographic Monitoring</h2>
+                        <p>Deploying advanced sensors and buoys to capture critical ocean data. From wave height and
+                            current profiles to water quality parameters, we ensure you have the ground-truth data
+                            needed for your project.</p>
+                        <ul style="list-style: none; margin-top: 1rem;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> ADCP and wave buoy
+                                deployment</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> Real-time telemetry
+                                systems</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> Sediment transport
+                                analysis</li>
+                        </ul>
+                    </div>
+                    <div class="col" style="flex: 1; min-width: 300px;">
+                        <img src="https://placehold.co/600x400/004a99/ffffff?text=Ocean+Sensors" alt="Ocean Sensors"
+                            style="width: 100%; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="row reveal-on-scroll"
+                    style="align-items: center; gap: 3rem; display: flex; flex-wrap: wrap;">
+                    <div class="col" style="flex: 1; min-width: 300px;">
+                        <div class="service-card__icon"><i class="fas fa-ship"></i></div>
+                        <h2 class="section__title">Offshore & Coastal Engineering Support</h2>
+                        <p>Supporting all stages of marine infrastructure projects, from feasibility studies to
+                            decommissioning. We deliver ISO and DNV compliant metocean reports to ensure the structural
+                            integrity and safety of your assets.</p>
+                        <ul style="list-style: none; margin-top: 1rem;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> Oil spill
+                                trajectory modelling</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> Vessel routing and
+                                motion forecasting</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                                    style="color: var(--secondary-teal); margin-right: 0.5rem;"></i> Environmental
+                                impact assessments</li>
+                        </ul>
+                    </div>
+                    <div class="col" style="flex: 1; min-width: 300px;">
+                        <img src="https://placehold.co/600x400/004a99/ffffff?text=Offshore+Engineering"
+                            alt="Offshore Engineering"
+                            style="width: 100%; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- Firebase Config & Scripts -->
-    <script>
-        // PASTE YOUR FIREBASE CONFIG HERE
-        const __firebase_config = `{
-            "apiKey": "YOUR_API_KEY",
-            "authDomain": "YOUR_AUTH_DOMAIN",
-            "projectId": "YOUR_PROJECT_ID",
-            "storageBucket": "YOUR_STORAGE_BUCKET",
-            "messagingSenderId": "YOUR_MESSAGING_SENDER_ID",
-            "appId": "YOUR_APP_ID"
-        }`;
-        const __app_id = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    </script>
-    <script type="module" src="script.js"></script>
-
+    <!-- Scripts -->
+    <script src="js/loader.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
 </body>
-</html>
 
+</html>
