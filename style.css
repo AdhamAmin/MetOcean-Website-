@@ -667,7 +667,8 @@ nav {
 
 footer {
     background-color: var(--bg-surface);
-    padding: 4rem 0 2rem;
+    padding: 4rem 0 1rem;
+    /* Reduced bottom padding */
     margin-top: 6rem;
     animation: slideUp 1s ease-out;
 }
@@ -734,11 +735,11 @@ footer {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    /* The Line */
-    padding-top: 2rem;
-    margin-top: 3rem;
+    padding-top: 1rem;
+    /* Reduced height */
+    margin-top: 5rem;
+    /* Lowered the line (moved down) */
     width: 90%;
-    /* Not complete line */
     margin-left: auto;
     margin-right: auto;
 }
