@@ -14,7 +14,7 @@ const translations = {
         quickLinks: "Quick Links",
         contactInfo: "Contact Info",
         rights: "© 2025 Metocean Consulting Group. All rights reserved.",
-        createdBy: "Created by <a href='https://adhamamin.github.io/My-Portflio/' target='_blank' style='color: var(--primary); text-decoration: none;'>Adham Amin the best web div</a>",
+        createdBy: "Created by <a href='https://adhamamin.github.io/My-Portflio/' target='_blank' style='color: var(--primary); text-decoration: none;'>Adham Amin</a>",
         privacy: "Privacy Policy",
         address: "100 Ocean Way, Suite 500<br>Maritime City, MC 12345",
 
@@ -162,7 +162,7 @@ const translations = {
         quickLinks: "روابط سريعة",
         contactInfo: "معلومات الاتصال",
         rights: "© 2025 مجموعة ميتوشيان للاستشارات. جميع الحقوق محفوظة.",
-        createdBy: "تصميم <a href='https://adhamamin.github.io/My-Portflio/' target='_blank' style='color: var(--primary); text-decoration: none;'>أدهم أمين أفضل مطور ويب</a>",
+        createdBy: "تصميم <a href='https://adhamamin.github.io/My-Portflio/' target='_blank' style='color: var(--primary); text-decoration: none;'>أدهم أمين</a>",
         privacy: "سياسة الخصوصية",
         address: "١٠٠ طريق المحيط، جناح ٥٠٠<br>مدينة الملاحة، ١٢٣٤٥",
 
@@ -333,12 +333,15 @@ function getHeaderContent() {
             <li><a href="contact.html" class="nav-item">${t.contact}</a></li>
         </ul>
         <div class="nav-actions">
+            <!-- Search Icon -->
             <span class="material-symbols-outlined icon-hover" style="cursor: pointer;">search</span>
             
+            <!-- Get Started Button -->
             <a href="login.html" class="btn btn-primary btn-sm btn-animate" data-text="${t.portal}">
                 <span>${t.portal}</span>
             </a>
 
+            <!-- Mobile Menu Toggle -->
             <span class="material-symbols-outlined mobile-menu-btn" id="mobile-menu-btn">menu</span>
         </div>
     </div>
@@ -416,9 +419,9 @@ function getFooterContent() {
             </div>
         </div>
         
-        <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-muted);">
+        <div class="footer-bottom">
             <p>${t.rights}</p>
-            <div style="display: flex; gap: 2rem;">
+            <div class="footer-links">
                 <span>${t.createdBy}</span>
                 <span>${t.privacy}</span>
             </div>
@@ -433,14 +436,21 @@ document.addEventListener("DOMContentLoaded", function () {
     initCounters();
     translatePage();
 
-    // *** SHOW MODAL EVERY TIME (not just first visit) ***
-    injectWelcomeModal();
-    setTimeout(() => {
-        const modalOverlay = document.getElementById('welcome-modal-overlay');
-        if (modalOverlay) {
-            modalOverlay.classList.add('active');
-        }
-    }, 500);
+    // *** STRICT LOGIC: ONLY Home Page + ONLY First Visit ***
+    const hasVisited = localStorage.getItem('metocean_visited');
+    const path = window.location.pathname;
+    const isHomePage = path.endsWith('index.html') || path.endsWith('/') || path === '/';
+
+    if (!hasVisited && isHomePage) {
+        injectWelcomeModal();
+        setTimeout(() => {
+            const modalOverlay = document.getElementById('welcome-modal-overlay');
+            if (modalOverlay) {
+                modalOverlay.classList.add('active');
+            }
+        }, 500);
+    }
+    // ELSE: Do nothing. No modal will be injected.
 });
 
 function loadIncludes() {
@@ -488,17 +498,10 @@ function selectLanguageInit(lang) {
         modalOverlay.classList.remove('active');
     }
 
-    // *** Tour runs ONLY ONCE and ONLY on homepage (index.html) ***
-    const tourCompleted = localStorage.getItem('metocean_tour_completed');
-    const isHomePage = window.location.pathname.endsWith('index.html') ||
-        window.location.pathname.endsWith('/') ||
-        window.location.pathname === '';
-
-    if (!tourCompleted && isHomePage) {
-        setTimeout(() => {
-            startTour();
-        }, 800);
-    }
+    // Start Tour (Since language selected = first visit on home page valid case)
+    setTimeout(() => {
+        startTour();
+    }, 800);
 }
 
 function translatePage() {
@@ -720,7 +723,4 @@ function endTour() {
     // Cleanup highlights
     const highlights = document.querySelectorAll('.tour-active-element');
     highlights.forEach(el => el.classList.remove('tour-active-element'));
-
-    // Mark tour as completed so it never runs again
-    localStorage.setItem('metocean_tour_completed', 'true');
 }
