@@ -20,14 +20,14 @@
     <header class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1 class="hero-title animate-slide-up">Mastering the Marine Environment</h1>
-                <p class="hero-text animate-slide-up delay-100">
+                <h1 class="hero-title animate-slide-up" data-i18n="heroTitle">Mastering the Marine Environment</h1>
+                <p class="hero-text animate-slide-up delay-100" data-i18n="heroText">
                     Delivering critical oceanographic data and engineering criteria for the world's most challenging
                     offshore projects. We bridge the gap between complex marine science and operational success.
                 </p>
                 <div class="animate-slide-up delay-200" style="display: flex; gap: 1rem;">
-                    <a href="services.html" class="btn btn-primary">Our Services</a>
-                    <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                    <a href="services.html" class="btn btn-primary btn-animate" data-i18n="ourServices">Our Services</a>
+                    <a href="contact.html" class="btn btn-outline btn-animate" data-i18n="contactUs">Contact Us</a>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
                     <img src="https://images.unsplash.com/photo-1620509652597-9e4776e05bf1?q=80&w=800&auto=format&fit=crop"
                         alt="Offshore Platform">
                     <div class="dest-info">
-                        <h3>Offshore Energy</h3>
+                        <h3 data-i18n="offshoreEnergy">Offshore Energy</h3>
                     </div>
                 </div>
                 <!-- Top Right -->
@@ -58,47 +58,51 @@
     <section class="section">
         <div class="container">
             <div class="section-header animate-slide-up">
-                <h2>Key Sectors</h2>
-                <a href="services.html" class="btn btn-outline">View all capabilities</a>
+                <h2 data-i18n="keySectors">Key Sectors</h2>
+                <a href="services.html" class="btn btn-outline btn-animate" data-i18n="viewCapabilities">View all
+                    capabilities</a>
             </div>
 
             <!-- Chips -->
             <div style="display: flex; gap: 1rem; margin-bottom: 2rem; overflow-x: auto; padding-bottom: 1rem;"
                 class="animate-slide-up delay-100">
-                <button class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Energy</button>
+                <button class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;"
+                    data-i18n="secEnergy">Energy</button>
                 <button class="btn btn-outline"
-                    style="padding: 0.5rem 1.5rem; border: none; background: #f1f5f9; font-size: 0.9rem;">Infrastructure</button>
+                    style="padding: 0.5rem 1.5rem; border: none; background: #f1f5f9; font-size: 0.9rem;"
+                    data-i18n="secInfra">Infrastructure</button>
                 <button class="btn btn-outline"
-                    style="padding: 0.5rem 1.5rem; border: none; background: #f1f5f9; font-size: 0.9rem;">Defense</button>
+                    style="padding: 0.5rem 1.5rem; border: none; background: #f1f5f9; font-size: 0.9rem;"
+                    data-i18n="secDefense">Defense</button>
             </div>
 
             <div class="destinations-grid animate-slide-up delay-200">
                 <div class="dest-card">
                     <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=800" alt="Wind">
                     <div class="dest-info">
-                        <h3>Offshore Wind</h3>
-                        <p>Foundation Criteria</p>
+                        <h3 data-i18n="offshoreWind">Offshore Wind</h3>
+                        <p data-i18n="foundCriteria">Foundation Criteria</p>
                     </div>
                 </div>
                 <div class="dest-card">
                     <img src="https://images.unsplash.com/photo-1621255530635-c8e19574409b?q=80&w=800" alt="Oil">
                     <div class="dest-info">
-                        <h3>Oil & Gas</h3>
-                        <p>Exploration</p>
+                        <h3 data-i18n="oilGas">Oil & Gas</h3>
+                        <p data-i18n="exploration">Exploration</p>
                     </div>
                 </div>
                 <div class="dest-card">
                     <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=800" alt="Port">
                     <div class="dest-info">
-                        <h3>Ports</h3>
-                        <p>Dredging</p>
+                        <h3 data-i18n="ports">Ports</h3>
+                        <p data-i18n="dredging">Dredging</p>
                     </div>
                 </div>
                 <div class="dest-card">
                     <img src="https://images.unsplash.com/photo-1619565551930-b3b3a4e93d16?q=80&w=800" alt="Coastal">
                     <div class="dest-info">
-                        <h3>Coastal</h3>
-                        <p>Resilience</p>
+                        <h3 data-i18n="coastal">Coastal</h3>
+                        <p data-i18n="resilience">Resilience</p>
                     </div>
                 </div>
             </div>
@@ -109,7 +113,7 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Technical Insights</h2>
+                <h2 data-i18n="techInsights">Technical Insights</h2>
             </div>
 
             <div class="stories-layout">
@@ -117,9 +121,11 @@
                     <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200" alt="Waves">
                     <div class="feature-story-content">
                         <span
-                            style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; backdrop-filter: blur(4px);">Case
+                            style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; backdrop-filter: blur(4px);"
+                            data-i18n="caseStudy">Case
                             Study</span>
-                        <h3 style="font-size: 2rem; margin-top: 1rem;">Optimizing installation windows for North Sea
+                        <h3 style="font-size: 2rem; margin-top: 1rem;" data-i18n="caseTitle">Optimizing installation
+                            windows for North Sea
                             assets</h3>
                     </div>
                 </div>
@@ -128,16 +134,18 @@
                     <div class="mini-story">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=200" alt="Analysis">
                         <div>
-                            <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary);">Analysis</span>
-                            <h4 style="font-size: 1.1rem;">Extreme Wave Height Analysis</h4>
+                            <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary);"
+                                data-i18n="analysis">Analysis</span>
+                            <h4 style="font-size: 1.1rem;" data-i18n="waveAnalysis">Extreme Wave Height Analysis</h4>
                         </div>
                     </div>
                     <div class="mini-story">
                         <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=200"
                             alt="Turbine">
                         <div>
-                            <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary);">Innovation</span>
-                            <h4 style="font-size: 1.1rem;">Floating Wind Challenges</h4>
+                            <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary);"
+                                data-i18n="innovation">Innovation</span>
+                            <h4 style="font-size: 1.1rem;" data-i18n="floatWind">Floating Wind Challenges</h4>
                         </div>
                     </div>
                 </div>
@@ -149,8 +157,8 @@
     <section class="section" style="background-color: var(--bg-surface);">
         <div class="container">
             <div style="text-align: center; margin-bottom: 3rem;">
-                <h2>Our Impact by the Numbers</h2>
-                <p>Decades of experience delivering precision data.</p>
+                <h2 data-i18n="impactTitle">Our Impact by the Numbers</h2>
+                <p data-i18n="impactDesc">Decades of experience delivering precision data.</p>
             </div>
 
             <div class="highlights-grid">
@@ -159,21 +167,21 @@
                         style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">public</span>
                     <h3 style="font-size: 3.5rem; color: var(--accent); margin-bottom: 0.5rem;" class="counter"
                         data-target="500">0</h3>
-                    <p style="font-weight: 600;">Projects Completed</p>
+                    <p style="font-weight: 600;" data-i18n="projCompleted">Projects Completed</p>
                 </div>
                 <div class="highlight-card" style="text-align: center;">
                     <span class="material-symbols-outlined"
                         style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">calendar_month</span>
                     <h3 style="font-size: 3.5rem; color: var(--accent); margin-bottom: 0.5rem;" class="counter"
                         data-target="25">0</h3>
-                    <p style="font-weight: 600;">Years of Excellence</p>
+                    <p style="font-weight: 600;" data-i18n="yearsEx">Years of Excellence</p>
                 </div>
                 <div class="highlight-card" style="text-align: center;">
                     <span class="material-symbols-outlined"
                         style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">flag</span>
                     <h3 style="font-size: 3.5rem; color: var(--accent); margin-bottom: 0.5rem;" class="counter"
                         data-target="50">0</h3>
-                    <p style="font-weight: 600;">Countries Served</p>
+                    <p style="font-weight: 600;" data-i18n="countries">Countries Served</p>
                 </div>
             </div>
         </div>
@@ -185,14 +193,15 @@
             <div class="newsletter"
                 style="background: var(--bg-dark); padding: 4rem; border-radius: var(--radius-lg); text-align: center; color: white;">
                 <div class="newsletter-content animate-slide-up">
-                    <h2>Subscribe to Industry Intelligence</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Get the latest regulatory updates and
+                    <h2 data-i18n="subTitle">Subscribe to Industry Intelligence</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="subDesc">Get the latest
+                        regulatory updates and
                         technical best practices.</p>
                     <form class="newsletter-form"
                         style="display: flex; gap: 1rem; justify-content: center; max-width: 500px; margin: 0 auto;">
-                        <input type="email" placeholder="Corporate email address"
+                        <input type="email" placeholder="Corporate email address" data-i18n="emailPlaceholder"
                             style="padding: 1rem; border-radius: var(--radius-full); border: none; flex: 1;">
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                        <button type="submit" class="btn btn-primary" data-i18n="subscribe">Subscribe</button>
                     </form>
                 </div>
             </div>

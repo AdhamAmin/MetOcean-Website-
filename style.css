@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+/* Arabic Font */
 
 :root {
-    /* Palette - Sophisticated & Clean */
+    /* Palette - Light Mode (Default) */
     --bg-body: #ffffff;
     --bg-surface: #f8f9fa;
     --bg-dark: #0f172a;
@@ -12,9 +14,9 @@
     --text-white: #ffffff;
 
     --accent: #0f172a;
-    /* Deep Navy as primary branding */
+    /* Deep Navy */
     --primary: #2dd4bf;
-    /* Teal pop for interactions */
+    /* Teal */
     --secondary: #94a3b8;
 
     /* Spacing */
@@ -36,6 +38,25 @@
     --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+[data-theme="dark"] {
+    /* Palette - Dark Mode */
+    --bg-body: #0f172a;
+    --bg-surface: #1e293b;
+    --bg-dark: #020617;
+    /* Even darker for contrast */
+
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-white: #ffffff;
+
+    --accent: #f8fafc;
+    /* Lighter accent for dark mode */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -49,6 +70,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -60,6 +82,19 @@ h6 {
     line-height: 1.2;
     color: var(--text-main);
     font-family: 'Playfair Display', serif;
+}
+
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3,
+[lang="ar"] h4,
+[lang="ar"] h5,
+[lang="ar"] h6 {
+    font-family: 'Tajawal', sans-serif;
+}
+
+[lang="ar"] body {
+    font-family: 'Tajawal', sans-serif;
 }
 
 h1 {
@@ -116,6 +151,13 @@ a {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
     background-color: #1e293b;
+    /* Fallback hover */
+}
+
+/* Dark mode specific hover if needed, but accent manages it mostly */
+[data-theme="dark"] .btn-primary:hover {
+    background-color: #cbd5e1;
+    color: #0f172a;
 }
 
 .btn-outline {
@@ -126,7 +168,8 @@ a {
 
 .btn-outline:hover {
     background-color: var(--text-main);
-    color: var(--text-white);
+    color: var(--bg-body);
+    /* Invert text color based on bg */
 }
 
 .btn-sm {
@@ -151,6 +194,12 @@ nav {
     animation: slideDown 0.8s ease-out;
 }
 
+[data-theme="dark"] nav {
+    background: rgba(15, 23, 42, 0.8);
+    /* Dark BG for nav */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
@@ -162,6 +211,10 @@ nav {
     font-weight: 800;
     letter-spacing: -0.03em;
     font-family: 'Playfair Display', serif;
+}
+
+[lang="ar"] .brand {
+    font-family: 'Tajawal', sans-serif;
 }
 
 .nav-links {
@@ -221,20 +274,22 @@ nav {
     height: 24px;
     transition: all 0.3s ease;
     filter: brightness(0);
-    /* Black Icons */
     opacity: 0.8;
+}
+
+[data-theme="dark"] .social-icons .social-icon img {
+    filter: brightness(0) invert(1);
+    /* Invert to white in dark mode */
 }
 
 .social-icons .social-icon:hover img {
     opacity: 1;
     transform: scale(1.2) rotate(10deg);
-    filter: brightness(0);
 }
 
 /* --- Mobile Menu Drawer --- */
 .mobile-menu-btn {
     display: none !important;
-    /* Force hide on desktop */
     font-size: 2rem;
     cursor: pointer;
 }
@@ -260,7 +315,8 @@ nav {
     right: -300px;
     width: 300px;
     height: 100%;
-    background: white;
+    background: var(--bg-surface);
+    color: var(--text-main);
     z-index: 1200;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -273,6 +329,17 @@ nav {
 .mobile-menu-drawer.open {
     right: 0;
 }
+
+[dir="rtl"] .mobile-menu-drawer {
+    right: auto;
+    left: -300px;
+    transition: left 0.3s;
+}
+
+[dir="rtl"] .mobile-menu-drawer.open {
+    left: 0;
+}
+
 
 .mobile-menu-header {
     display: flex;
@@ -476,11 +543,21 @@ nav {
 }
 
 .highlight-card {
-    background: white;
+    background: var(--bg-surface);
     padding: 2rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: transform 0.3s ease;
+}
+
+/* Highlight Card Text colors handling */
+.highlight-card h2,
+.highlight-card h3 {
+    color: var(--text-main);
+}
+
+.highlight-card p {
+    color: var(--text-muted);
 }
 
 .highlight-card:hover {
@@ -546,7 +623,6 @@ footer {
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 0.8fr 1fr;
-    /* UPDATED: 3 Column Layout */
     gap: 4rem;
     margin-bottom: 3rem;
 }
@@ -572,6 +648,35 @@ footer {
 .footer-col ul li a:hover {
     color: var(--primary);
 }
+
+/* Toggle Buttons */
+.footer-toggles {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.circle-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--text-muted);
+    background: var(--bg-surface);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.circle-btn:hover {
+    background: var(--primary);
+    color: var(--bg-body);
+    border-color: var(--primary);
+    transform: rotate(15deg);
+}
+
 
 /* --- Animations --- */
 @keyframes slideDown {
@@ -625,6 +730,42 @@ footer {
     animation-delay: 0.3s;
 }
 
+/* Button Animation (Appear/Disappear Effect) */
+.btn-animate {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-animate span {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-animate::after {
+    content: attr(data-text);
+    /* Use data attribute for duplicate text */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: top 0.3s ease;
+    opacity: 0;
+}
+
+.btn-animate:hover span {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.btn-animate:hover::after {
+    top: 0;
+    opacity: 1;
+}
+
 /* --- Mobile Responsiveness --- */
 @media (max-width: 900px) {
     h1 {
@@ -639,8 +780,6 @@ footer {
     .mobile-menu-btn {
         display: block !important;
     }
-
-    /* Force show on mobile */
 
     .hero-grid {
         grid-template-columns: 1fr;
