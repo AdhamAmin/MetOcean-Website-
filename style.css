@@ -1,37 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
-/* Arabic Font */
 
 :root {
-    /* Palette - Light Mode (Default) */
     --bg-body: #ffffff;
     --bg-surface: #f8f9fa;
     --bg-dark: #0f172a;
-
     --text-main: #1e293b;
     --text-muted: #64748b;
     --text-white: #ffffff;
-
     --accent: #0f172a;
-    /* Deep Navy */
     --primary: #2dd4bf;
-    /* Teal */
     --secondary: #94a3b8;
-
-    /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 8rem;
-
-    /* UI Elements */
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
     --radius-full: 9999px;
-
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -39,18 +28,13 @@
 }
 
 [data-theme="dark"] {
-    /* Palette - Dark Mode */
     --bg-body: #0f172a;
     --bg-surface: #1e293b;
     --bg-dark: #020617;
-    /* Even darker for contrast */
-
     --text-main: #f1f5f9;
     --text-muted: #94a3b8;
     --text-white: #ffffff;
-
     --accent: #f8fafc;
-    /* Lighter accent for dark mode */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
@@ -120,14 +104,12 @@ a {
     transition: color 0.3s ease;
 }
 
-/* --- Container --- */
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* --- Buttons --- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -151,10 +133,8 @@ a {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
     background-color: #1e293b;
-    /* Fallback hover */
 }
 
-/* Dark mode specific hover if needed, but accent manages it mostly */
 [data-theme="dark"] .btn-primary:hover {
     background-color: #cbd5e1;
     color: #0f172a;
@@ -169,7 +149,6 @@ a {
 .btn-outline:hover {
     background-color: var(--text-main);
     color: var(--bg-body);
-    /* Invert text color based on bg */
 }
 
 .btn-sm {
@@ -182,7 +161,6 @@ a {
     text-align: center;
 }
 
-/* --- Navigation --- */
 nav {
     padding: 1rem 0;
     position: sticky;
@@ -196,7 +174,6 @@ nav {
 
 [data-theme="dark"] nav {
     background: rgba(15, 23, 42, 0.8);
-    /* Dark BG for nav */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -234,7 +211,6 @@ nav {
     padding-bottom: 5px;
 }
 
-/* Nav Swoosh Animation */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -262,7 +238,6 @@ nav {
     align-items: center;
 }
 
-/* Social Icons */
 .social-icons {
     display: flex;
     gap: 1rem;
@@ -279,7 +254,6 @@ nav {
 
 [data-theme="dark"] .social-icons .social-icon img {
     filter: brightness(0) invert(1);
-    /* Invert to white in dark mode */
 }
 
 .social-icons .social-icon:hover img {
@@ -290,7 +264,6 @@ nav {
 /* --- Mobile Menu Drawer --- */
 .mobile-menu-btn {
     display: none !important;
-    /* FORCE hidden on desktop - only shows on mobile */
     font-size: 2rem;
     cursor: pointer;
     color: var(--text-main);
@@ -323,11 +296,8 @@ nav {
     position: fixed;
     top: 0;
     right: -100%;
-    /* Start fully off-screen */
     width: 320px;
-    /* Slightly wider */
     height: 100%;
-    /* Glassmorphism Background */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -335,7 +305,6 @@ nav {
     z-index: 1200;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    /* Elegent Ease */
     display: flex;
     flex-direction: column;
     padding: 3rem 2rem;
@@ -388,7 +357,6 @@ nav {
 .mobile-nav-links {
     list-style: none;
     margin-bottom: auto;
-    /* Push footer down */
 }
 
 .mobile-nav-links li {
@@ -398,7 +366,6 @@ nav {
     transition: all 0.4s ease;
 }
 
-/* Staggered Animation on Open */
 .mobile-menu-drawer.open .mobile-nav-links li {
     opacity: 1;
     transform: translateX(0);
@@ -426,7 +393,6 @@ nav {
 
 .mobile-nav-links a {
     font-size: 1.5rem;
-    /* Larger, more premium font */
     font-weight: 700;
     color: var(--text-main);
     display: block;
@@ -436,7 +402,6 @@ nav {
 .mobile-nav-links a:hover {
     color: var(--primary);
     transform: translateX(5px);
-    /* Subtle shift */
 }
 
 .mobile-menu-footer {
@@ -454,7 +419,6 @@ nav {
     opacity: 1;
 }
 
-/* --- Hero Section (Bento Grid) --- */
 .hero {
     padding: 4rem 0 6rem;
 }
@@ -530,7 +494,6 @@ nav {
     grid-row: 2 / 3;
 }
 
-/* --- Destinations / Sections --- */
 .section {
     padding: var(--spacing-lg) 0;
 }
@@ -577,7 +540,6 @@ nav {
     color: white;
 }
 
-/* --- Stories Section --- */
 .stories-layout {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -626,7 +588,6 @@ nav {
     object-fit: cover;
 }
 
-/* --- Highlights --- */
 .highlights-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -641,7 +602,6 @@ nav {
     transition: transform 0.3s ease;
 }
 
-/* Highlight Card Text colors handling */
 .highlight-card h2,
 .highlight-card h3 {
     color: var(--text-main);
@@ -655,7 +615,6 @@ nav {
     transform: translateY(-5px);
 }
 
-/* --- Newsletter --- */
 .newsletter {
     background-color: #cbd5e1;
     border-radius: var(--radius-lg);
@@ -703,7 +662,6 @@ nav {
     outline: none;
 }
 
-/* --- Footer --- */
 footer {
     background-color: var(--bg-surface);
     padding: 4rem 0 2rem;
@@ -740,7 +698,6 @@ footer {
     color: var(--primary);
 }
 
-/* Toggle Buttons */
 .footer-toggles {
     display: flex;
     gap: 1rem;
@@ -768,8 +725,6 @@ footer {
     transform: rotate(15deg);
 }
 
-
-/* --- Animations --- */
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -821,7 +776,6 @@ footer {
     animation-delay: 0.3s;
 }
 
-/* Button Animation (Appear/Disappear Effect) */
 .btn-animate {
     position: relative;
     overflow: hidden;
@@ -834,7 +788,6 @@ footer {
 
 .btn-animate::after {
     content: attr(data-text);
-    /* Use data attribute for duplicate text */
     position: absolute;
     top: 100%;
     left: 0;
@@ -857,8 +810,6 @@ footer {
     opacity: 1;
 }
 
-
-/* --- Welcome Modal --- */
 .welcome-modal-overlay {
     position: fixed;
     inset: 0;
@@ -938,11 +889,8 @@ footer {
     color: var(--text-muted);
 }
 
-
-/* --- Tour Guide --- */
 .tour-tooltip {
     position: fixed;
-    /* Fixed is safer for overlays */
     background: rgba(15, 23, 42, 0.95);
     color: #fff;
     padding: 1.5rem;
@@ -986,64 +934,192 @@ footer {
     font-size: 0.8rem;
 }
 
-/* The Highlight Effect */
 .tour-active-element {
     position: relative;
     z-index: 10002 !important;
     box-shadow: 0 0 0 5000px rgba(0, 0, 0, 0.7) !important;
-    /* The dark overlay trick */
     pointer-events: none;
-    /* Don't let user click away during tour? */
     background: var(--bg-surface);
     border-radius: 8px;
     transition: box-shadow 0.5s ease;
 }
 
-/* --- Mobile Responsiveness --- */
+/* --- PREMIUM MOBILE RESPONSIVENESS --- */
 @media (max-width: 900px) {
+
+    /* TYPOGRAPHY SCALING */
+    html {
+        font-size: 14px;
+        /* Slightly smaller base for mobile */
+    }
+
     h1 {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
 
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    /* LAYOUT & SPACING */
+    .container {
+        padding: 0 1.5rem;
+        /* Ensure 24px gutter on sides */
+    }
+
+    .section {
+        padding: 4rem 0;
+        /* Reduce vertical padding */
+    }
+
+    /* NAVIGATION */
     .nav-links,
-    .nav-actions {
-        display: none;
+    .nav-actions .btn,
+    .nav-actions .icon-hover {
+        display: none !important;
     }
 
-    /* Ensure hamburger shows on mobile */
+    /* HAMBURGER - FORCE VISIBLE */
     .mobile-menu-btn {
         display: block !important;
+        margin-left: auto;
+        color: var(--text-main);
     }
 
+    /* MOBILE MENU DRAWER REFINEMENT */
+    .mobile-menu-drawer {
+        width: 85%;
+        /* Don't cover full screen, show edge */
+        padding: 2rem;
+    }
+
+    /* HERO SECTION */
     .hero-grid {
         grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
     .hero-content {
         text-align: center;
         padding-right: 0;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        /* Full width buttons on mobile */
+        justify-content: center;
     }
 
     .hero-visuals {
-        grid-template-rows: 250px 150px;
+        grid-template-rows: 250px 180px;
+        /* Better aspect ratios */
     }
 
+    /* KEY SECTORS - HORIZONTAL CAROUSEL */
     .destinations-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 1.5rem;
+        padding-bottom: 2rem;
+        /* Space for scrollbar */
+        margin: 0 -1.5rem;
+        /* Bleed to edges */
+        padding-left: 1.5rem;
+        /* Restore left padding */
+        padding-right: 1.5rem;
+        /* Restore right padding */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .destination-card {
+        min-width: 280px;
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        margin-bottom: 0;
+        /* Remove Grid margins */
+    }
+
+    /* Hide Scrollbar but keep functionality */
+    .destinations-grid::-webkit-scrollbar {
+        height: 4px;
+        /* Thin scrollbar */
+    }
+
+    .destinations-grid::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .destinations-grid::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    /* TECHNICAL INSIGHTS & SERVICES */
+    .stories-layout,
+    .highlights-grid {
         grid-template-columns: 1fr;
+        /* Stack vertically */
+        gap: 2rem;
+    }
+
+    .story-card,
+    .highlight-card {
+        width: 100%;
+    }
+
+    /* STATS COUNTERS - 2x2 GRID */
+    .impact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns */
         gap: 1.5rem;
     }
 
-    .stories-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .highlights-grid {
-        grid-template-columns: 1fr;
-    }
-
+    /* FOOTER - STACKED & CENTERED */
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr;
+        /* Single column */
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .footer-col {
+        padding-right: 0 !important;
+        border-right: none;
+        /* Remove any desktop borders */
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .footer-toggles {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
