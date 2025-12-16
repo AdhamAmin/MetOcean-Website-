@@ -32,6 +32,10 @@
             z-index: 10;
         }
 
+        [data-theme="dark"] .contact-form-card {
+            background: var(--bg-surface);
+        }
+
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -54,6 +58,13 @@
             font-size: 1rem;
             transition: all 0.3s;
             background: #f8fafc;
+            color: var(--text-main);
+        }
+
+        [data-theme="dark"] .form-input,
+        [data-theme="dark"] .form-select {
+            background: var(--bg-dark);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         .form-input:focus,
@@ -62,6 +73,11 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2);
             background: white;
+        }
+
+        [data-theme="dark"] .form-input:focus,
+        [data-theme="dark"] .form-select:focus {
+            background: var(--bg-surface);
         }
 
         .map-container {
@@ -93,9 +109,9 @@
 
     <header class="section" style="padding: 6rem 0 3rem; text-align: center;">
         <div class="container">
-            <h1 class="animate-slide-up">Get in Touch</h1>
-            <p class="animate-slide-up delay-100"
-                style="max-width: 600px; margin: 1rem auto; color: var(--text-muted);">
+            <h1 class="animate-slide-up" data-i18n="contactTitle">Get in Touch</h1>
+            <p class="animate-slide-up delay-100" style="max-width: 600px; margin: 1rem auto; color: var(--text-muted);"
+                data-i18n="contactDesc">
                 Whether you need expert consultancy or professional training, our team is ready to assist.
             </p>
         </div>
@@ -107,13 +123,14 @@
 
                 <!-- Contact Info Side -->
                 <div class="contact-info-card">
-                    <h2 style="font-size: 2rem; margin-bottom: 2rem;">Contact Information</h2>
+                    <h2 style="font-size: 2rem; margin-bottom: 2rem;" data-i18n="contactInfoHeading">Contact Information
+                    </h2>
 
                     <div style="margin-bottom: 2rem; display: flex; gap: 1rem;">
                         <span class="material-symbols-outlined"
                             style="color: var(--primary); font-size: 1.8rem;">location_on</span>
                         <div>
-                            <h4 style="margin-bottom: 0.5rem;">Headquarters</h4>
+                            <h4 style="margin-bottom: 0.5rem;" data-i18n="headquarters">Headquarters</h4>
                             <p>100 Ocean Way, Suite 500<br>Maritime City, MC 12345<br>United Kingdom</p>
                         </div>
                     </div>
@@ -122,7 +139,7 @@
                         <span class="material-symbols-outlined"
                             style="color: var(--primary); font-size: 1.8rem;">mail</span>
                         <div>
-                            <h4 style="margin-bottom: 0.5rem;">Email Us</h4>
+                            <h4 style="margin-bottom: 0.5rem;" data-i18n="emailUs">Email Us</h4>
                             <p><a href="mailto:info@metocean.com">info@metocean.com</a><br><a
                                     href="mailto:training@metocean.com">training@metocean.com</a></p>
                         </div>
@@ -132,7 +149,7 @@
                         <span class="material-symbols-outlined"
                             style="color: var(--primary); font-size: 1.8rem;">call</span>
                         <div>
-                            <h4 style="margin-bottom: 0.5rem;">Call Us</h4>
+                            <h4 style="margin-bottom: 0.5rem;" data-i18n="callUs">Call Us</h4>
                             <p>+44 (0) 20 1234 5678<br>Mon-Fri, 9am - 5pm GMT</p>
                         </div>
                     </div>
@@ -140,28 +157,29 @@
 
                 <!-- Premium Form Side -->
                 <div class="contact-form-card">
-                    <h2 style="margin-bottom: 2rem;">Send a Message</h2>
+                    <h2 style="margin-bottom: 2rem;" data-i18n="sendMessage">Send a Message</h2>
                     <form>
                         <div class="form-group">
-                            <label class="form-label">Full Name</label>
-                            <input type="text" class="form-input" placeholder="John Doe">
+                            <label class="form-label" data-i18n="labelName">Full Name</label>
+                            <input type="text" class="form-input" data-i18n="phName" placeholder="John Doe">
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" class="form-input" placeholder="john@company.com">
+                            <label class="form-label" data-i18n="labelEmail">Email Address</label>
+                            <input type="email" class="form-input" data-i18n="phEmail" placeholder="john@company.com">
                         </div>
 
                         <!-- Dropdown for Contact Type -->
                         <div class="form-group">
-                            <label class="form-label">I am interested in...</label>
+                            <label class="form-label" data-i18n="labelInterest">I am interested in...</label>
                             <div style="position: relative;">
                                 <select class="form-select">
-                                    <option value="" disabled selected>Select an option</option>
-                                    <option value="consulting">Consulting Services</option>
-                                    <option value="courses">Training Courses</option>
-                                    <option value="partnership">Partnership</option>
-                                    <option value="other">Other Inquiry</option>
+                                    <option value="" disabled selected data-i18n="optionSelect">Select an option
+                                    </option>
+                                    <option value="consulting" data-i18n="optionConsult">Consulting Services</option>
+                                    <option value="courses" data-i18n="optionCourse">Training Courses</option>
+                                    <option value="partnership" data-i18n="optionPartner">Partnership</option>
+                                    <option value="other" data-i18n="optionOther">Other Inquiry</option>
                                 </select>
                                 <span class="material-symbols-outlined"
                                     style="position: absolute; right: 1rem; top: 1rem; pointer-events: none; color: var(--text-muted);">expand_more</span>
@@ -169,12 +187,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-input" rows="5"
+                            <label class="form-label" data-i18n="labelMsg">Message</label>
+                            <textarea class="form-input" rows="5" data-i18n="phMsg"
                                 placeholder="Tell us about your project requirements..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="btnSend">Send
+                            Message</button>
                     </form>
                 </div>
 
