@@ -1044,7 +1044,8 @@ footer {
         -webkit-overflow-scrolling: touch;
     }
 
-    .destination-card {
+    .dest-card {
+        /* CORRECTED CLASS NAME to match HTML */
         min-width: 280px;
         flex: 0 0 auto;
         scroll-snap-align: center;
