@@ -517,6 +517,9 @@ nav {
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    /* Ensuring links behave block-like */
+    display: block;
+    color: inherit;
 }
 
 .dest-card img {
@@ -723,6 +726,30 @@ footer {
     color: var(--bg-body);
     border-color: var(--primary);
     transform: rotate(15deg);
+}
+
+/* --- FOOTER DESKTOP BOTTOM BAR (New Request) --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    /* The Line */
+    padding-top: 2rem;
+    margin-top: 3rem;
+    width: 90%;
+    /* Not complete line */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[data-theme="dark"] .footer-bottom {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
 }
 
 @keyframes slideDown {
@@ -1045,12 +1072,14 @@ footer {
     }
 
     .dest-card {
-        /* CORRECTED CLASS NAME to match HTML */
+        /* CORRECTED CLASS NAME */
         min-width: 280px;
         flex: 0 0 auto;
         scroll-snap-align: center;
         margin-bottom: 0;
         /* Remove Grid margins */
+        display: block;
+        /* Ensure link works as block */
     }
 
     /* Hide Scrollbar but keep functionality */
@@ -1113,10 +1142,13 @@ footer {
         margin-top: 2rem;
     }
 
+    /* FOOTER BOTTOM MOBILE REFINEMENT */
     .footer-bottom {
         flex-direction: column;
         gap: 1.5rem;
         text-align: center;
+        /* Line is inherited from desktop rules (width 90%, border-top) */
+        /* It will look good on mobile too */
     }
 
     .footer-links {
