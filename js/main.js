@@ -48,10 +48,10 @@ const footerContent = `
 <footer>
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col" style="padding-right: 2rem;">
+            <div class="footer-col animate-slide-up" style="padding-right: 2rem;">
                 <a href="index.html" class="brand" style="display: block; margin-bottom: 1.5rem;">Metocean</a>
                 <p style="font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-muted);">
-                    Global leaders in oceanographic consulting and marine data solutions. With over 25 years of experience, we enable safe and sustainable offshore operations through precision engineering, advanced analytics, and expert guidance. Trusted by energy majors and government agencies worldwide.
+                    Global leaders in oceanographic consulting. Over 25 years of enabling safe offshore operations through precision engineering and data.
                 </p>
                 <!-- Social Icons -->
                 <div class="social-icons">
@@ -61,7 +61,7 @@ const footerContent = `
                 </div>
             </div>
             
-            <div class="footer-col">
+            <div class="footer-col animate-slide-up delay-100">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="index.html" class="nav-item">Home</a></li>
@@ -72,7 +72,7 @@ const footerContent = `
                 </ul>
             </div>
             
-            <div class="footer-col">
+            <div class="footer-col animate-slide-up delay-200">
                 <h4>Contact Info</h4>
                 <ul style="color: var(--text-muted); font-size: 0.95rem;">
                     <li style="margin-bottom: 1rem;">100 Ocean Way, Suite 500<br>Maritime City, MC 12345</li>
@@ -113,6 +113,7 @@ function loadIncludes() {
     const footerPlaceholder = document.getElementById("footer-placeholder");
     if (footerPlaceholder) {
         footerPlaceholder.innerHTML = footerContent;
+        // Trigger animations for footer if it's injected late (though CSS animation triggers on load/scroll usually if viewport aware, here it's keyframes on load. For dynamic content, simple CSS animation might run on insertion)
     } else {
         console.error("Footer placeholder not found");
     }
