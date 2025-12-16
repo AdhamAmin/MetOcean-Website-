@@ -1,152 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Courses - MetOcean</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <title>Training - Metocean Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
-<body>
 
-    <!-- Header is injected here -->
+<body>
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
-    <!-- Courses Page Content -->
-    <div id="courses" class="page-content">
+    <header class="section" style="padding: 6rem 0 3rem;">
         <div class="container">
-            <section class="section">
-                <h2 class="section-title">Professional Marine Courses</h2>
-                <p class="section-subtitle">Expert-led training programs for ocean professionals</p>
-                
-                <h3 style="color: var(--deep-blue); margin: 2rem 0 1rem; font-size: 1.8rem;">Upcoming Live Courses</h3>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-calendar-alt"></i></div>
-                        <div class="card-content">
-                            <span style="color: var(--primary-teal); font-weight: bold;">Nov 15, 2025</span>
-                            <h3 class="card-title">Sustainable Marine Business</h3>
-                            <p class="card-text">Learn to integrate sustainability into core marine operations and achieve green certification.</p>
-                            <!-- Use onclick to trigger signup modal -->
-                            <a href="#" class="card-button" onclick="event.preventDefault(); showSignUp()">Enroll Now</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-calendar-alt"></i></div>
-                        <div class="card-content">
-                            <span style="color: var(--primary-teal); font-weight: bold;">Nov 22, 2025</span>
-                            <h3 class="card-title">Offshore Renewable Systems</h3>
-                            <p class="card-text">Comprehensive training on solar, wind, and alternative energy technologies for marine applications.</p>
-                            <a href="#" class="card-button" onclick="event.preventDefault(); showSignUp()">Enroll Now</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image"><i class="fas fa-calendar-alt"></i></div>
-                        <div class="card-content">
-                            <span style="color: var(--primary-teal); font-weight: bold;">Dec 5, 2025</span>
-                            <h3 class="card-title">Climate Change Adaptation</h3>
-                            <p class="card-text">Strategies for coastal organizations to adapt to changing ocean conditions and build resilience.</p>
-                            <a href="#" class="card-button" onclick="event.preventDefault(); showSignUp()">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 style="color: var(--deep-blue); margin: 3rem 0 1rem; font-size: 1.8rem;">On-Demand Video Courses</h3>
-                
-                <!-- Page 1 Content -->
-                <div class="course-page" data-page="1">
-                    <div class="cards-grid">
-                        <div class="card">
-                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                            <div class="card-content">
-                                <h3 class="card-title">Ocean Documentary: A Journey Beneath</h3>
-                                <p class="card-text">Explore the fascinating world beneath the waves in this comprehensive documentary about marine life and ocean conservation.</p>
-                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 1 hour 28 minutes</span><br>
-                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('2439gS07kXM')">Watch Now</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                            <div class="card-content">
-                                <h3 class="card-title">Marine Impact Assessment Fundamentals</h3>
-                                <p class="card-text">Master the essentials of conducting thorough environmental impact assessments for ocean projects.</p>
-                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 30 minutes</span><br>
-                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('fH8-0-f1dY4')">Watch Now</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                            <div class="card-content">
-                                <h3 class="card-title">Blue Carbon Accounting</h3>
-                                <p class="card-text">Explore the science and policy of blue carbon and learn to account for coastal ecosystem services.</p>
-                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 3 hours 15 minutes</span><br>
-                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('u3T-TfJ_1Lg')">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Page 2 Content -->
-                <div class="course-page" data-page="2" style="display: none;">
-                    <div class="cards-grid">
-                        <div class="card">
-                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                            <div class="card-content">
-                                <h3 class="card-title">Intro to Sustainable Aquaculture</h3>
-                                <p class="card-text">Practical methods for measuring and reducing the environmental footprint of aquaculture operations.</p>
-                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 45 minutes</span><br>
-                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('Qvu90MHgE50')">Watch Now</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                            <div class="card-content">
-                                <h3 class="card-title">Ocean Data Analytics</h3>
-                                <p class="card-text">Learn to analyze and interpret marine data using modern tools and techniques for informed decision-making.</p>
-                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 3 hours</span><br>
-                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('dQw4w9WgXcQ')">Watch Now</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-image"><i class="fas fa-play-circle"></i></div>
-                            <div class="card-content">
-                                <h3 class="card-title">Marine Conservation Technologies</h3>
-                                <p class="card-text">Discover cutting-edge technologies being used to protect and preserve marine ecosystems.</p>
-                                <span style="color: var(--dark-gray); font-size: 0.9rem;">Duration: 2 hours 15 minutes</span><br>
-                                <a href="#" class="card-button" style="margin-top: 1rem;" onclick="event.preventDefault(); showVideoModal('jNQXAC9IVRw')">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pagination -->
-                <div class="pagination">
-                    <a href="#" class="page-link active" data-page="1">1</a>
-                    <a href="#" class="page-link" data-page="2">2</a>
-                    <a href="#" class="next" onclick="nextPage()">Next <i class="fas fa-chevron-right"></i></a>
-                </div>
-            </section>
+            <h1 class="animate-slide-up">Professional Training</h1>
+            <p class="animate-slide-up delay-100" style="max-width: 700px; color: var(--text-muted);">
+                Equip your team with the knowledge to manage metocean risk. Our industry-accredited courses are led by
+                field experts.
+            </p>
         </div>
-    </div>
+    </header>
 
-    <!-- Footer and Modals are injected here -->
+    <section class="section">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h3>Metocean Awareness Course</h3>
+                    <p style="margin-bottom: 1rem;">2-Day intensive course for project managers and engineers.</p>
+                    <a href="#" class="btn btn-outline" style="width: 100%;">View Syllabus</a>
+                </div>
+                <div class="highlight-card">
+                    <h3>Advanced Data Analysis</h3>
+                    <p style="margin-bottom: 1rem;">MATLAB/Python workshop for handling oceanographic datasets.</p>
+                    <a href="#" class="btn btn-outline" style="width: 100%;">View Syllabus</a>
+                </div>
+                <div class="highlight-card">
+                    <h3>Offshore Ops Planning</h3>
+                    <p style="margin-bottom: 1rem;">Risk assessment and decision making using weather forecasts.</p>
+                    <a href="#" class="btn btn-outline" style="width: 100%;">View Syllabus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-    
-    <!-- Firebase Config & Scripts -->
-    <script>
-        // PASTE YOUR FIREBASE CONFIG HERE
-        const __firebase_config = `{
-            "apiKey": "YOUR_API_KEY",
-            "authDomain": "YOUR_AUTH_DOMAIN",
-            "projectId": "YOUR_PROJECT_ID",
-            "storageBucket": "YOUR_STORAGE_BUCKET",
-            "messagingSenderId": "YOUR_MESSAGING_SENDER_ID",
-            "appId": "YOUR_APP_ID"
-        }`;
-        const __app_id = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    </script>
-    <script type="module" src="script.js"></script>
 
+    <script src="js/main.js"></script>
 </body>
-</html>
 
+</html>

@@ -6,32 +6,34 @@
     --bg-body: #ffffff;
     --bg-surface: #f8f9fa;
     --bg-dark: #0f172a;
-    
+
     --text-main: #1e293b;
     --text-muted: #64748b;
     --text-white: #ffffff;
-    
-    --accent: #0f172a; /* Deep Navy as primary branding */
-    --primary: #2dd4bf; /* Teal pop for interactions */
+
+    --accent: #0f172a;
+    /* Deep Navy as primary branding */
+    --primary: #2dd4bf;
+    /* Teal pop for interactions */
     --secondary: #94a3b8;
-    
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 8rem;
-    
+
     /* UI Elements */
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
     --radius-full: 9999px;
-    
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-    --shadow-float: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -49,9 +51,15 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     line-height: 1.2;
     color: var(--text-main);
+    font-family: 'Playfair Display', serif;
 }
 
 h1 {
@@ -121,15 +129,26 @@ a {
     color: var(--text-white);
 }
 
+.btn-sm {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+.w-full {
+    width: 100%;
+    text-align: center;
+}
+
 /* --- Navigation --- */
 nav {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    animation: slideDown 0.8s ease-out;
 }
 
 .nav-wrapper {
@@ -142,6 +161,7 @@ nav {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.03em;
+    font-family: 'Playfair Display', serif;
 }
 
 .nav-links {
@@ -150,12 +170,36 @@ nav {
     list-style: none;
 }
 
+.nav-links li {
+    position: relative;
+}
+
 .nav-links a {
     font-weight: 500;
     font-size: 0.95rem;
+    position: relative;
+    padding-bottom: 5px;
 }
 
-.nav-links a:hover {
+/* Nav Swoosh Animation */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--primary);
 }
 
@@ -163,6 +207,93 @@ nav {
     display: flex;
     gap: 1rem;
     align-items: center;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons .social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+    filter: brightness(0);
+    /* Black Icons */
+    opacity: 0.8;
+}
+
+.social-icons .social-icon:hover img {
+    opacity: 1;
+    transform: scale(1.2) rotate(10deg);
+    filter: brightness(0);
+}
+
+/* --- Mobile Menu Drawer --- */
+.mobile-menu-btn {
+    display: none !important;
+    /* Force hide on desktop */
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu-drawer {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    z-index: 1200;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.mobile-menu-drawer.open {
+    right: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.mobile-nav-links li {
+    margin-bottom: 1.5rem;
+}
+
+.mobile-nav-links a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-main);
 }
 
 /* --- Hero Section (Bento Grid) --- */
@@ -202,7 +333,7 @@ nav {
 .hero-card {
     border-radius: var(--radius-lg);
     overflow: hidden;
-    position: relative; /* Ensure text overlay works */
+    position: relative;
     background-color: #eee;
     box-shadow: var(--shadow-md);
     transition: transform 0.4s ease;
@@ -225,10 +356,9 @@ nav {
     transform: scale(1.1);
 }
 
-/* Specific Bento Layout for Hero */
 .hero-visuals .hero-card:nth-child(1) {
     grid-column: 1 / 2;
-    grid-row: 1 / 3; /* Tall card on left */
+    grid-row: 1 / 3;
     height: 100%;
 }
 
@@ -242,7 +372,11 @@ nav {
     grid-row: 2 / 3;
 }
 
-/* --- Destinations Section --- */
+/* --- Destinations / Sections --- */
+.section {
+    padding: var(--spacing-lg) 0;
+}
+
 .section-header {
     display: flex;
     justify-content: space-between;
@@ -252,7 +386,7 @@ nav {
 
 .destinations-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
 }
 
@@ -281,11 +415,11 @@ nav {
     left: 0;
     width: 100%;
     padding: 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     color: white;
 }
 
-/* --- Stories Section (Asymmetric) --- */
+/* --- Stories Section --- */
 .stories-layout {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -312,7 +446,7 @@ nav {
     left: 2rem;
     right: 2rem;
     color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .story-list {
@@ -334,7 +468,7 @@ nav {
     object-fit: cover;
 }
 
-/* --- Trekker's Highlights --- */
+/* --- Highlights --- */
 .highlights-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -355,7 +489,7 @@ nav {
 
 /* --- Newsletter --- */
 .newsletter {
-    background-color: #cbd5e1; /* Neutral grey background */
+    background-color: #cbd5e1;
     border-radius: var(--radius-lg);
     padding: 4rem;
     text-align: center;
@@ -363,7 +497,6 @@ nav {
     overflow: hidden;
 }
 
-/* IMPORTANT: Create a dark overlay for text readability */
 .newsletter::before {
     content: '';
     position: absolute;
@@ -376,12 +509,8 @@ nav {
 }
 
 .newsletter-content {
-    position: relative; /* Place above overlay */
+    position: relative;
     z-index: 2;
-    color: white; /* Ensure all text is white */
-}
-
-.newsletter h2 {
     color: white;
 }
 
@@ -411,12 +540,14 @@ footer {
     background-color: var(--bg-surface);
     padding: 4rem 0 2rem;
     margin-top: 6rem;
+    animation: slideUp 1s ease-out;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1.5fr 0.8fr 1fr;
+    /* UPDATED: 3 Column Layout */
+    gap: 4rem;
     margin-bottom: 3rem;
 }
 
@@ -443,68 +574,103 @@ footer {
 }
 
 /* --- Animations --- */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .animate-slide-up {
     animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
 }
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
+.delay-100 {
+    animation-delay: 0.1s;
+}
 
-/* --- Mobile Responsiveness (Crucial for the "Right Part" of request) --- */
-@media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block !important;
+    }
+
+    /* Force show on mobile */
+
     .hero-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-content {
         text-align: center;
         padding-right: 0;
         margin-bottom: 3rem;
     }
-    
+
     .hero-visuals {
-        /* Stack visuals on mobile if needed, or keep grid but adjust size */
-        grid-template-rows: 250px 150px; 
+        grid-template-rows: 250px 150px;
     }
-    
+
     .destinations-grid {
-        grid-template-columns: 1fr; /* Stack destinations */
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .stories-layout {
-        grid-template-columns: 1fr; /* Stack stories */
+        grid-template-columns: 1fr;
     }
-    
+
     .highlights-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columns for footer */
+        grid-template-columns: 1fr 1fr;
         gap: 2rem;
     }
-    
-    .nav-links {
-        display: none; /* Simplification: Hide nav links on mobile for now (hamburger usually needed) */
-    }
-    
-    .nav-actions {
-        display: none; /* Hide actions on mobile for now */
-    }
-    
-    /* Hamburger styling would go here */
 }
