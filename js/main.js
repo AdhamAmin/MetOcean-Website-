@@ -624,41 +624,33 @@ function injectWelcomeModal() {
 
 let currentTourStep = 0;
 
-function startTour() {
-    currentTourStep = 0;
-    const steps = [
+function getTourSteps() {
+    return [
         {
             targetId: 'navbar-tour-target',
             title: translations[currentLang].brand,
             desc: translations[currentLang].tourWelcome,
-            scroll: 'top'
+            scroll: 'top',
+            placement: 'bottom'
         },
         {
             targetId: 'footer-toggles-tour',
             title: translations[currentLang].contactInfo,
             desc: translations[currentLang].tourTheme,
-            scroll: 'center'
+            scroll: 'center',
+            placement: 'top' // New property
         }
     ];
+}
 
+function startTour() {
+    currentTourStep = 0;
+    const steps = getTourSteps();
     updateTourStep(steps[0]);
 }
 
 function nextTourStep() {
-    const steps = [
-        {
-            targetId: 'navbar-tour-target',
-            title: translations[currentLang].brand,
-            desc: translations[currentLang].tourWelcome,
-            scroll: 'top'
-        },
-        {
-            targetId: 'footer-toggles-tour',
-            title: translations[currentLang].contactInfo,
-            desc: translations[currentLang].tourTheme,
-            scroll: 'center'
-        }
-    ];
+    const steps = getTourSteps();
 
     // Remove highlight from current
     const currentEl = document.getElementById(steps[currentTourStep].targetId);
@@ -691,25 +683,45 @@ function updateTourStep(step) {
     targetEl.classList.add('tour-active-element');
 
     // Position Tooltip
+    // Wait for scroll to finish/stabilize
     setTimeout(() => {
         const rect = targetEl.getBoundingClientRect();
 
-        // Simple positioning logic
-        let top = rect.bottom + 20;
-        let left = rect.left + (rect.width / 2) - 150;
+        // Update Content FIRST to get correct height
+        titleEl.innerText = step.title;
+        descEl.innerText = step.desc;
+        btnEl.innerText = (currentTourStep === getTourSteps().length - 1) ? t.finish : t.next;
 
-        // Adjust if off screen
+        // Get dimensions
+        const tooltipHeight = tooltip.offsetHeight || 150; // Fallback if hidden
+        // Helper to get actual height if completely hidden might be tricky, 
+        // but 'visibility: hidden' elements usually have dimensions if 'display' is not 'none'.
+        // The CSS has 'visibility: hidden', so offsetHeight works.
+
+        // Simple positioning logic
+        let top, left;
+
+        // Horizontal centering (default)
+        left = rect.left + (rect.width / 2) - 150; // 150 is half of 300px width
+
+        if (step.placement === 'top') {
+            top = rect.top - tooltipHeight - 20;
+        } else {
+            // Default bottom
+            top = rect.bottom + 20;
+        }
+
+        // Screen Edge Adjustments
         if (left < 20) left = 20;
         if (left + 300 > window.innerWidth) left = window.innerWidth - 320;
-        if (top + 150 > window.innerHeight) top = rect.top - 180;
+
+        // Vertical safeguards
+        if (top < 10) top = rect.bottom + 20; // Flip to bottom if no space on top
+        if (top + tooltipHeight > window.innerHeight) top = rect.top - tooltipHeight - 20; // Flip to top if no space bottom
 
         tooltip.style.top = top + 'px';
         tooltip.style.left = left + 'px';
         tooltip.classList.add('active');
-
-        titleEl.innerText = step.title;
-        descEl.innerText = step.desc;
-        btnEl.innerText = (currentTourStep === 1) ? t.finish : t.next;
 
     }, 600);
 }
