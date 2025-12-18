@@ -338,7 +338,7 @@ function getHeaderContent() {
         </ul>
         <div class="nav-actions">
             <!-- Search Icon -->
-            <span class="material-symbols-outlined icon-hover" style="cursor: pointer;">search</span>
+            <span class="material-symbols-outlined icon-hover" id="search-trigger" style="cursor: pointer;">search</span>
             
             <!-- Get Started Button -->
             <a href="login.html" class="btn btn-primary btn-sm btn-animate" data-text="${t.portal}">
@@ -463,6 +463,7 @@ function loadIncludes() {
         headerPlaceholder.innerHTML = getHeaderContent();
         highlightActiveLink();
         initMobileMenu();
+        initSearch(); // Ensure search is initialized after header injection
     }
 
     const footerPlaceholder = document.getElementById("footer-placeholder");
@@ -798,7 +799,7 @@ window.addEventListener('scroll', function () {
 
 // --- SEARCH FUNCTIONALITY ---
 function initSearch() {
-    const searchIcon = document.querySelector('.icon-hover');
+    const searchIcon = document.getElementById('search-trigger');
     if (!searchIcon) return;
 
     searchIcon.addEventListener('click', function () {
