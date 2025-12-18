@@ -73,6 +73,8 @@ const translations = {
         // Tour
         tourWelcome: "You can find all our services and pages here.",
         tourTheme: "Switch between Dark and Light mode or Change Language here.",
+        skipTour: "Skip Tour",
+        stepProgress: "Step {current} of {total}",
         next: "Next",
         finish: "Finish",
 
@@ -221,6 +223,8 @@ const translations = {
         // Tour
         tourWelcome: "يمكنك العثور على جميع خدماتنا وصفحاتنا هنا.",
         tourTheme: "قم بالتبديل بين الوضع الداكن والفاتح أو تغيير اللغة من هنا.",
+        skipTour: "تخطي الجولة",
+        stepProgress: "الخطوة {current} من {total}",
         next: "التالي",
         finish: "إنهاء",
 
@@ -466,6 +470,16 @@ function loadIncludes() {
         footerPlaceholder.innerHTML = getFooterContent();
     }
 
+    // Inject scroll-to-top button if it doesn't exist
+    if (!document.getElementById('scroll-to-top')) {
+        const scrollBtnHTML = `
+        <button class="scroll-to-top" id="scroll-to-top" onclick="scrollToTop()">
+            <span class="material-symbols-outlined">arrow_upward</span>
+        </button>
+        `;
+        document.body.insertAdjacentHTML('beforeend', scrollBtnHTML);
+    }
+
     translatePage();
 }
 
@@ -502,6 +516,15 @@ function selectLanguageInit(lang) {
     setTimeout(() => {
         startTour();
     }, 800);
+}
+
+function skipTour() {
+    // Mark as visited and close modal without starting tour
+    localStorage.setItem('metocean_visited', 'true');
+    const modalOverlay = document.getElementById('welcome-modal-overlay');
+    if (modalOverlay) {
+        modalOverlay.classList.remove('active');
+    }
 }
 
 function translatePage() {
@@ -592,6 +615,7 @@ function initCounters() {
 // --- WELCOME & TOUR LOGIC ---
 
 function injectWelcomeModal() {
+    const t = translations[currentLang];
     const modalHTML = `
     <div class="welcome-modal-overlay" id="welcome-modal-overlay">
         <div class="welcome-modal">
@@ -607,11 +631,13 @@ function injectWelcomeModal() {
                     <p style="font-family: 'Tajawal', sans-serif;">أكمل باللغة العربية</p>
                 </div>
             </div>
+            <button class="skip-tour-btn" onclick="skipTour()" id="skip-tour-btn">${t.skipTour}</button>
         </div>
     </div>
     
     <!-- Tour Tooltip Placeholder -->
     <div class="tour-tooltip" id="tour-tooltip">
+        <div class="tour-progress" id="tour-progress"></div>
         <h4 id="tour-title"></h4>
         <p id="tour-desc"></p>
         <div class="tour-controls">
@@ -669,6 +695,7 @@ function nextTourStep() {
 function updateTourStep(step) {
     const t = translations[currentLang];
     const tooltip = document.getElementById('tour-tooltip');
+    const progressEl = document.getElementById('tour-progress');
     const titleEl = document.getElementById('tour-title');
     const descEl = document.getElementById('tour-desc');
     const btnEl = document.getElementById('tour-btn-next');
@@ -688,9 +715,12 @@ function updateTourStep(step) {
         const rect = targetEl.getBoundingClientRect();
 
         // Update Content FIRST to get correct height
+        const totalSteps = getTourSteps().length;
+        const currentStep = currentTourStep + 1;
+        progressEl.innerText = t.stepProgress.replace('{current}', currentStep).replace('{total}', totalSteps);
         titleEl.innerText = step.title;
         descEl.innerText = step.desc;
-        btnEl.innerText = (currentTourStep === getTourSteps().length - 1) ? t.finish : t.next;
+        btnEl.innerText = (currentTourStep === totalSteps - 1) ? t.finish : t.next;
 
         // Get dimensions
         const tooltipHeight = tooltip.offsetHeight || 150; // Fallback if hidden
@@ -736,3 +766,120 @@ function endTour() {
     const highlights = document.querySelectorAll('.tour-active-element');
     highlights.forEach(el => el.classList.remove('tour-active-element'));
 }
+
+// --- SCROLL TO TOP FUNCTIONALITY ---
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show/hide scroll-to-top button based on scroll position
+window.addEventListener('scroll', function () {
+    const scrollBtn = document.getElementById('scroll-to-top');
+    if (scrollBtn) {
+        if (window.pageYOffset > 300) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    }
+});
+
+// --- SEARCH FUNCTIONALITY ---
+function initSearch() {
+    const searchIcon = document.querySelector('.icon-hover');
+    if (!searchIcon) return;
+
+    searchIcon.addEventListener('click', function () {
+        showSearchOverlay();
+    });
+}
+
+function showSearchOverlay() {
+    // Create search overlay if it doesn't exist
+    if (!document.getElementById('search-overlay')) {
+        const searchHTML = `
+        <div class="search-overlay" id="search-overlay">
+            <div class="search-container">
+                <div class="search-header">
+                    <input type="text" class="search-input" id="search-input" placeholder="Search..." autofocus>
+                    <span class="material-symbols-outlined search-close" onclick="closeSearch()">close</span>
+                </div>
+                <div class="search-results" id="search-results">
+                    <p class="search-hint">Type to search...</p>
+                </div>
+            </div>
+        </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', searchHTML);
+
+        // Add event listeners
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', performSearch);
+
+        // Close on ESC
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeSearch();
+        });
+    }
+
+    document.getElementById('search-overlay').classList.add('active');
+    setTimeout(() => {
+        document.getElementById('search-input').focus();
+    }, 100);
+}
+
+function closeSearch() {
+    const overlay = document.getElementById('search-overlay');
+    if (overlay) {
+        overlay.classList.remove('active');
+        document.getElementById('search-input').value = '';
+        document.getElementById('search-results').innerHTML = '<p class="search-hint">Type to search...</p>';
+    }
+}
+
+function performSearch() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const resultsContainer = document.getElementById('search-results');
+
+    if (query.length < 2) {
+        resultsContainer.innerHTML = '<p class="search-hint">Type at least 2 characters...</p>';
+        return;
+    }
+
+    // Simple search through page content
+    const searchableContent = [
+        { title: 'Home', url: 'index.html', keywords: 'metocean marine environment oceanographic offshore' },
+        { title: 'Services', url: 'services.html', keywords: 'design criteria forecasting surveys modelling climate training' },
+        { title: 'Courses', url: 'courses.html', keywords: 'training professional awareness data analysis planning' },
+        { title: 'About', url: 'about.html', keywords: 'company team leadership laboratory expertise' },
+        { title: 'Contact', url: 'contact.html', keywords: 'get in touch email phone headquarters' },
+        { title: 'Offshore Wind', url: 'services.html', keywords: 'wind energy foundation renewable' },
+        { title: 'Oil & Gas', url: 'services.html', keywords: 'exploration drilling petroleum' },
+        { title: 'Coastal Resilience', url: 'services.html', keywords: 'coastal protection climate adaptation' }
+    ];
+
+    const results = searchableContent.filter(item =>
+        item.title.toLowerCase().includes(query) ||
+        item.keywords.toLowerCase().includes(query)
+    );
+
+    if (results.length === 0) {
+        resultsContainer.innerHTML = '<p class="search-no-results">No results found</p>';
+    } else {
+        resultsContainer.innerHTML = results.map(item => `
+            <a href="${item.url}" class="search-result-item">
+                <span class="material-symbols-outlined">search</span>
+                <span>${item.title}</span>
+            </a>
+        `).join('');
+    }
+}
+
+// Initialize search when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(initSearch, 500);
+});
+
