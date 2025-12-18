@@ -705,7 +705,7 @@ function updateTourStep(step) {
         left = rect.left + (rect.width / 2) - 150; // 150 is half of 300px width
 
         if (step.placement === 'top') {
-            top = rect.top - tooltipHeight - 20;
+            top = rect.top - tooltipHeight - 60; // Increased offset for better spacing
         } else {
             // Default bottom
             top = rect.bottom + 20;
@@ -717,7 +717,7 @@ function updateTourStep(step) {
 
         // Vertical safeguards
         if (top < 10) top = rect.bottom + 20; // Flip to bottom if no space on top
-        if (top + tooltipHeight > window.innerHeight) top = rect.top - tooltipHeight - 20; // Flip to top if no space bottom
+        if (top + tooltipHeight > window.innerHeight) top = rect.top - tooltipHeight - 60; // Flip to top if no space bottom
 
         tooltip.style.top = top + 'px';
         tooltip.style.left = left + 'px';
