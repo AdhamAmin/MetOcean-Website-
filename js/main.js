@@ -443,7 +443,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // *** STRICT LOGIC: ONLY Home Page + ONLY First Visit ***
     const hasVisited = localStorage.getItem('metocean_visited');
     const path = window.location.pathname;
-    const isHomePage = path.endsWith('index.html') || path.endsWith('/') || path === '/';
+    const isHomePage = path.endsWith('index.html') || path.endsWith('/') || path === '' || path.includes('index.html');
 
     if (!hasVisited && isHomePage) {
         injectWelcomeModal();
@@ -515,7 +515,7 @@ function selectLanguageInit(lang) {
     // Start Tour (Since language selected = first visit on home page valid case)
     setTimeout(() => {
         startTour();
-    }, 800);
+    }, 1000); // Increased delay to ensure header/footer are stable
 }
 
 function skipTour() {
@@ -701,7 +701,16 @@ function updateTourStep(step) {
     const btnEl = document.getElementById('tour-btn-next');
 
     const targetEl = document.getElementById(step.targetId);
-    if (!targetEl) return;
+    if (!targetEl) {
+        console.warn(`Tour Target not found: ${step.targetId}`);
+        // If element is not found, try to skip to next or end
+        if (currentTourStep < getTourSteps().length - 1) {
+            nextTourStep();
+        } else {
+            endTour();
+        }
+        return;
+    }
 
     // Scroll to target
     targetEl.scrollIntoView({ behavior: 'smooth', block: step.scroll });
