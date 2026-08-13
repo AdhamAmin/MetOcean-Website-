@@ -1,123 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Metocean Consulting</title>
+    <title>MetOcean | Our Services</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        
+        .dl-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+        .dl-modal.open { display: flex; animation: fadeIn 0.3s ease; }
+        .dl-modal-box { background: #fff; padding: 40px; border-radius: 6px; text-align: center; max-width: 420px; width: 90%; position: relative; animation: popIn 0.3s ease; }
+        .dl-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ink2); }
+        .dl-close:hover { color: var(--red); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .page-header { padding: 160px 40px 80px; text-align: center; background: var(--warm); border-bottom: 1px solid var(--lg); }
+    </style>
 </head>
-
 <body>
-    <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
-
-    <!-- Page Header -->
-    <header class="section" style="padding: 6rem 0 3rem; background: var(--bg-surface);">
-        <div class="container" style="text-align: center;">
-            <h1 class="animate-slide-up" data-i18n="svcTitle">Technical Services</h1>
-            <p class="animate-slide-up delay-100" style="max-width: 600px; margin: 1rem auto;" data-i18n="svcDesc">
-                We provide comprehensive data analysis, modelling, and forecasting services to support every stage of
-                your offshore project's lifecycle, from feasibility to decommissioning.
-            </p>
+    <!-- NAV -->
+    <nav id="navbar" class="scrolled">
+        <a href="index.html" class="nav-logo">
+            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--red)">MetOcean</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" >About Us</a></li>
+            <li><a href="services.html" class="on">Services</a></li>
+            <li><a href="contact.html" >Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="lang">
+                <a href="services.html" class="lb on">EN</a>
+                <a href="ar/services.html" class="lb ">AR</a>
+            </div>
+            <button class="ncta" onclick="document.getElementById('dlModal').classList.add('open')">Download Profile</button>
+            <button class="nav-hamburger" id="hamburger" onclick="toggleMobNav()"><span></span><span></span><span></span></button>
         </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div class="mob-nav" id="mobNav">
+        <a href="index.html" onclick="closeMobNav()">Home</a>
+        <a href="about.html" onclick="closeMobNav()">About Us</a>
+        <a href="services.html" onclick="closeMobNav()">Services</a>
+        <a href="contact.html" onclick="closeMobNav()">Contact</a>
+        <a href="#" class="mob-nav-cta" onclick="closeMobNav(); document.getElementById('dlModal').classList.add('open')">Download Profile</a>
+    </div>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="sl c">MetOcean</div>
+        <h1 class="st c">Our Services</h1>
     </header>
 
-    <!-- Services Grid -->
-    <section class="section">
-        <div class="container">
-            <div class="highlights-grid">
-
-                <!-- Service 1 -->
-                <div class="highlight-card">
-                    <span class="material-symbols-outlined"
-                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">analytics</span>
-                    <h3 data-i18n="svcDesign">Metocean Design Criteria</h3>
-                    <p style="margin-bottom: 1.5rem;" data-i18n="svcDesignDesc">Derivation of extreme wind, wave, and
-                        current conditions for
-                        structural design.</p>
-                    <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="viewCap">View Capability</a>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="highlight-card">
-                    <span class="material-symbols-outlined"
-                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">cyclone</span>
-                    <h3 data-i18n="svcWeather">Weather Forecasting</h3>
-                    <p style="margin-bottom: 1.5rem;" data-i18n="svcWeatherDesc">24/7 site-specific marine weather
-                        forecasting for weather-critical
-                        operations.</p>
-                    <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="viewCap">View Capability</a>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="highlight-card">
-                    <span class="material-symbols-outlined"
-                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">water_ec</span>
-                    <h3 data-i18n="svcSurvey">Marine Surveys</h3>
-                    <p style="margin-bottom: 1.5rem;" data-i18n="svcSurveyDesc">Deployment and maintenance of
-                        oceanographic moorings, wave buoys,
-                        and ADCPs.</p>
-                    <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="viewCap">View Capability</a>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="highlight-card">
-                    <span class="material-symbols-outlined"
-                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">model_training</span>
-                    <h3 data-i18n="svcModel">Numerical Modelling</h3>
-                    <p style="margin-bottom: 1.5rem;" data-i18n="svcModelDesc">Advanced SWAN and hydrodynamic modelling
-                        for coastal processes.</p>
-                    <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="viewCap">View Capability</a>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="highlight-card">
-                    <span class="material-symbols-outlined"
-                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">security</span>
-                    <h3 data-i18n="svcClimate">Climate Adaptation</h3>
-                    <p style="margin-bottom: 1.5rem;" data-i18n="svcClimateDesc">Assessing the impact of sea-level rise
-                        and changing storm
-                        climatology.</p>
-                    <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="viewCap">View Capability</a>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="highlight-card">
-                    <span class="material-symbols-outlined"
-                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">school</span>
-                    <h3 data-i18n="svcTrain">Training & Capacity</h3>
-                    <p style="margin-bottom: 1.5rem;" data-i18n="svcTrainDesc">Specialized training courses for
-                        engineers and project managers.</p>
-                    <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="viewCap">View Capability</a>
-                </div>
-
-            </div>
+    <!-- CONTENT -->
+    <main>
+        
+<section class="wrap" style="padding: 80px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">1. Environmental Studies</h3>
+            <p style="color: var(--ink2); line-height: 1.8;">EIA, audits, compliance and risk-management plans. Includes Baseline Environmental Component Assessment, Environmental Management Plans (EMP), and Biodiversity Action Plans (BAP).</p>
         </div>
-    </section>
+        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">2. Environmental Measurements</h3>
+            <p style="color: var(--ink2); line-height: 1.8;">Field monitoring of air, water, noise and emissions. Includes Work Environment (Air, Water, Soil), Wastewater Analysis, and Stack Emissions.</p>
+        </div>
+        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">3. Environmental Modeling</h3>
+            <p style="color: var(--ink2); line-height: 1.8;">Air, noise, thermal and groundwater dispersion modeling. Simulating heat plumes and predicting the spread of airborne pollutants under real operating conditions.</p>
+        </div>
+        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">4. Sustainability & Carbon</h3>
+            <p style="color: var(--ink2); line-height: 1.8;">Carbon footprint auditing, ESG and green-building advisory. Environmental design input for lower-impact, resource-efficient facilities.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- CTA -->
-    <section class="section">
-        <div class="container">
-            <div class="newsletter">
-                <div class="newsletter-content">
-                    <h2 data-i18n="svcCustomTitle">Need a customized solution?</h2>
-                    <p style="margin-top: 1rem;" data-i18n="svcCustomDesc">Our team of 50+ oceanography experts is ready
-                        to assist with your
-                        specific project challenges.</p>
-                    <a href="contact.html" class="btn btn-primary" style="margin-top: 2rem;"
-                        data-i18n="contactExpert">Contact an Expert</a>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="f-col">
+                <div class="f-brand-name">MetOcean</div>
+                <p class="f-brand-tag">Accredited Environmental Expertise House. Environmental Consultancy, Marine Studies, Sustainability & Carbon Advisory.</p>
+            </div>
+            <div class="f-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Core Services</h4>
+                <ul>
+                    <li><a href="services.html">Environmental Studies</a></li>
+                    <li><a href="services.html">Field Measurements</a></li>
+                    <li><a href="services.html">Environmental Modeling</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Contact</h4>
+                <div class="f-contact-item">
+                    <span>HuElnaggar@metoceanms.com</span>
+                </div>
+                <div class="f-contact-item">
+                    <span dir="ltr">+20 100 308 4597</span>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="footer-bottom">
+            <span>&copy; 2026 MetOcean Environmental Services & Solutions. All rights reserved.</span>
+        </div>
+    </footer>
 
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
-
-    <script src="js/main.js"></script>
+    <!-- DOWNLOAD MODAL -->
+    <div class="dl-modal" id="dlModal">
+        <div class="dl-modal-box">
+            <button class="dl-close" onclick="document.getElementById('dlModal').classList.remove('open')">&times;</button>
+            <h3 style="font-family: var(--fd); font-weight: 800; font-size: 26px; text-transform: uppercase; color: var(--ink); margin-bottom: 10px;">Download Profile</h3>
+            <p style="font-size: 15px; color: var(--ink2); margin-bottom: 25px;">Select your preferred language to download the MetOcean Corporate Profile.</p>
+            <div style="display: flex; gap: 15px; flex-direction: column;">
+                <a href="MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%;" onclick="document.getElementById('dlModal').classList.remove('open');">English (EN)</a>
+                <a href="MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%; background: var(--ink);" onclick="document.getElementById('dlModal').classList.remove('open');">العربية (AR)</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleMobNav() {
+            document.getElementById('mobNav').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+        function closeMobNav() {
+            document.getElementById('mobNav').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+        document.getElementById('dlModal').addEventListener('click', function(e) {
+            if(e.target === this) this.classList.remove('open');
+        });
+        
+        let lastY = 0;
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            const navEl = document.getElementById('navbar');
+            if (y > 50) navEl.classList.add('scrolled');
+            else navEl.classList.remove('scrolled');
+            lastY = y;
+            
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(r => {
+                if (r.getBoundingClientRect().top < window.innerHeight - 100) {
+                    r.classList.add('in');
+                }
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
-
 </html>

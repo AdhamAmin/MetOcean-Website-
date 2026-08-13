@@ -1,118 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Metocean Consulting</title>
+    <title>MetOcean | About Us</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        
+        .dl-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+        .dl-modal.open { display: flex; animation: fadeIn 0.3s ease; }
+        .dl-modal-box { background: #fff; padding: 40px; border-radius: 6px; text-align: center; max-width: 420px; width: 90%; position: relative; animation: popIn 0.3s ease; }
+        .dl-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ink2); }
+        .dl-close:hover { color: var(--red); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .page-header { padding: 160px 40px 80px; text-align: center; background: var(--warm); border-bottom: 1px solid var(--lg); }
+    </style>
 </head>
-
 <body>
-    <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
-
-    <!-- Hero -->
-    <header class="hero" style="padding: 4rem 0;">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1 class="hero-title animate-slide-up" data-i18n="aboutTitle">Scientific Integrity. Operational
-                    Excellence.</h1>
-                <p class="hero-text animate-slide-up delay-100" data-i18n="aboutDesc">
-                    For over 25 years, Metocean has been the trusted partner for marine industries worldwide. We combine
-                    academic rigour with practical engineering experience to solve the ocean's toughest challenges.
-                </p>
+    <!-- NAV -->
+    <nav id="navbar" class="scrolled">
+        <a href="index.html" class="nav-logo">
+            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--red)">MetOcean</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="on">About Us</a></li>
+            <li><a href="services.html" >Services</a></li>
+            <li><a href="contact.html" >Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="lang">
+                <a href="about.html" class="lb on">EN</a>
+                <a href="ar/about.html" class="lb ">AR</a>
             </div>
-            <div class="hero-visuals animate-slide-up delay-200" style="grid-template-rows: 300px;">
-                <div class="hero-card" style="grid-column: 1 / 3; grid-row: 1 / 2;">
-                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop"
-                        alt="Laboratory">
-                    <div class="dest-info">
-                        <h3 data-i18n="labTitle">Our Laboratory</h3>
-                    </div>
-                </div>
-            </div>
+            <button class="ncta" onclick="document.getElementById('dlModal').classList.add('open')">Download Profile</button>
+            <button class="nav-hamburger" id="hamburger" onclick="toggleMobNav()"><span></span><span></span><span></span></button>
         </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div class="mob-nav" id="mobNav">
+        <a href="index.html" onclick="closeMobNav()">Home</a>
+        <a href="about.html" onclick="closeMobNav()">About Us</a>
+        <a href="services.html" onclick="closeMobNav()">Services</a>
+        <a href="contact.html" onclick="closeMobNav()">Contact</a>
+        <a href="#" class="mob-nav-cta" onclick="closeMobNav(); document.getElementById('dlModal').classList.add('open')">Download Profile</a>
+    </div>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="sl c">MetOcean</div>
+        <h1 class="st c">About Us</h1>
     </header>
 
-    <!-- Stats -->
-    <section class="section" style="background: var(--bg-surface);">
-        <div class="container">
-            <div class="highlights-grid" style="grid-template-columns: repeat(4, 1fr); text-align: center;">
-                <div class="highlight-card" style="padding: 1.5rem;">
-                    <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 0.5rem;">25+</h2>
-                    <p data-i18n="yearsEx">Years Experience</p>
+    <!-- CONTENT -->
+    <main>
+        
+<section class="wrap" style="padding: 80px 40px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px;">
+        <div class="reveal in">
+            <div class="sl">CEO Message</div>
+            <h2 class="st" style="margin-bottom: 24px;">Prof. Dr. Hussein Abdel Meguid El-Naggar</h2>
+            <p style="color: var(--ink2); font-size: 18px; line-height: 1.8;">MetOcean exists to meet our clients' needs with the best integrated environmental solutions available. We invest continuously in developing our team and equipping them with the latest technology, so that sustainable development is not just a goal, but a practice — built on the Best Available Techniques and the Best Environmental Practices in every engagement we undertake.</p>
+        </div>
+        <div class="reveal in" style="background: var(--off); padding: 40px; border-radius: 8px; border-left: 4px solid var(--red);">
+            <h3 style="font-family: var(--fd); font-size: 24px; margin-bottom: 12px;">Vision</h3>
+            <p style="color: var(--ink2); margin-bottom: 24px;">To be a leading force in Egypt's environmental sector — helping shape a sustainable community and economy, and working steadily toward a cleaner, greener environment.</p>
+            <h3 style="font-family: var(--fd); font-size: 24px; margin-bottom: 12px;">Mission</h3>
+            <p style="color: var(--ink2);">To meet every client's needs through the best integrated environmental solutions, continuously developing our team and adopting the Best Available Techniques (BAT) and Best Environmental Practices (BEP).</p>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="f-col">
+                <div class="f-brand-name">MetOcean</div>
+                <p class="f-brand-tag">Accredited Environmental Expertise House. Environmental Consultancy, Marine Studies, Sustainability & Carbon Advisory.</p>
+            </div>
+            <div class="f-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Core Services</h4>
+                <ul>
+                    <li><a href="services.html">Environmental Studies</a></li>
+                    <li><a href="services.html">Field Measurements</a></li>
+                    <li><a href="services.html">Environmental Modeling</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Contact</h4>
+                <div class="f-contact-item">
+                    <span>HuElnaggar@metoceanms.com</span>
                 </div>
-                <div class="highlight-card" style="padding: 1.5rem;">
-                    <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 0.5rem;">2,000+</h2>
-                    <p data-i18n="projCompleted">Projects Delivered</p>
-                </div>
-                <div class="highlight-card" style="padding: 1.5rem;">
-                    <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 0.5rem;">45</h2>
-                    <p data-i18n="countries">Countries</p>
-                </div>
-                <div class="highlight-card" style="padding: 1.5rem;">
-                    <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 0.5rem;">50+</h2>
-                    <p data-i18n="experts">PhD Experts</p>
+                <div class="f-contact-item">
+                    <span dir="ltr">+20 100 308 4597</span>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="footer-bottom">
+            <span>&copy; 2026 MetOcean Environmental Services & Solutions. All rights reserved.</span>
+        </div>
+    </footer>
 
-    <!-- Team -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="leadership">Our Leadership</h2>
-            </div>
-            <div class="highlights-grid">
-                <!-- Team Member 1 -->
-                <div class="highlight-card" style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
-                        style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;"
-                        alt="CEO">
-                    <h3 data-i18n="teamF">Dr. Mohamed Farouk</h3>
-                    <p style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;" data-i18n="roleF">Chief
-                        Executive Officer</p>
-                    <p class="text-sm" data-i18n="descF">Expert in marine geophysics with over 20 years of leadership in
-                        offshore
-                        consulting.</p>
-                </div>
-                <!-- Team Member 2 -->
-                <div class="highlight-card" style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"
-                        style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;"
-                        alt="Director">
-                    <h3 data-i18n="teamH">Dr. Hussain Elnaggar</h3>
-                    <p style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;" data-i18n="roleH">Technical
-                        Director</p>
-                    <p class="text-sm" data-i18n="descH">Specialist in coastal engineering and hydrodynamic modeling for
-                        complex marine
-                        projects.</p>
-                </div>
-                <!-- Team Member 3 -->
-                <div class="highlight-card" style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
-                        style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;"
-                        alt="Ops">
-                    <h3 data-i18n="teamR">Elena Rodriguez</h3>
-                    <p style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;" data-i18n="roleR">Head of
-                        Marine Operations
-                    </p>
-                    <p class="text-sm" data-i18n="descR">Former Master Mariner with extensive experience in North Sea
-                        logistics and
-                        safety.</p>
-                </div>
+    <!-- DOWNLOAD MODAL -->
+    <div class="dl-modal" id="dlModal">
+        <div class="dl-modal-box">
+            <button class="dl-close" onclick="document.getElementById('dlModal').classList.remove('open')">&times;</button>
+            <h3 style="font-family: var(--fd); font-weight: 800; font-size: 26px; text-transform: uppercase; color: var(--ink); margin-bottom: 10px;">Download Profile</h3>
+            <p style="font-size: 15px; color: var(--ink2); margin-bottom: 25px;">Select your preferred language to download the MetOcean Corporate Profile.</p>
+            <div style="display: flex; gap: 15px; flex-direction: column;">
+                <a href="MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%;" onclick="document.getElementById('dlModal').classList.remove('open');">English (EN)</a>
+                <a href="MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%; background: var(--ink);" onclick="document.getElementById('dlModal').classList.remove('open');">العربية (AR)</a>
             </div>
         </div>
-    </section>
-
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
-
-    <script src="js/main.js"></script>
+    </div>
+    
+    <script>
+        function toggleMobNav() {
+            document.getElementById('mobNav').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+        function closeMobNav() {
+            document.getElementById('mobNav').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+        document.getElementById('dlModal').addEventListener('click', function(e) {
+            if(e.target === this) this.classList.remove('open');
+        });
+        
+        let lastY = 0;
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            const navEl = document.getElementById('navbar');
+            if (y > 50) navEl.classList.add('scrolled');
+            else navEl.classList.remove('scrolled');
+            lastY = y;
+            
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(r => {
+                if (r.getBoundingClientRect().top < window.innerHeight - 100) {
+                    r.classList.add('in');
+                }
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
-
 </html>

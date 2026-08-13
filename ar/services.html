@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetOcean | خدماتنا</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --fb: 'Cairo', sans-serif; --fd: 'Cairo', sans-serif; }
+        .dl-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+        .dl-modal.open { display: flex; animation: fadeIn 0.3s ease; }
+        .dl-modal-box { background: #fff; padding: 40px; border-radius: 6px; text-align: center; max-width: 420px; width: 90%; position: relative; animation: popIn 0.3s ease; }
+        .dl-close { position: absolute; top: 15px; left: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ink2); }
+        .dl-close:hover { color: var(--red); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .page-header { padding: 160px 40px 80px; text-align: center; background: var(--warm); border-bottom: 1px solid var(--lg); }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav id="navbar" class="scrolled">
+        <a href="index.html" class="nav-logo">
+            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--red)">ميتوشيان</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html" >من نحن</a></li>
+            <li><a href="services.html" class="on">خدماتنا</a></li>
+            <li><a href="contact.html" >اتصل بنا</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="lang">
+                <a href="../services.html" class="lb ">EN</a>
+                <a href="services.html" class="lb on">AR</a>
+            </div>
+            <button class="ncta" onclick="document.getElementById('dlModal').classList.add('open')">ملف الشركة</button>
+            <button class="nav-hamburger" id="hamburger" onclick="toggleMobNav()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div class="mob-nav" id="mobNav">
+        <a href="index.html" onclick="closeMobNav()">الرئيسية</a>
+        <a href="about.html" onclick="closeMobNav()">من نحن</a>
+        <a href="services.html" onclick="closeMobNav()">خدماتنا</a>
+        <a href="contact.html" onclick="closeMobNav()">اتصل بنا</a>
+        <a href="#" class="mob-nav-cta" onclick="closeMobNav(); document.getElementById('dlModal').classList.add('open')">ملف الشركة</a>
+    </div>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="sl c">ميتوشيان</div>
+        <h1 class="st c">خدماتنا</h1>
+    </header>
+
+    <!-- CONTENT -->
+    <main>
+        
+<section class="wrap" style="padding: 80px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">1. الدراسات البيئية</h3>
+            <p style="color: var(--ink2); line-height: 1.8;">تقييم الأثر البيئي، التدقيق، وخطط الامتثال وإدارة المخاطر. يشمل ذلك تقييم مكونات البيئة الأساسية، وخطط الإدارة البيئية، وخطط عمل التنوع البيولوجي.</p>
+        </div>
+        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">2. القياسات البيئية</h3>
+            <p style="color: var(--ink2); line-height: 1.8;">المراقبة الميدانية للهواء والماء والضوضاء والانبعاثات. يشمل ذلك بيئة العمل (الهواء، الماء، التربة)، تحليل مياه الصرف الصحي، وانبعاثات المداخن.</p>
+        </div>
+        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">3. النمذجة البيئية</h3>
+            <p style="color: var(--ink2); line-height: 1.8;">نمذجة تشتت الهواء والضوضاء والحرارة والمياه الجوفية. محاكاة الأعمدة الحرارية والتنبؤ بانتشار الملوثات المحمولة جواً في ظل ظروف التشغيل الحقيقية.</p>
+        </div>
+        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">4. الاستدامة والبصمة الكربونية</h3>
+            <p style="color: var(--ink2); line-height: 1.8;">تدقيق البصمة الكربونية، الحوكمة البيئية والاجتماعية، واستشارات المباني الخضراء. مدخلات التصميم البيئي لمنشآت ذات تأثير أقل وكفاءة في استخدام الموارد.</p>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="f-col">
+                <div class="f-brand-name">ميتوشيان</div>
+                <p class="f-brand-tag">بيت خبرة بيئي معتمد. استشارات بيئية، دراسات بحرية، استدامة واستشارات البصمة الكربونية.</p>
+            </div>
+            <div class="f-col">
+                <h4>الشركة</h4>
+                <ul>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>الخدمات الأساسية</h4>
+                <ul>
+                    <li><a href="services.html">الدراسات البيئية</a></li>
+                    <li><a href="services.html">القياسات الميدانية</a></li>
+                    <li><a href="services.html">النمذجة البيئية</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>للتواصل</h4>
+                <div class="f-contact-item">
+                    <span>HuElnaggar@metoceanms.com</span>
+                </div>
+                <div class="f-contact-item">
+                    <span dir="ltr">+20 100 308 4597</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 ميتوشيان للخدمات والحلول البيئية. جميع الحقوق محفوظة.</span>
+        </div>
+    </footer>
+
+    <!-- DOWNLOAD MODAL -->
+    <div class="dl-modal" id="dlModal">
+        <div class="dl-modal-box">
+            <button class="dl-close" onclick="document.getElementById('dlModal').classList.remove('open')">&times;</button>
+            <h3 style="font-family: var(--fd); font-weight: 800; font-size: 26px; text-transform: uppercase; color: var(--ink); margin-bottom: 10px;">تحميل الملف</h3>
+            <p style="font-size: 15px; color: var(--ink2); margin-bottom: 25px;">اختر لغتك المفضلة لتحميل ملف الشركة الخاص بميتوشيان.</p>
+            <div style="display: flex; gap: 15px; flex-direction: column;">
+                <a href="../MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%;" onclick="document.getElementById('dlModal').classList.remove('open');">الإنجليزية (EN)</a>
+                <a href="../MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%; background: var(--ink);" onclick="document.getElementById('dlModal').classList.remove('open');">العربية (AR)</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleMobNav() {
+            document.getElementById('mobNav').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+        function closeMobNav() {
+            document.getElementById('mobNav').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+        document.getElementById('dlModal').addEventListener('click', function(e) {
+            if(e.target === this) this.classList.remove('open');
+        });
+        
+        let lastY = 0;
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            const navEl = document.getElementById('navbar');
+            if (y > 50) navEl.classList.add('scrolled');
+            else navEl.classList.remove('scrolled');
+            lastY = y;
+            
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(r => {
+                if (r.getBoundingClientRect().top < window.innerHeight - 100) {
+                    r.classList.add('in');
+                }
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>

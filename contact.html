@@ -1,219 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Metocean Consulting</title>
+    <title>MetOcean | Contact Us</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact-info-card {
-            background: var(--bg-surface);
-            padding: 3rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-form-card {
-            background: white;
-            padding: 3rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            z-index: 10;
-        }
-
-        [data-theme="dark"] .contact-form-card {
-            background: var(--bg-surface);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-main);
-            font-size: 0.9rem;
-        }
-
-        .form-input,
-        .form-select {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #cbd5e1;
-            border-radius: var(--radius-md);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: #f8fafc;
-            color: var(--text-main);
-        }
-
-        [data-theme="dark"] .form-input,
-        [data-theme="dark"] .form-select {
-            background: var(--bg-dark);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .form-input:focus,
-        .form-select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2);
-            background: white;
-        }
-
-        [data-theme="dark"] .form-input:focus,
-        [data-theme="dark"] .form-select:focus {
-            background: var(--bg-surface);
-        }
-
-        .map-container {
-            width: 100%;
-            height: 400px;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            margin-top: 4rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        @media (max-width: 900px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-form-card,
-            .contact-info-card {
-                padding: 2rem;
-            }
-        }
+        
+        .dl-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+        .dl-modal.open { display: flex; animation: fadeIn 0.3s ease; }
+        .dl-modal-box { background: #fff; padding: 40px; border-radius: 6px; text-align: center; max-width: 420px; width: 90%; position: relative; animation: popIn 0.3s ease; }
+        .dl-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ink2); }
+        .dl-close:hover { color: var(--red); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .page-header { padding: 160px 40px 80px; text-align: center; background: var(--warm); border-bottom: 1px solid var(--lg); }
     </style>
 </head>
-
 <body>
-    <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
-
-    <header class="section" style="padding: 6rem 0 3rem; text-align: center;">
-        <div class="container">
-            <h1 class="animate-slide-up" data-i18n="contactTitle">Get in Touch</h1>
-            <p class="animate-slide-up delay-100" style="max-width: 600px; margin: 1rem auto; color: var(--text-muted);"
-                data-i18n="contactDesc">
-                Whether you need expert consultancy or professional training, our team is ready to assist.
-            </p>
+    <!-- NAV -->
+    <nav id="navbar" class="scrolled">
+        <a href="index.html" class="nav-logo">
+            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--red)">MetOcean</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" >About Us</a></li>
+            <li><a href="services.html" >Services</a></li>
+            <li><a href="contact.html" class="on">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="lang">
+                <a href="contact.html" class="lb on">EN</a>
+                <a href="ar/contact.html" class="lb ">AR</a>
+            </div>
+            <button class="ncta" onclick="document.getElementById('dlModal').classList.add('open')">Download Profile</button>
+            <button class="nav-hamburger" id="hamburger" onclick="toggleMobNav()"><span></span><span></span><span></span></button>
         </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div class="mob-nav" id="mobNav">
+        <a href="index.html" onclick="closeMobNav()">Home</a>
+        <a href="about.html" onclick="closeMobNav()">About Us</a>
+        <a href="services.html" onclick="closeMobNav()">Services</a>
+        <a href="contact.html" onclick="closeMobNav()">Contact</a>
+        <a href="#" class="mob-nav-cta" onclick="closeMobNav(); document.getElementById('dlModal').classList.add('open')">Download Profile</a>
+    </div>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="sl c">MetOcean</div>
+        <h1 class="st c">Contact Us</h1>
     </header>
 
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="contact-container animate-slide-up delay-200">
-
-                <!-- Contact Info Side -->
-                <div class="contact-info-card">
-                    <h2 style="font-size: 2rem; margin-bottom: 2rem;" data-i18n="contactInfoHeading">Contact Information
-                    </h2>
-
-                    <div style="margin-bottom: 2rem; display: flex; gap: 1rem;">
-                        <span class="material-symbols-outlined"
-                            style="color: var(--primary); font-size: 1.8rem;">location_on</span>
-                        <div>
-                            <h4 style="margin-bottom: 0.5rem;" data-i18n="headquarters">Headquarters</h4>
-                            <p>100 Ocean Way, Suite 500<br>Maritime City, MC 12345<br>United Kingdom</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 2rem; display: flex; gap: 1rem;">
-                        <span class="material-symbols-outlined"
-                            style="color: var(--primary); font-size: 1.8rem;">mail</span>
-                        <div>
-                            <h4 style="margin-bottom: 0.5rem;" data-i18n="emailUs">Email Us</h4>
-                            <p><a href="mailto:info@metocean.com">info@metocean.com</a><br><a
-                                    href="mailto:training@metocean.com">training@metocean.com</a></p>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 2rem; display: flex; gap: 1rem;">
-                        <span class="material-symbols-outlined"
-                            style="color: var(--primary); font-size: 1.8rem;">call</span>
-                        <div>
-                            <h4 style="margin-bottom: 0.5rem;" data-i18n="callUs">Call Us</h4>
-                            <p>+44 (0) 20 1234 5678<br>Mon-Fri, 9am - 5pm GMT</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Premium Form Side -->
-                <div class="contact-form-card">
-                    <h2 style="margin-bottom: 2rem;" data-i18n="sendMessage">Send a Message</h2>
-                    <form>
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="labelName">Full Name</label>
-                            <input type="text" class="form-input" data-i18n="phName" placeholder="John Doe">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="labelEmail">Email Address</label>
-                            <input type="email" class="form-input" data-i18n="phEmail" placeholder="john@company.com">
-                        </div>
-
-                        <!-- Dropdown for Contact Type -->
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="labelInterest">I am interested in...</label>
-                            <div style="position: relative;">
-                                <select class="form-select">
-                                    <option value="" disabled selected data-i18n="optionSelect">Select an option
-                                    </option>
-                                    <option value="consulting" data-i18n="optionConsult">Consulting Services</option>
-                                    <option value="courses" data-i18n="optionCourse">Training Courses</option>
-                                    <option value="partnership" data-i18n="optionPartner">Partnership</option>
-                                    <option value="other" data-i18n="optionOther">Other Inquiry</option>
-                                </select>
-                                <span class="material-symbols-outlined"
-                                    style="position: absolute; right: 1rem; top: 1rem; pointer-events: none; color: var(--text-muted);">expand_more</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" data-i18n="labelMsg">Message</label>
-                            <textarea class="form-input" rows="5" data-i18n="phMsg"
-                                placeholder="Tell us about your project requirements..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="btnSend">Send
-                            Message</button>
-                    </form>
-                </div>
-
-            </div>
-
-            <!-- Map Integration -->
-            <div class="map-container animate-slide-up delay-300">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.47340003008!2d-0.24168128926955745!3d51.52855824202306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1709400000000!5m2!1sen!2sus"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
+    <!-- CONTENT -->
+    <main>
+        
+<section class="wrap" style="padding: 80px 40px; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;" class="reveal in">
+        <h2 class="st" style="margin-bottom: 40px;">Offices & Locations</h2>
+        
+        <div style="margin-bottom: 40px; text-align: left; background: var(--off); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 24px; color: var(--red); margin-bottom: 8px;">Alexandria (Head Office)</h3>
+            <p style="color: var(--ink2); font-size: 18px;">Bahari, El-Anfoushi, Alexandria, Egypt</p>
         </div>
-    </section>
+        
+        <div style="margin-bottom: 40px; text-align: left; background: var(--off); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 24px; color: var(--red); margin-bottom: 8px;">Amman / 10th of Ramadan</h3>
+            <p style="color: var(--ink2); font-size: 18px;">Al-Hejaz Mall, Jordan &mdash; 10th of Ramadan City, Egypt</p>
+        </div>
+        
+        <div style="margin-bottom: 40px; text-align: left; background: var(--off); padding: 30px; border-radius: 8px;">
+            <h3 style="font-family: var(--fd); font-size: 24px; color: var(--red); margin-bottom: 8px;">Tanta Office</h3>
+            <p style="color: var(--ink2); font-size: 18px;">Alexandria-Cairo Agricultural Road, Tanta, Gharbia, Egypt</p>
+        </div>
 
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
+        <div style="margin-top: 60px;">
+            <h2 class="st" style="margin-bottom: 20px;">Direct Contact</h2>
+            <p style="font-size: 20px; color: var(--ink); margin-bottom: 10px;"><strong>Phone:</strong> +20 100 308 4597 &nbsp;|&nbsp; +20 155 257 7665</p>
+            <p style="font-size: 20px; color: var(--ink);"><strong>Email:</strong> hu_gar2000@azhar.edu.com &nbsp;|&nbsp; HuElnaggar@metoceanms.com</p>
+        </div>
+    </div>
+</section>
 
-    <script src="js/main.js"></script>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="f-col">
+                <div class="f-brand-name">MetOcean</div>
+                <p class="f-brand-tag">Accredited Environmental Expertise House. Environmental Consultancy, Marine Studies, Sustainability & Carbon Advisory.</p>
+            </div>
+            <div class="f-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Core Services</h4>
+                <ul>
+                    <li><a href="services.html">Environmental Studies</a></li>
+                    <li><a href="services.html">Field Measurements</a></li>
+                    <li><a href="services.html">Environmental Modeling</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Contact</h4>
+                <div class="f-contact-item">
+                    <span>HuElnaggar@metoceanms.com</span>
+                </div>
+                <div class="f-contact-item">
+                    <span dir="ltr">+20 100 308 4597</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 MetOcean Environmental Services & Solutions. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- DOWNLOAD MODAL -->
+    <div class="dl-modal" id="dlModal">
+        <div class="dl-modal-box">
+            <button class="dl-close" onclick="document.getElementById('dlModal').classList.remove('open')">&times;</button>
+            <h3 style="font-family: var(--fd); font-weight: 800; font-size: 26px; text-transform: uppercase; color: var(--ink); margin-bottom: 10px;">Download Profile</h3>
+            <p style="font-size: 15px; color: var(--ink2); margin-bottom: 25px;">Select your preferred language to download the MetOcean Corporate Profile.</p>
+            <div style="display: flex; gap: 15px; flex-direction: column;">
+                <a href="MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%;" onclick="document.getElementById('dlModal').classList.remove('open');">English (EN)</a>
+                <a href="MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%; background: var(--ink);" onclick="document.getElementById('dlModal').classList.remove('open');">العربية (AR)</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleMobNav() {
+            document.getElementById('mobNav').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+        function closeMobNav() {
+            document.getElementById('mobNav').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+        document.getElementById('dlModal').addEventListener('click', function(e) {
+            if(e.target === this) this.classList.remove('open');
+        });
+        
+        let lastY = 0;
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            const navEl = document.getElementById('navbar');
+            if (y > 50) navEl.classList.add('scrolled');
+            else navEl.classList.remove('scrolled');
+            lastY = y;
+            
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(r => {
+                if (r.getBoundingClientRect().top < window.innerHeight - 100) {
+                    r.classList.add('in');
+                }
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
-
 </html>

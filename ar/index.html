@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetOcean | Environmental Services & Solutions</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>ميتوشيان | الخدمات والحلول البيئية</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        /* Override font for Arabic */
+        :root {
+            --fb: 'Cairo', sans-serif;
+            --fd: 'Cairo', sans-serif;
+        }
         .dl-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
         .dl-modal.open { display: flex; animation: fadeIn 0.3s ease; }
         .dl-modal-box { background: #fff; padding: 40px; border-radius: 6px; text-align: center; max-width: 420px; width: 90%; position: relative; animation: popIn 0.3s ease; }
-        .dl-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ink2); }
+        .dl-close { position: absolute; top: 15px; left: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ink2); }
         .dl-close:hover { color: var(--red); }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -21,31 +26,31 @@
     <!-- NAV -->
     <nav id="navbar" class="scrolled">
         <a href="index.html" class="nav-logo">
-            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--red)">MetOcean</span>
+            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--red)">ميتوشيان</span>
         </a>
         <ul class="nav-menu">
-            <li><a href="index.html" class="on">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" class="on">الرئيسية</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="services.html">خدماتنا</a></li>
+            <li><a href="contact.html">اتصل بنا</a></li>
         </ul>
         <div class="nav-right">
             <div class="lang">
-                <a href="index.html" class="lb on">EN</a>
-                <a href="ar/index.html" class="lb">AR</a>
+                <a href="../index.html" class="lb">EN</a>
+                <a href="index.html" class="lb on">AR</a>
             </div>
-            <button class="ncta" onclick="document.getElementById('dlModal').classList.add('open')">Download Profile</button>
+            <button class="ncta" onclick="document.getElementById('dlModal').classList.add('open')">ملف الشركة</button>
             <button class="nav-hamburger" id="hamburger" onclick="toggleMobNav()" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
     <!-- MOBILE NAV -->
     <div class="mob-nav" id="mobNav">
-        <a href="index.html" onclick="closeMobNav()">Home</a>
-        <a href="about.html" onclick="closeMobNav()">About Us</a>
-        <a href="services.html" onclick="closeMobNav()">Services</a>
-        <a href="contact.html" onclick="closeMobNav()">Contact</a>
-        <a href="#" class="mob-nav-cta" onclick="closeMobNav(); document.getElementById('dlModal').classList.add('open')">Download Profile</a>
+        <a href="index.html" onclick="closeMobNav()">الرئيسية</a>
+        <a href="about.html" onclick="closeMobNav()">من نحن</a>
+        <a href="services.html" onclick="closeMobNav()">خدماتنا</a>
+        <a href="contact.html" onclick="closeMobNav()">اتصل بنا</a>
+        <a href="#" class="mob-nav-cta" onclick="closeMobNav(); document.getElementById('dlModal').classList.add('open')">ملف الشركة</a>
     </div>
 
     <!-- HERO SLIDER -->
@@ -66,12 +71,12 @@
         <div class="hero-scrim"></div>
         <div class="hero-content">
             <div class="hero-inner">
-                <span class="hero-slogan">Environmental Services & Solutions</span>
-                <h1 class="hero-headline" id="heroHeadline"><span class="hl-line">Marine Studies &<br>Consulting</span></h1>
-                <p class="hero-sub" id="heroSub">Accredited Environmental Expertise House by the Egyptian Ministry of Environment.</p>
+                <span class="hero-slogan">خدمات وحلول بيئية</span>
+                <h1 class="hero-headline" id="heroHeadline"><span class="hl-line">الدراسات البحرية<br>والاستشارات</span></h1>
+                <p class="hero-sub" id="heroSub">بيت خبرة بيئي معتمد من وزارة البيئة المصرية.</p>
                 <div class="hero-cta-row">
-                    <a href="services.html" class="btn-primary">Explore Services <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-                    <button class="btn-ghost" onclick="document.getElementById('dlModal').classList.add('open')">Download Company Profile <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg></button>
+                    <a href="services.html" class="btn-primary">اكتشف خدماتنا <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transform: scaleX(-1);"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+                    <button class="btn-ghost" onclick="document.getElementById('dlModal').classList.add('open')">حمّل ملف الشركة <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg></button>
                 </div>
             </div>
         </div>
@@ -91,23 +96,23 @@
             <div class="statbar-grid">
                 <div class="stat reveal in">
                     <div class="stat-num" data-count="15">15<span>+</span></div>
-                    <div class="stat-label">Years of Experience</div>
-                    <div class="stat-sub">Trusted multidisciplinary team</div>
+                    <div class="stat-label">سنوات من الخبرة</div>
+                    <div class="stat-sub">فريق عمل متعدد التخصصات</div>
                 </div>
                 <div class="stat reveal in">
                     <div class="stat-num" data-count="600">600<span>+</span></div>
-                    <div class="stat-label">Projects Delivered</div>
-                    <div class="stat-sub">Across Egypt and the MENA region</div>
+                    <div class="stat-label">مشروع منجز</div>
+                    <div class="stat-sub">في مصر والشرق الأوسط</div>
                 </div>
                 <div class="stat reveal in">
                     <div class="stat-num" data-count="6">6</div>
-                    <div class="stat-label">Countries Served</div>
-                    <div class="stat-sub">Regional footprint and scale</div>
+                    <div class="stat-label">دولة تم خدمتها</div>
+                    <div class="stat-sub">تغطية إقليمية واسعة</div>
                 </div>
                 <div class="stat reveal in">
                     <div class="stat-num">BAT/BEP</div>
-                    <div class="stat-label">Best Practices</div>
-                    <div class="stat-sub">Highest technical standards</div>
+                    <div class="stat-label">أفضل الممارسات</div>
+                    <div class="stat-sub">أعلى المعايير التقنية</div>
                 </div>
             </div>
         </div>
@@ -117,18 +122,18 @@
     <section class="why" id="about">
         <div class="wrap">
             <div class="why-head reveal in">
-                <div class="sl c">About MetOcean</div>
-                <h2 class="st c">Shaping a Sustainable Community and Economy</h2>
+                <div class="sl c">عن ميتوشيان</div>
+                <h2 class="st c">تشكيل مجتمع واقتصاد مستدام</h2>
             </div>
             
             <div style="max-width: 900px; margin: 0 auto; text-align: center;" class="reveal in">
                 <p style="font-size: 18px; color: var(--ink2); line-height: 1.8; margin-bottom: 24px;">
-                    MetOcean Environmental Services & Solutions is an accredited house of expertise recognized by the Egyptian Ministry of Environment. Founded as a dynamic environmental consultancy, the company has grown steadily around a multidisciplinary team with more than fifteen years of combined experience in environmental management, quality and compliance.
+                    ميتوشيان للخدمات والحلول البيئية هي بيت خبرة معتمد من وزارة البيئة المصرية. تأسست كشركة استشارات بيئية ديناميكية، ونمت الشركة بشكل مطرد بفضل فريق متعدد التخصصات يتمتع بخبرة تزيد عن خمسة عشر عامًا في الإدارة البيئية والجودة والامتثال.
                 </p>
                 <p style="font-size: 18px; color: var(--ink2); line-height: 1.8; margin-bottom: 40px;">
-                    MetOcean is deeply versed in national, regional and international environmental legislation, and works closely with clients and stakeholders to deliver sound environmental management — from small-scale activities to major infrastructure across marine, coastal, industrial and service developments.
+                    تتمتع ميتوشيان بمعرفة عميقة بالتشريعات البيئية الوطنية والإقليمية والدولية، وتعمل عن كثب مع العملاء وأصحاب المصلحة لتقديم إدارة بيئية سليمة — بدءاً من الأنشطة صغيرة النطاق إلى البنية التحتية الكبرى في التطوير البحري والساحلي والصناعي والخدمي.
                 </p>
-                <a href="about.html" class="btn-line">Read Our Full Story <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+                <a href="about.html" class="btn-line">اقرأ قصتنا كاملة <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transform: scaleX(-1);"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
             </div>
         </div>
     </section>
@@ -138,34 +143,34 @@
         <div class="wrap">
             <div class="cases-head reveal in">
                 <div>
-                    <div class="sl">What We Do</div>
-                    <h2 class="st">Core Services</h2>
+                    <div class="sl">ماذا نفعل</div>
+                    <h2 class="st">خدماتنا الأساسية</h2>
                 </div>
-                <a href="services.html" class="btn-out">View All Services <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+                <a href="services.html" class="btn-out">عرض جميع الخدمات <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transform: scaleX(-1);"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
             </div>
             <div class="cases-grid">
                 <a class="case-card reveal in" href="services.html">
                     <div class="case-img"><img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=800" alt="Environmental Studies"></div>
                     <div class="case-body">
-                        <div class="case-client">Service 01</div>
-                        <h3>Environmental Studies</h3>
-                        <p>EIA, audits, compliance and risk-management plans.</p>
+                        <div class="case-client">الخدمة 01</div>
+                        <h3>الدراسات البيئية</h3>
+                        <p>تقييم الأثر البيئي، التدقيق، خطط الامتثال وإدارة المخاطر.</p>
                     </div>
                 </a>
                 <a class="case-card reveal in" href="services.html">
                     <div class="case-img"><img src="https://images.unsplash.com/photo-1621255530635-c8e19574409b?q=80&w=800" alt="Environmental Measurements"></div>
                     <div class="case-body">
-                        <div class="case-client">Service 02</div>
-                        <h3>Measurements</h3>
-                        <p>Field monitoring of air, water, noise and emissions.</p>
+                        <div class="case-client">الخدمة 02</div>
+                        <h3>القياسات البيئية</h3>
+                        <p>المراقبة الميدانية للهواء والماء والضوضاء والانبعاثات.</p>
                     </div>
                 </a>
                 <a class="case-card reveal in" href="services.html">
                     <div class="case-img"><img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=800" alt="Modeling"></div>
                     <div class="case-body">
-                        <div class="case-client">Service 03</div>
-                        <h3>Modeling & Carbon</h3>
-                        <p>Air, noise, thermal modeling and carbon footprint auditing.</p>
+                        <div class="case-client">الخدمة 03</div>
+                        <h3>النمذجة والبصمة الكربونية</h3>
+                        <p>نمذجة تشتت الهواء والضوضاء وتدقيق البصمة الكربونية.</p>
                     </div>
                 </a>
             </div>
@@ -177,21 +182,21 @@
         <div class="wrap">
             <div class="profile-inner">
                 <div class="profile-tx reveal in">
-                    <div class="sl">Company Profile</div>
-                    <h2>Discover Our Full Range of Capabilities</h2>
-                    <p>Download our comprehensive company profile to learn more about our methodologies, past projects, and how MetOcean can support your next environmental or marine endeavor.</p>
-                    <button class="btn-primary" onclick="document.getElementById('dlModal').classList.add('open')">Download Profile <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg></button>
+                    <div class="sl">ملف الشركة</div>
+                    <h2>اكتشف مجموعتنا الكاملة من القدرات</h2>
+                    <p>حمّل ملف شركتنا الشامل لمعرفة المزيد عن منهجياتنا والمشاريع السابقة وكيف يمكن لشركة ميتوشيان دعم مساعيك البحرية والبيئية القادمة.</p>
+                    <button class="btn-primary" onclick="document.getElementById('dlModal').classList.add('open')">حمّل ملف الشركة <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transform: scaleX(-1);"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg></button>
                 </div>
                 <div class="profile-visual reveal in">
                     <!-- Stylized document representation -->
-                    <div class="profile-cover" style="background: #fff; width: 220px; height: 310px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; border-left: 8px solid var(--red-dark); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <div class="profile-cover" style="background: #fff; width: 220px; height: 310px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; border-right: 8px solid var(--red-dark); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                         <div>
-                            <div style="font-family: var(--fd); font-weight: 900; font-size: 24px; color: var(--red);">MetOcean</div>
+                            <div style="font-family: var(--fd); font-weight: 900; font-size: 24px; color: var(--red);">ميتوشيان</div>
                             <div style="width: 40px; height: 3px; background: var(--red); margin-top: 10px;"></div>
                         </div>
                         <div>
-                            <div style="font-family: var(--fd); font-weight: 700; font-size: 18px; color: var(--ink); text-transform: uppercase;">Company Profile</div>
-                            <div style="font-size: 12px; color: var(--ink2); margin-top: 5px;">2026 Edition</div>
+                            <div style="font-family: var(--fd); font-weight: 700; font-size: 18px; color: var(--ink); text-transform: uppercase;">ملف الشركة</div>
+                            <div style="font-size: 12px; color: var(--ink2); margin-top: 5px;">نسخة 2026</div>
                         </div>
                     </div>
                 </div>
@@ -203,37 +208,37 @@
     <footer>
         <div class="footer-top">
             <div class="f-col">
-                <div class="f-brand-name">MetOcean</div>
-                <p class="f-brand-tag">Accredited Environmental Expertise House. Environmental Consultancy, Marine Studies, Sustainability & Carbon Advisory.</p>
+                <div class="f-brand-name">ميتوشيان</div>
+                <p class="f-brand-tag">بيت خبرة بيئي معتمد. استشارات بيئية، دراسات بحرية، استدامة واستشارات البصمة الكربونية.</p>
             </div>
             <div class="f-col">
-                <h4>Company</h4>
+                <h4>الشركة</h4>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
             </div>
             <div class="f-col">
-                <h4>Core Services</h4>
+                <h4>الخدمات الأساسية</h4>
                 <ul>
-                    <li><a href="services.html">Environmental Studies</a></li>
-                    <li><a href="services.html">Field Measurements</a></li>
-                    <li><a href="services.html">Environmental Modeling</a></li>
+                    <li><a href="services.html">الدراسات البيئية</a></li>
+                    <li><a href="services.html">القياسات الميدانية</a></li>
+                    <li><a href="services.html">النمذجة البيئية</a></li>
                 </ul>
             </div>
             <div class="f-col">
-                <h4>Contact</h4>
+                <h4>للتواصل</h4>
                 <div class="f-contact-item">
                     <span>HuElnaggar@metoceanms.com</span>
                 </div>
                 <div class="f-contact-item">
-                    <span>+20 100 308 4597</span>
+                    <span dir="ltr">+20 100 308 4597</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; 2026 MetOcean Environmental Services & Solutions. All rights reserved.</span>
+            <span>&copy; 2026 ميتوشيان للخدمات والحلول البيئية. جميع الحقوق محفوظة.</span>
         </div>
     </footer>
 
@@ -241,11 +246,11 @@
     <div class="dl-modal" id="dlModal">
         <div class="dl-modal-box">
             <button class="dl-close" onclick="document.getElementById('dlModal').classList.remove('open')">&times;</button>
-            <h3 style="font-family: var(--fd); font-weight: 800; font-size: 26px; text-transform: uppercase; color: var(--ink); margin-bottom: 10px;">Download Profile</h3>
-            <p style="font-size: 15px; color: var(--ink2); margin-bottom: 25px;">Select your preferred language to download the MetOcean Corporate Profile.</p>
+            <h3 style="font-family: var(--fd); font-weight: 800; font-size: 26px; text-transform: uppercase; color: var(--ink); margin-bottom: 10px;">تحميل الملف</h3>
+            <p style="font-size: 15px; color: var(--ink2); margin-bottom: 25px;">اختر لغتك المفضلة لتحميل ملف الشركة الخاص بميتوشيان.</p>
             <div style="display: flex; gap: 15px; flex-direction: column;">
-                <a href="MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%;" onclick="document.getElementById('dlModal').classList.remove('open');">English (EN)</a>
-                <a href="MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%; background: var(--ink);" onclick="document.getElementById('dlModal').classList.remove('open');">العربية (AR)</a>
+                <a href="../MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%;" onclick="document.getElementById('dlModal').classList.remove('open');">الإنجليزية (EN)</a>
+                <a href="../MetOcean Profile.pdf" download class="btn-primary" style="justify-content: center; width: 100%; background: var(--ink);" onclick="document.getElementById('dlModal').classList.remove('open');">العربية (AR)</a>
             </div>
         </div>
     </div>
@@ -253,10 +258,10 @@
     <script>
         // Hero Slider Logic (with filling progress bars)
         const HERO_SLIDES = [
-            { h: "Marine Studies &<br>Consulting", s: "Accredited Environmental Expertise House by the Egyptian Ministry of Environment." },
-            { h: "Environmental<br>Measurements", s: "Precise field monitoring of air, water, noise and emissions for compliance." },
-            { h: "Advanced<br>Environmental Modeling", s: "Air, noise, thermal and groundwater dispersion modeling for major projects." },
-            { h: "Sustainability &<br>Carbon Footprint", s: "Carbon footprint auditing, ESG and green-building advisory." }
+            { h: "الدراسات البحرية<br>والاستشارات", s: "بيت خبرة بيئي معتمد من وزارة البيئة المصرية." },
+            { h: "القياسات<br>البيئية", s: "مراقبة ميدانية دقيقة للهواء والماء والضوضاء والانبعاثات للامتثال." },
+            { h: "النمذجة البيئية<br>المتقدمة", s: "نمذجة تشتت الهواء والضوضاء والحرارة والمياه الجوفية." },
+            { h: "الاستدامة والبصمة<br>الكربونية", s: "تدقيق البصمة الكربونية واستشارات المباني الخضراء." }
         ];
         
         let curSlide = 0;
@@ -267,7 +272,7 @@
             const hh = document.getElementById('heroHeadline');
             const hs = document.getElementById('heroSub');
             hh.innerHTML = `<span class="hl-line">${d.h}</span>`;
-            void hh.offsetWidth; // force reflow for animation
+            void hh.offsetWidth;
             hs.textContent = d.s;
         }
         
@@ -279,7 +284,6 @@
             dots.forEach((d, k) => d.classList.toggle('active', k === curSlide));
             renderHeadline(curSlide);
             
-            // Restart progress bar animation
             const ad = dots[curSlide]; 
             if(ad) {
                 ad.classList.remove('active');
@@ -317,7 +321,6 @@
             else navEl.classList.remove('scrolled');
             lastY = y;
             
-            // Handle reveal animations
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(r => {
                 if (r.getBoundingClientRect().top < window.innerHeight - 100) {
