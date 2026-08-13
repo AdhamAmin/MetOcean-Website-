@@ -12,7 +12,7 @@
         .dl-modal.open { display: flex; animation: fadeIn 0.3s ease; }
         .dl-modal-box { background: #fff; padding: 40px; border-radius: 6px; text-align: center; max-width: 420px; width: 90%; position: relative; animation: popIn 0.3s ease; }
         .dl-close { position: absolute; top: 15px; left: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ink2); }
-        .dl-close:hover { color: var(--red); }
+        .dl-close:hover { color: var(--brand); }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .page-header { padding: 160px 40px 80px; text-align: center; background: var(--warm); border-bottom: 1px solid var(--lg); }
@@ -22,7 +22,7 @@
     <!-- NAV -->
     <nav id="navbar" class="scrolled">
         <a href="index.html" class="nav-logo">
-            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--red)">ميتوشيان</span>
+            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--brand)">ميتوشيان</span>
         </a>
         <ul class="nav-menu">
             <li><a href="index.html">الرئيسية</a></li>
@@ -59,25 +59,166 @@
     <main>
         
 <section class="wrap" style="padding: 80px 40px;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
-            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">1. الدراسات البيئية</h3>
-            <p style="color: var(--ink2); line-height: 1.8;">تقييم الأثر البيئي، التدقيق، وخطط الامتثال وإدارة المخاطر. يشمل ذلك تقييم مكونات البيئة الأساسية، وخطط الإدارة البيئية، وخطط عمل التنوع البيولوجي.</p>
+    <div class="flip-grid">
+        <!-- Service 1 -->
+        <div class="flip-card reveal in" onclick="openSvcModal(0)">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=600" alt="Environmental Studies">
+                    <div class="flip-card-front-content">
+                        <h3>1. الدراسات البيئية</h3>
+                        <p style="color: var(--ink2);">تقييم الأثر البيئي، التدقيق، وخطط الامتثال وإدارة المخاطر.</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <h3 style="font-family: var(--fd); font-size: 26px; margin-bottom: 15px;">الدراسات البيئية</h3>
+                    <p>التقييمات الأساسية الشاملة، وخطط الإدارة، وعمليات تدقيق الامتثال البيئي.</p>
+                    <button>اعرف المزيد</button>
+                </div>
+            </div>
         </div>
-        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
-            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">2. القياسات البيئية</h3>
-            <p style="color: var(--ink2); line-height: 1.8;">المراقبة الميدانية للهواء والماء والضوضاء والانبعاثات. يشمل ذلك بيئة العمل (الهواء، الماء، التربة)، تحليل مياه الصرف الصحي، وانبعاثات المداخن.</p>
+        
+        <!-- Service 2 -->
+        <div class="flip-card reveal in" onclick="openSvcModal(1)">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="https://images.unsplash.com/photo-1621255530635-c8e19574409b?q=80&w=600" alt="Environmental Measurements">
+                    <div class="flip-card-front-content">
+                        <h3>2. القياسات البيئية</h3>
+                        <p style="color: var(--ink2);">المراقبة الميدانية للهواء والماء والضوضاء والانبعاثات.</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <h3 style="font-family: var(--fd); font-size: 26px; margin-bottom: 15px;">القياسات البيئية</h3>
+                    <p>مراقبة ميدانية دقيقة لبيئات العمل، وتحليل مياه الصرف الصحي، وانبعاثات المداخن.</p>
+                    <button>اعرف المزيد</button>
+                </div>
+            </div>
         </div>
-        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
-            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">3. النمذجة البيئية</h3>
-            <p style="color: var(--ink2); line-height: 1.8;">نمذجة تشتت الهواء والضوضاء والحرارة والمياه الجوفية. محاكاة الأعمدة الحرارية والتنبؤ بانتشار الملوثات المحمولة جواً في ظل ظروف التشغيل الحقيقية.</p>
+
+        <!-- Service 3 -->
+        <div class="flip-card reveal in" onclick="openSvcModal(2)">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=600" alt="Environmental Modeling">
+                    <div class="flip-card-front-content">
+                        <h3>3. النمذجة البيئية</h3>
+                        <p style="color: var(--ink2);">نمذجة تشتت الهواء والضوضاء والحرارة والمياه الجوفية.</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <h3 style="font-family: var(--fd); font-size: 26px; margin-bottom: 15px;">النمذجة البيئية</h3>
+                    <p>محاكاة الأعمدة الحرارية والتنبؤ بانتشار الملوثات المحمولة جواً في ظل ظروف التشغيل الحقيقية.</p>
+                    <button>اعرف المزيد</button>
+                </div>
+            </div>
         </div>
-        <div class="reveal in" style="border: 1px solid var(--lg); padding: 30px; border-radius: 8px;">
-            <h3 style="font-family: var(--fd); font-size: 28px; margin-bottom: 16px; color: var(--red);">4. الاستدامة والبصمة الكربونية</h3>
-            <p style="color: var(--ink2); line-height: 1.8;">تدقيق البصمة الكربونية، الحوكمة البيئية والاجتماعية، واستشارات المباني الخضراء. مدخلات التصميم البيئي لمنشآت ذات تأثير أقل وكفاءة في استخدام الموارد.</p>
+
+        <!-- Service 4 -->
+        <div class="flip-card reveal in" onclick="openSvcModal(3)">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="https://images.unsplash.com/photo-1620509652597-9e4776e05bf1?q=80&w=600" alt="Sustainability">
+                    <div class="flip-card-front-content">
+                        <h3>4. الاستدامة والبصمة الكربونية</h3>
+                        <p style="color: var(--ink2);">تدقيق البصمة الكربونية، الحوكمة البيئية والاجتماعية.</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <h3 style="font-family: var(--fd); font-size: 26px; margin-bottom: 15px;">الاستدامة</h3>
+                    <p>مدخلات التصميم البيئي لمنشآت ذات تأثير أقل وكفاءة في استخدام الموارد.</p>
+                    <button>اعرف المزيد</button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Service Modals (Injected via JS) -->
+<div class="svc-modal" id="svcModal">
+    <div class="svc-modal-content" style="text-align: right;">
+        <button class="svc-modal-close" onclick="document.getElementById('svcModal').classList.remove('open')">&times;</button>
+        <div class="svc-modal-header">
+            <h2 id="svcTitle">عنوان الخدمة</h2>
+        </div>
+        <div class="svc-modal-body" id="svcBody">
+            <!-- Content -->
+        </div>
+        <div class="svc-modal-footer" style="justify-content: flex-start;">
+            <a href="contact.html" class="btn-primary" style="margin:0;">احجز موعداً</a>
+        </div>
+    </div>
+</div>
+
+<script>
+const servicesData = [
+    {
+        title: "1. الدراسات البيئية",
+        items: [
+            "تقييم الأثر البيئي والاجتماعي (EIA/ESIA)",
+            "التدقيق البيئي (EA)",
+            "خطط الامتثال البيئي",
+            "تقييم مكونات البيئة الأساسية",
+            "خطط الاستجابة البيئية (ERP)",
+            "خطط الإدارة البيئية (EMP)",
+            "خطط إدارة النفايات الخطرة",
+            "برامج إدارة النفايات الصلبة (SWMP)",
+            "تقييم المخاطر البيئية (ERA)",
+            "خطط عمل التنوع البيولوجي (BAP)",
+            "البيئة والصحة والسلامة (EHS)",
+            "السجلات والدفاتر البيئية"
+        ]
+    },
+    {
+        title: "2. القياسات البيئية",
+        items: [
+            "جودة الهواء المحيط",
+            "بيئة العمل (هواء، ماء، تربة)",
+            "الجسيمات العالقة والقابلة للاستنشاق",
+            "تحليل مياه الصرف (الصحي والصناعي)",
+            "انبعاثات المداخن",
+            "الضوضاء المحيطة",
+            "جودة المياه",
+            "الراحة الحرارية / الإجهاد الحراري"
+        ]
+    },
+    {
+        title: "3. النمذجة البيئية",
+        items: [
+            "نمذجة تشتت الهواء: التنبؤ بانتشار الملوثات المحمولة جواً.",
+            "نمذجة تشتت الضوضاء: رسم خرائط انتشار الضوضاء المتوقعة.",
+            "نمذجة التشتت الحراري: محاكاة الأعمدة الحرارية.",
+            "نمذجة تشتت المياه الجوفية: تتبع الهجرة المحتملة للملوثات.",
+            "التقييم الكمي للمخاطر: التقييم الرقمي لاحتمالية الخطر.",
+            "دراسات التعرض السطحي والإضاءة"
+        ]
+    },
+    {
+        title: "4. الاستدامة والبصمة الكربونية",
+        items: [
+            "تدقيق البصمة الكربونية: القياس والتحقق المستقل.",
+            "استشارات الحوكمة البيئية والاجتماعية (ESG): الاستراتيجية المتوافقة مع الأطر الدولية.",
+            "إرشادات المباني الخضراء: مدخلات التصميم البيئي للمنشآت.",
+            "بناء القدرات: برامج التدريب والتوعية."
+        ]
+    }
+];
+
+function openSvcModal(index) {
+    const data = servicesData[index];
+    document.getElementById('svcTitle').innerText = data.title;
+    let listHTML = '<ul style="padding-inline-start: 0; padding-inline-end: 20px;">';
+    data.items.forEach(i => listHTML += `<li>${i}</li>`);
+    listHTML += '</ul>';
+    document.getElementById('svcBody').innerHTML = listHTML;
+    document.getElementById('svcModal').classList.add('open');
+}
+
+// Close on outside click
+document.getElementById('svcModal').addEventListener('click', function(e) {
+    if(e.target === this) this.classList.remove('open');
+});
+</script>
 
     </main>
 

@@ -12,7 +12,7 @@
         .dl-modal.open { display: flex; animation: fadeIn 0.3s ease; }
         .dl-modal-box { background: #fff; padding: 40px; border-radius: 6px; text-align: center; max-width: 420px; width: 90%; position: relative; animation: popIn 0.3s ease; }
         .dl-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ink2); }
-        .dl-close:hover { color: var(--red); }
+        .dl-close:hover { color: var(--brand); }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .page-header { padding: 160px 40px 80px; text-align: center; background: var(--warm); border-bottom: 1px solid var(--lg); }
@@ -22,7 +22,7 @@
     <!-- NAV -->
     <nav id="navbar" class="scrolled">
         <a href="index.html" class="nav-logo">
-            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--red)">MetOcean</span>
+            <span style="font-family:var(--fd);font-weight:900;font-size:32px;letter-spacing:1px;color:var(--brand)">MetOcean</span>
         </a>
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
@@ -58,30 +58,66 @@
     <!-- CONTENT -->
     <main>
         
-<section class="wrap" style="padding: 80px 40px; text-align: center;">
-    <div style="max-width: 800px; margin: 0 auto;" class="reveal in">
-        <h2 class="st" style="margin-bottom: 40px;">Offices & Locations</h2>
+<section class="wrap" style="padding: 80px 40px;">
+    <div class="contact-layout">
         
-        <div style="margin-bottom: 40px; text-align: left; background: var(--off); padding: 30px; border-radius: 8px;">
-            <h3 style="font-family: var(--fd); font-size: 24px; color: var(--red); margin-bottom: 8px;">Alexandria (Head Office)</h3>
-            <p style="color: var(--ink2); font-size: 18px;">Bahari, El-Anfoushi, Alexandria, Egypt</p>
-        </div>
-        
-        <div style="margin-bottom: 40px; text-align: left; background: var(--off); padding: 30px; border-radius: 8px;">
-            <h3 style="font-family: var(--fd); font-size: 24px; color: var(--red); margin-bottom: 8px;">Amman / 10th of Ramadan</h3>
-            <p style="color: var(--ink2); font-size: 18px;">Al-Hejaz Mall, Jordan &mdash; 10th of Ramadan City, Egypt</p>
-        </div>
-        
-        <div style="margin-bottom: 40px; text-align: left; background: var(--off); padding: 30px; border-radius: 8px;">
-            <h3 style="font-family: var(--fd); font-size: 24px; color: var(--red); margin-bottom: 8px;">Tanta Office</h3>
-            <p style="color: var(--ink2); font-size: 18px;">Alexandria-Cairo Agricultural Road, Tanta, Gharbia, Egypt</p>
+        <!-- Contact Details -->
+        <div class="reveal in">
+            <h2 class="st" style="margin-bottom: 40px;">Offices & Locations</h2>
+            
+            <div style="margin-bottom: 30px; background: var(--off); padding: 30px; border-radius: 8px; border-left: 3px solid var(--brand);">
+                <h3 style="font-family: var(--fd); font-size: 24px; color: var(--brand); margin-bottom: 8px;">Alexandria (Head Office)</h3>
+                <p style="color: var(--ink2); font-size: 18px;">Bahari, El-Anfoushi, Alexandria, Egypt</p>
+            </div>
+            
+            <div style="margin-bottom: 30px; background: var(--off); padding: 30px; border-radius: 8px; border-left: 3px solid var(--brand);">
+                <h3 style="font-family: var(--fd); font-size: 24px; color: var(--brand); margin-bottom: 8px;">Amman / 10th of Ramadan</h3>
+                <p style="color: var(--ink2); font-size: 18px;">Al-Hejaz Mall, Jordan &mdash; 10th of Ramadan City, Egypt</p>
+            </div>
+            
+            <div style="margin-bottom: 40px; background: var(--off); padding: 30px; border-radius: 8px; border-left: 3px solid var(--brand);">
+                <h3 style="font-family: var(--fd); font-size: 24px; color: var(--brand); margin-bottom: 8px;">Tanta Office</h3>
+                <p style="color: var(--ink2); font-size: 18px;">Alexandria-Cairo Agricultural Road, Tanta, Gharbia, Egypt</p>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <h2 class="st" style="margin-bottom: 20px; font-size: 30px;">Direct Contact</h2>
+                <p style="font-size: 18px; color: var(--ink); margin-bottom: 10px;"><strong>Phone:</strong> +20 100 308 4597 &nbsp;|&nbsp; +20 155 257 7665</p>
+                <p style="font-size: 18px; color: var(--ink);"><strong>Email:</strong> hu_gar2000@azhar.edu.com</p>
+                <p style="font-size: 18px; color: var(--ink);"><strong>Email:</strong> HuElnaggar@metoceanms.com</p>
+            </div>
         </div>
 
-        <div style="margin-top: 60px;">
-            <h2 class="st" style="margin-bottom: 20px;">Direct Contact</h2>
-            <p style="font-size: 20px; color: var(--ink); margin-bottom: 10px;"><strong>Phone:</strong> +20 100 308 4597 &nbsp;|&nbsp; +20 155 257 7665</p>
-            <p style="font-size: 20px; color: var(--ink);"><strong>Email:</strong> hu_gar2000@azhar.edu.com &nbsp;|&nbsp; HuElnaggar@metoceanms.com</p>
+        <!-- Contact Form -->
+        <div class="reveal in">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out. We will get back to you shortly.');">
+                <h3 style="font-family: var(--fd); font-size: 32px; color: var(--brand); margin-bottom: 20px;">Send a Message</h3>
+                <p style="color: var(--ink2); margin-bottom: 30px;">For inquiries, partnership requests, or training information, please fill out the form below.</p>
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@company.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" required placeholder="Project Inquiry">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required placeholder="How can we help you?"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+            </form>
         </div>
+
     </div>
 </section>
 
